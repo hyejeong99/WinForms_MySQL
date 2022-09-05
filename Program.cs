@@ -12,7 +12,7 @@ namespace RobotCC
         static void Main()
         {
             // 아래 문장은 progressBar 색상 변경을 위해 잠정 미실행
-            //Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new RobotControlCenter());

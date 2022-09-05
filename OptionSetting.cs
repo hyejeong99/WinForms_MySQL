@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RobotCC
@@ -55,7 +48,7 @@ namespace RobotCC
 
         private void radioButtonV_CheckedChanged(object sender, EventArgs e)  // 수직
         {
-            if(orientation == HORIZONTAL) orientation = VERTICAL;
+            if (orientation == HORIZONTAL) orientation = VERTICAL;
         }
 
         private void radioButtonH_CheckedChanged(object sender, EventArgs e)  // 수평
@@ -65,7 +58,7 @@ namespace RobotCC
 
         private void buttonSave_Click(object sender, EventArgs e)  // 저장
         {
-            if(orientation == VERTICAL) G.OT[robotIndex] = VERTICAL;
+            if (orientation == VERTICAL) G.OT[robotIndex] = VERTICAL;
             else G.OT[robotIndex] = HORIZONTAL;
 
             // 숫자가 아닌 입력의 경우, 오류 발생
@@ -94,7 +87,7 @@ namespace RobotCC
                 G.CNFSaveFile(); // 고칠 때 마다 저장
                 this.Close();
             }
-         
+
         }
 
         private bool isValid(string expression)
@@ -104,14 +97,14 @@ namespace RobotCC
             foreach (var ch in expression)
             {
                 if (ch >= '0' && ch <= '9') continue; // 숫자는 OK
-                else if(ch == '.') // 소수점은 하나만 가능
+                else if (ch == '.') // 소수점은 하나만 가능
                 {
                     dot_cnt++;
                     continue;
                 }
                 else return false; // 빈칸 및 다른 부호
             }
-            if(dot_cnt < 2) return true; // 소수점 2개 방지
+            if (dot_cnt < 2) return true; // 소수점 2개 방지
             else return false;
         }
 
@@ -122,7 +115,7 @@ namespace RobotCC
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true) 
+            if (checkBox1.Checked == true)
                 G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_ON;
             else G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_OFF;
         }

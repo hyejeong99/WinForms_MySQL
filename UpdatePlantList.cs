@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RobotCC
 {
@@ -51,14 +50,14 @@ namespace RobotCC
             //contactInfo.Text = "";
 
         }
-        
-        private void updatePlantBtn_Click(object sender, EventArgs e) 
-        { 
+
+        private void updatePlantBtn_Click(object sender, EventArgs e)
+        {
             string PlantNumber;
             string TBL_NAME = "PlantList";
 
             PlantNumber = plantId.Text.Trim();
-            if(PlantNumber.Length < 5) // 너무 짧은 것은 무시
+            if (PlantNumber.Length < 5) // 너무 짧은 것은 무시
             {
                 MessageBox.Show("입력한 발전소 코드를 확인하세요.");
                 return;
@@ -85,7 +84,7 @@ namespace RobotCC
                 cmd.ExecuteNonQuery();
 
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "DB수정오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -94,7 +93,7 @@ namespace RobotCC
             con.Close();
 
             RefreshPlantDB();
-            
+
             string msg = "발전소(" + PlantNumber + ":" + newPlantName + ") 정보가 수정되었습니다.";
             MessageBox.Show(msg, "DB수정완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 

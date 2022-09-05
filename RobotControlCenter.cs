@@ -181,7 +181,7 @@ namespace RobotCC
             }
             if (serialPort1.IsOpen)
             {
-                comInfo.ForeColor = Color.Black;
+                comInfo.ForeColor = Color.Blue;
                 comInfo.Text = serialPort1.PortName;
                 OutputMesssage("통신포트 : " + serialPort1.PortName + " 연결");
             }
@@ -475,7 +475,7 @@ namespace RobotCC
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message + "???" +i);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -676,11 +676,8 @@ namespace RobotCC
             if (result) // Toggle Image
             {
                 Btn_RUN[robotIndex].Enabled = false;
-                //if (robotIndex == 0) runBtn1.Enabled = false;
-                //else if (robotIndex == 1) runBtn2.Enabled = false;
-                //else if (robotIndex == 2) runBtn3.Enabled = false;
-                //else if (robotIndex == 3) runBtn4.Enabled = false;
-                //else if (robotIndex == 4) runBtn5.Enabled = false;
+                //Btn_RUN[robotIndex].BackColor = Color.Blue;
+                //Btn_RUN[robotIndex].ForeColor = Color.White;
             }
         }
 
@@ -693,11 +690,7 @@ namespace RobotCC
             if (result) // Toggle Image
             {
                 Btn_STOP[robotIndex].Enabled = false;
-                //if (robotIndex == 0) stopBtn1.Enabled = false;
-                //else if (robotIndex == 1) stopBtn2.Enabled = false;
-                //else if (robotIndex == 2) stopBtn3.Enabled = false;
-                //else if (robotIndex == 3) stopBtn4.Enabled = false;
-                //else if (robotIndex == 4) stopBtn5.Enabled = false;
+                
             }
         }
 
@@ -710,11 +703,7 @@ namespace RobotCC
             if (result) // Toggle Image
             {
                 Btn_HOME[robotIndex].Enabled = false;
-                //if (robotIndex == 0) homeBtn1.Enabled = false;
-                //else if (robotIndex == 1) homeBtn2.Enabled = false;
-                //else if (robotIndex == 2) homeBtn3.Enabled = false;
-                //else if (robotIndex == 3) homeBtn4.Enabled = false;
-                //else if (robotIndex == 4) homeBtn5.Enabled = false;
+        
             }
         }
 
@@ -818,7 +807,7 @@ namespace RobotCC
                     serialPort1.Open();
                     if (serialPort1.IsOpen)
                     {
-                        comInfo.ForeColor = Color.Black;
+                        comInfo.ForeColor = Color.Blue;
                         comInfo.Text = serialPort1.PortName;
                         OutputMesssage("통신포트 변경 : " + serialPort1.PortName + " 연결");
                         // 포트 변경 및 오픈 성공시에만 추가적으로 검사
@@ -861,7 +850,7 @@ namespace RobotCC
 
         public void OutputMesssage(string line)
         {
-            output.AppendText(Environment.NewLine + line); // new line 추가
+            output.AppendText(line + Environment.NewLine); // new line 추가
 
             output.Select(output.Text.Length, 0);// scroll 항상 아래
             output.ScrollToCaret();

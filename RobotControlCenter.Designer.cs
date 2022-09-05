@@ -456,14 +456,14 @@ namespace RobotCC
             // 
             this.runBtn1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.runBtn1.AutoSize = true;
-            this.runBtn1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn1.BackColor = System.Drawing.Color.LightBlue;
             this.runBtn1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.runBtn1.FlatAppearance.BorderSize = 2;
             this.runBtn1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.runBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.runBtn1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.runBtn1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.runBtn1.Location = new System.Drawing.Point(211, 8);
             this.runBtn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn1.Name = "runBtn1";
@@ -475,13 +475,13 @@ namespace RobotCC
             // runBtn2
             // 
             this.runBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.runBtn2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn2.BackColor = System.Drawing.Color.LightBlue;
             this.runBtn2.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn2.FlatAppearance.BorderSize = 2;
             this.runBtn2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.runBtn2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.runBtn2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.runBtn2.Location = new System.Drawing.Point(211, 8);
             this.runBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn2.Name = "runBtn2";
@@ -493,13 +493,13 @@ namespace RobotCC
             // runBtn3
             // 
             this.runBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.runBtn3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn3.BackColor = System.Drawing.Color.LightBlue;
             this.runBtn3.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn3.FlatAppearance.BorderSize = 2;
             this.runBtn3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.runBtn3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.runBtn3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.runBtn3.Location = new System.Drawing.Point(211, 8);
             this.runBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn3.Name = "runBtn3";
@@ -511,13 +511,13 @@ namespace RobotCC
             // runBtn4
             // 
             this.runBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.runBtn4.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn4.BackColor = System.Drawing.Color.LightBlue;
             this.runBtn4.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn4.FlatAppearance.BorderSize = 2;
             this.runBtn4.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.runBtn4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.runBtn4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.runBtn4.Location = new System.Drawing.Point(211, 8);
             this.runBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn4.Name = "runBtn4";
@@ -530,13 +530,13 @@ namespace RobotCC
             // 
             this.runBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.runBtn5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.runBtn5.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn5.BackColor = System.Drawing.Color.LightBlue;
             this.runBtn5.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn5.FlatAppearance.BorderSize = 2;
             this.runBtn5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.runBtn5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.runBtn5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.runBtn5.Location = new System.Drawing.Point(211, 8);
             this.runBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn5.Name = "runBtn5";

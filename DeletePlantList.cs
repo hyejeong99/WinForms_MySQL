@@ -2,13 +2,12 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RobotCC
 {
     public partial class DeletePlantList : Form
     {
-       // DataTable Gdt = null;
+        // DataTable Gdt = null;
 
         public DeletePlantList()
         {
@@ -96,7 +95,7 @@ namespace RobotCC
                 "# 발전소 코드 : " + deletePlantNumber + Environment.NewLine +
                 "# 발전소 이름 : " + deletePlantName;
             MessageBox.Show(msg, "DB삭제완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            
+
         }
 
         private int getCntPlantDB(string plantNumber)
@@ -108,7 +107,7 @@ namespace RobotCC
 
             SqlCommand cmd = new SqlCommand(@"select * from " + TBL_NAME + " where PlantID = @PlantId", con);
             cmd.Parameters.AddWithValue("@PlantId", plantId.Text);
-            DataTable dt = new DataTable(); 
+            DataTable dt = new DataTable();
             SqlDataReader sdr = cmd.ExecuteReader();
 
             dt.Load(sdr);

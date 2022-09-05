@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RobotCC
 {
@@ -18,7 +17,7 @@ namespace RobotCC
 
         private void Form_Load(object sender, EventArgs e)
         {
-           RefreshPlantDB();
+            RefreshPlantDB();
         }
 
 
@@ -50,7 +49,7 @@ namespace RobotCC
             dataGridView1.Columns["ContactInfo"].Width = 150;
 
             plantCnt = dt.Rows.Count;
-            if(plantId.Text == "") plantId.Text = "P" + string.Format("{0:D4}", (plantCnt + 1));
+            if (plantId.Text == "") plantId.Text = "P" + string.Format("{0:D4}", (plantCnt + 1));
             //plantId.ReadOnly = true;
 
             // clear old inputs
@@ -60,14 +59,14 @@ namespace RobotCC
             //contactInfo.Text = "";
 
         }
-        
-        private void insertPlantBtn_Click(object sender, EventArgs e) 
-        { 
+
+        private void insertPlantBtn_Click(object sender, EventArgs e)
+        {
             string PlantNumber;
             string TBL_NAME = "PlantList";
 
             PlantNumber = plantId.Text.Trim();
-            if(PlantNumber.Length < 5) // 너무 짧은 것은 무시
+            if (PlantNumber.Length < 5) // 너무 짧은 것은 무시
             {
                 MessageBox.Show("입력한 발전소 코드를 확인하세요.");
                 return;
@@ -94,7 +93,7 @@ namespace RobotCC
                 cmd.ExecuteNonQuery();
 
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "DB추가오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -127,13 +126,13 @@ namespace RobotCC
 
             con.Close();
             // 동일 ID를 갖는 행 개수 반환 사실 0 또는 1
-            return(dt.Rows.Count);
+            return (dt.Rows.Count);
 
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-           this.Close();    
+            this.Close();
         }
 
     }
