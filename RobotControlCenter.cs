@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 namespace RobotCC
 {
-
     public partial class RobotControlCenter : Form
     {
         // 명령 코드 
@@ -27,6 +26,7 @@ namespace RobotCC
 
         // 수신 메시지 보관용 리스트
         List<string> recvMsgs = new List<string>();
+        List<string> confMsgs = new List<string>();
         List<string> addrMsgs = new List<string>();
         List<string> sendMsgs = new List<string>();
 
@@ -53,10 +53,11 @@ namespace RobotCC
 
             // 초기화
             recvMsgs.Clear();
+            addrMsgs.Clear();
+            confMsgs.Clear();
             sendMsgs.Clear();
 
             // 출력 창 설정
-            output.SelectionColor = Color.Blue; //글자 색
             output.Select(output.Text.Length, 0);
             output.ScrollToCaret();
 
@@ -67,12 +68,15 @@ namespace RobotCC
             OutputMesssage(G.VERSIONNAME);
             OutputMesssage(DateTime.Now.ToString() + " : " + "SYSTEM START ");
 
+            OutputMesssage("## [1] 시스템 폴더 검사 ##", Color.Blue);
             // System Folder 확인 및 생성
             G.CheckAndMakeFolder();
 
+            OutputMesssage("## [2] DB 파일 검사 ##", Color.Blue);
             // DB File 검사
             CheckDBFile();
 
+            OutputMesssage("## [3] 설정 파일 업로드 ##", Color.Blue);
             // 설정 파일 읽어 오기
             G.CNFLoadFile();
 
@@ -85,9 +89,11 @@ namespace RobotCC
             // LSize, RSize, OT는 읽어 오되, 화면에 따로 보여주지는 않음 (세부설정시 보여줌)
 
             //통신 포트 검사
+            OutputMesssage("## [4] 통신 포트 검사 ##", Color.Blue);
             CheckSerialPortAtStart();
 
             // LoRa 송수신 테스트
+            OutputMesssage("## [5] LoRa 통신 테스트 ##", Color.Blue);
             CheckLoRaPortAsync(false); // 성공시에는 메시지 없음
 
             // COMBO BOX에 실제 DATA 연결
@@ -95,6 +101,7 @@ namespace RobotCC
 
             //여러개의 동일 컴포넌트를 한번에 처리하기 위한 작업 - 작동 잘되나, 버튼의 경우, 테이블 레이아웃인 경우 미작동 
             LinkArrayComponent();
+
 
             //////////////////// JUST FOR TEST : RICHTEXTBOX, COLOR
             if (G.DEBUG)
@@ -187,7 +194,7 @@ namespace RobotCC
             if (!serialPort1.IsOpen) return;
 
             bool respResult = false;
-            OutputMesssage(@"Lora 통신 포트 테스트 중 ......", Color.Blue);
+            OutputMesssage(@"Lora 통신 포트 테스트 중 ......");
 
             // 선택된 통신 포트가 Lora 포트인지 점검
             string sendMesg = "AT+ADDRESS?";
@@ -208,12 +215,14 @@ namespace RobotCC
 
             if (respResult)
             {
-                comInfo.Text = serialPort1.PortName + "," + G.MyLoRaAddress; comInfo.ForeColor = Color.Blue;
+                comInfo.Text = serialPort1.PortName + "," + G.MyLoRaAddress; //comInfo.ForeColor = Color.Blue;
 
                 string msg = "Lora 통신 테스트 성공.(" + serialPort1.PortName + ", 주소 = " + G.MyLoRaAddress + ")";
-                OutputMesssage(msg, Color.Blue);
+                OutputMesssage(msg);
                 if (option)
                     MessageBox.Show(msg, "LoRa 통신 테스트", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                OutputMesssage("## 시스템 준비 완료 ##", Color.Blue);
+
             }
             else
             {
@@ -343,118 +352,130 @@ namespace RobotCC
             ////////////////////////  수신 메시지 처리 ///////////////////////////
             for (int i = 0; i < recvMsgs.Count; i++)
             {
-                if (G.DEBUG) OutputMesssage($"< # {i} : {recvMsgs[i]} >" + " - " + " MESG");
-                if (G.DEBUG) Console.WriteLine($"< {recvMsgs[i]} >" + " : " + " MESG");
-
-                // 고정 길이 메시지를 가정하고 처리 방법 변경 2020.08.24
-                // 통신용 정보와 송수신 메시지 분리
-                int index = recvMsgs[i].IndexOf("=");
-                string[] parts = recvMsgs[i].Substring(index + 1).Split(',');
-
-                //// 순수 전달 메시지/명령 추출 및 byte[] 변환
-                ///// [1] 송신자 주소
-                int senderAddr = int.Parse(parts[0]);
-                int senderIndex = getRobotIndex(senderAddr);
-
-                //// [2] 전달된 메시지 크기
-                int dataSize = int.Parse(parts[1]);
-                if (dataSize == 0)
+                try
                 {
-                    ErrorMessage(@"Null Packet Found - 제거");
-                    return;
+                    if (G.DEBUG) OutputMesssage($"< # {i} : {recvMsgs[i]} >" + " - " + " MESG");
+                    if (G.DEBUG) Console.WriteLine($"< {recvMsgs[i]} >" + " : " + " MESG");
+
+                    // 고정 길이 메시지를 가정하고 처리 방법 변경 2020.08.24
+                    // 통신용 정보와 송수신 메시지 분리
+                    int index = recvMsgs[i].IndexOf("=");
+                    string[] parts = recvMsgs[i].Substring(index + 1).Split(',');
+
+                    //// 순수 전달 메시지/명령 추출 및 byte[] 변환
+                    ///// [1] 송신자 주소
+                    int senderAddr = int.Parse(parts[0]);
+                    int senderIndex = getRobotIndex(senderAddr);
+
+                    //// [2] 전달된 메시지 크기
+                    int dataSize = int.Parse(parts[1]);
+                    if (dataSize == 0)
+                    {
+                        ErrorMessage(@"Null Packet Found - 제거");
+                        return;
+                    }
+
+                    //// [3] 전달된 메시지 본문
+                    string Cmd = parts[2];
+                    byte[] buffs = Encoding.ASCII.GetBytes(Cmd);
+
+                    if (dataSize != Cmd.Length)
+                    {  // 전송 메시지 본문 길이 검사 - 실패시 ??? 
+                        ErrorMessage(@"Packet Size 불일치 - 제거");
+                        return;
+                    }
+
+                    ///// [4] 명령 코드 추출 및 코드별 작업 -- DB 업데이트 작업 추가 필요
+                    byte cmdCode = buffs[0];
+
+
+                    switch (cmdCode)
+                    {
+                        case REGISTER_REQ: /////////  로봇 등록 명령 처리 R->C
+
+                            string robotName = Cmd.Substring(1, 9); // 사용 길이에 따라 재조정
+
+                            //if (G.DEBUG) OutputMesssage($" < { recvMsgs[i]} >" + " : " + " REGISTER_REQ");
+                            //if (G.DEBUG) OutputMesssage("ROBOT_NAME : " + robotName);
+                            if (G.DEBUG) Console.WriteLine(senderAddr + " : " + Cmd + "  REGISTER_REQ");
+
+                            ///////////////////////////////////
+                            // [1] CONFIRM 메시지를 먼저 보내고
+                            SendRegisterConfMsg(senderAddr);  // REGISTER_CONF 답신을 보낸다.
+
+                            ///////////////////////////////
+                            // [2] 로봇명을 추출하여, 관련 업데이트 작업 필요
+
+                            G.robotID[senderIndex] = robotName;
+
+                            ///메인화면 정보 업데이트 + DB 업데이트
+                            if (senderIndex == 0) robotName1.Text = robotName;
+                            else if (senderIndex == 1) robotName2.Text = robotName;
+                            else if (senderIndex == 2) robotName3.Text = robotName;
+                            else if (senderIndex == 3) robotName4.Text = robotName;
+                            else if (senderIndex == 4) robotName5.Text = robotName;
+
+                            //Console.WriteLine("robot index = " + senderIndex + " // Robot Name = " + robotName);
+
+                            //robotID[robotIndex] = ????
+                            /////////////////////////////  메인화면 
+
+                            recvMsgs.RemoveAt(i);  // 해당 메시지 삭제
+                            break;
+
+                        case REPORT_REQ://  상태 보고 메시지 처리 R->C
+
+                            // [1] CONFIRM은 불필요
+                            // [2] 전달된 추가적인 정보, 즉 상태정보, 배터리정보, 카운터 등의 정보를 추출하여, 관련 업데이트 작업 필요
+                            //if (G.DEBUG) OutputMesssage(senderAddr + " : " + Cmd + " REPORT_INFO");
+                            if (G.DEBUG) Console.WriteLine(senderAddr + " : " + Cmd + "  REPORT_INFO");
+
+                            byte optionCode = buffs[1];
+
+                            ///////////////////////////////////
+                            // [2] 로봇 번호 및 명령어 종류에 따라 작업
+                            string robotInfo = Cmd.Substring(2, 9); // 사용 길이에 따라 재조정
+
+                            if (optionCode == OPTION_CODE_STATUS)
+                            {
+                                TBox_Status[senderIndex].Text = robotInfo;
+
+                            }
+                            else if (optionCode == OPTION_CODE_BATTERY)
+                            {
+                                TBox_Battery[senderIndex].Text = robotInfo;
+
+                            }
+                            //else 다른 경우는 무시
+
+                            recvMsgs.RemoveAt(i); // 해당 메시지 삭제
+                            break;
+
+                        case CONTROL_CONF: // CONFIRM 메시지의 경우, 
+
+                            // CONFIRM 메시지 수신 모드이면, 메시지 그대로, 아닌 경우에만, 해당 메시지 삭제,
+                            // CONFIRM은 다른 곳에서 따로 처리하므로 삭제하면 안됨
+                            //if (G.confirmWaitingMode == false) 
+                            //    recvMsgs.RemoveAt(i); // 해당 메시지 삭제
+                            // Conf 메시지의 경우, Conf 전용 큐로 이동 후 삭제
+                            if (G.confirmWaitingMode == true)
+                                confMsgs.Add(recvMsgs[i]);
+                            recvMsgs.RemoveAt(i);
+
+                            break;
+
+                        default:  // 잘못된 명령어, 삭제
+
+                            if (G.DEBUG) OutputMesssage(@"잘못된 명령어 수신. 명령어 = " + Cmd, Color.Red);
+                            //MessageBox.Show(@"시스템 오류 - 예상못한 경우가 발생했습니다.", "시스템 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            recvMsgs.RemoveAt(i); // 해당 메시지 삭제
+
+                            break;
+                    }
                 }
-
-                //// [3] 전달된 메시지 본문
-                string Cmd = parts[2];
-                byte[] buffs = Encoding.ASCII.GetBytes(Cmd);
-
-                if (dataSize != Cmd.Length)
-                {  // 전송 메시지 본문 길이 검사 - 실패시 ??? 
-                    ErrorMessage(@"Packet Size 불일치 - 제거");
-                    return;
-                }
-
-                ///// [4] 명령 코드 추출 및 코드별 작업 -- DB 업데이트 작업 추가 필요
-                byte cmdCode = buffs[0];
-
-
-                switch (cmdCode)
+                catch (Exception ex)
                 {
-                    case REGISTER_REQ: /////////  로봇 등록 명령 처리 R->C
-
-                        string robotName = Cmd.Substring(1, 9); // 사용 길이에 따라 재조정
-
-                        //if (G.DEBUG) OutputMesssage($" < { recvMsgs[i]} >" + " : " + " REGISTER_REQ");
-                        //if (G.DEBUG) OutputMesssage("ROBOT_NAME : " + robotName);
-                        if (G.DEBUG) Console.WriteLine(senderAddr + " : " + Cmd + "  REGISTER_REQ");
-
-                        ///////////////////////////////////
-                        // [1] CONFIRM 메시지를 먼저 보내고
-                        SendRegisterConfMsg(senderAddr);  // REGISTER_CONF 답신을 보낸다.
-
-                        ///////////////////////////////
-                        // [2] 로봇명을 추출하여, 관련 업데이트 작업 필요
-
-                        G.robotID[senderIndex] = robotName;
-
-                        ///메인화면 정보 업데이트 + DB 업데이트
-                        if (senderIndex == 0) robotName1.Text = robotName;
-                        else if (senderIndex == 1) robotName2.Text = robotName;
-                        else if (senderIndex == 2) robotName3.Text = robotName;
-                        else if (senderIndex == 3) robotName4.Text = robotName;
-                        else if (senderIndex == 4) robotName5.Text = robotName;
-
-                        //Console.WriteLine("robot index = " + senderIndex + " // Robot Name = " + robotName);
-
-                        //robotID[robotIndex] = ????
-                        /////////////////////////////  메인화면 
-
-                        recvMsgs.RemoveAt(i);  // 해당 메시지 삭제
-                        break;
-
-                    case REPORT_REQ://  상태 보고 메시지 처리 R->C
-
-                        // [1] CONFIRM은 불필요
-                        // [2] 전달된 추가적인 정보, 즉 상태정보, 배터리정보, 카운터 등의 정보를 추출하여, 관련 업데이트 작업 필요
-                        //if (G.DEBUG) OutputMesssage(senderAddr + " : " + Cmd + " REPORT_INFO");
-                        if (G.DEBUG) Console.WriteLine(senderAddr + " : " + Cmd + "  REPORT_INFO");
-
-                        byte optionCode = buffs[1];
-
-                        ///////////////////////////////////
-                        // [2] 로봇 번호 및 명령어 종류에 따라 작업
-                        string robotInfo = Cmd.Substring(2, 9); // 사용 길이에 따라 재조정
-
-                        if (optionCode == OPTION_CODE_STATUS)
-                        {
-                            TBox_Status[senderIndex].Text = robotInfo;
-
-                        }
-                        else if (optionCode == OPTION_CODE_BATTERY)
-                        {
-                            TBox_Battery[senderIndex].Text = robotInfo;
-
-                        }
-                        //else 다른 경우는 무시
-
-                        recvMsgs.RemoveAt(i); // 해당 메시지 삭제
-                        break;
-
-                    case CONTROL_CONF: // CONFIRM 메시지의 경우, 
-
-                        // CONFIRM 메시지 수신 모드이면, 메시지 그대로, 아닌 경우에만, 해당 메시지 삭제,
-                        // CONFIRM은 다른 곳에서 따로 처리하므로 삭제하면 안됨
-                        if (G.confirmWaitingMode == false) recvMsgs.RemoveAt(i); // 해당 메시지 삭제
-
-                        break;
-
-                    default:  // 잘못된 명령어, 삭제
-
-                        if (G.DEBUG) OutputMesssage(@"잘못된 명령어 수신. 명령어 = " + Cmd, Color.Red);
-                        //MessageBox.Show(@"시스템 오류 - 예상못한 경우가 발생했습니다.", "시스템 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        recvMsgs.RemoveAt(i); // 해당 메시지 삭제
-
-                        break;
+                    MessageBox.Show(ex.Message + "???" +i);
                 }
             }
         }
@@ -533,8 +554,6 @@ namespace RobotCC
             return false;
         }
 
-
-
         private void LoRaWrite(int robotAddress, byte[] sendData)
         {
             string HEADER_SEND = "AT+SEND=";
@@ -559,16 +578,17 @@ namespace RobotCC
             // 첫번째 대기
             await Task.Delay(G.CONF_WAIT_DURATION_1);
 
-            for (int i = 0; i < recvMsgs.Count; i++)
+            //for (int i = 0; i < recvMsgs.Count; i++)
+            for (int i = 0; i < confMsgs.Count; i++)
             {
-                int index = recvMsgs[i].IndexOf("=");
-                string[] parts = recvMsgs[i].Substring(index + 1).Split(',');
+                int index = confMsgs[i].IndexOf("=");
+                string[] parts = confMsgs[i].Substring(index + 1).Split(',');
                 byte[] buffs = Encoding.ASCII.GetBytes(parts[2]);
                 byte cmdCode = buffs[0];
 
                 if (robotAddr == int.Parse(parts[0]) && respCode == cmdCode)
                 {
-                    recvMsgs.RemoveAt(i); // 해당 메시지 삭제
+                    confMsgs.RemoveAt(i); // 해당 메시지 삭제
                     return true;
                 }
             }
@@ -576,22 +596,24 @@ namespace RobotCC
             // 두번째 대기 
             await Task.Delay(G.CONF_WAIT_DURATION_2); // 반복 2회
 
-            for (int i = 0; i < recvMsgs.Count; i++)
+            for (int i = 0; i < confMsgs.Count; i++)
             {
-                int index = recvMsgs[i].IndexOf("=");
-                string[] parts = recvMsgs[i].Substring(index + 1).Split(',');
+                int index = confMsgs[i].IndexOf("=");
+                string[] parts = confMsgs[i].Substring(index + 1).Split(',');
                 byte[] buffs = Encoding.ASCII.GetBytes(parts[2]);
                 byte cmdCode = buffs[0];
 
                 if (robotAddr == int.Parse(parts[0]) && respCode == cmdCode)
                 {
-                    recvMsgs.RemoveAt(i); // 해당 메시지 삭제
+                    confMsgs.RemoveAt(i); // 해당 메시지 삭제
                     return true;
                 }
             }
 
             return false;
+    
         }
+     
         private void SendRegisterConfMsg(int robotAddress) // 오직 REGISTER_CONF 전달을 위한 함수
         {
             try
@@ -625,6 +647,7 @@ namespace RobotCC
             }
 
         }
+      
         // 버튼 명령 통합 처리 함수
         private async Task<bool> SendControlReqMesgAndCheck(int robotIndex, string cmdString)
         {
@@ -642,7 +665,6 @@ namespace RobotCC
         }
 
         /*  
-
          *  버튼 동작 처리 부분
          */
         private async void runActionAsync(int robotIndex)
@@ -661,7 +683,6 @@ namespace RobotCC
                 //else if (robotIndex == 4) runBtn5.Enabled = false;
             }
         }
-
 
         private async void stopActionAsync(int robotIndex)
         {
@@ -732,21 +753,10 @@ namespace RobotCC
 
         }
 
-
         private void reportBtn_Click(object sender, EventArgs e)  // 보고서 작성 화면으로 이동
         {
             ReportForm form = new ReportForm();
             form.Show();
-        }
-
-        private void addPlantBtn_Click(object sender, EventArgs e)
-        {
-            AddPlantList form = new AddPlantList();
-            form.ShowDialog();
-
-            // refresh the combobox
-            LinkComboBoxPlantList();
-
         }
 
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
@@ -754,7 +764,6 @@ namespace RobotCC
             if (serialPort1.IsOpen) serialPort1.Close();
 
         }
-
 
         private void 로그파일저장ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -787,7 +796,6 @@ namespace RobotCC
             reportBtn_Click(sender, e);
 
         }
-
 
         private void ChangeSerialPort()
         {
@@ -857,8 +865,7 @@ namespace RobotCC
 
             output.Select(output.Text.Length, 0);// scroll 항상 아래
             output.ScrollToCaret();
-
-            output.SelectionColor = Color.Blue;
+            output.SelectionColor = Color.Black; // 원상 복구
 
         }
 
@@ -867,8 +874,11 @@ namespace RobotCC
             Color oldColor = output.SelectionColor;
 
             output.SelectionColor = color; // 색상 변경
+            // 색상이 있는 경우, 굵게 쓰기 
+            //output.SelectionFont = new Font(output.Font, FontStyle.Bold);
             OutputMesssage(line);
             output.SelectionColor = oldColor; // 색상 복원
+
         }
 
         public void ErrorMessage(string line)

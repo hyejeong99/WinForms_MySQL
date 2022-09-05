@@ -455,64 +455,103 @@ namespace RobotCC
             // runBtn1
             // 
             this.runBtn1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.runBtn1.AutoSize = true;
+            this.runBtn1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.runBtn1.FlatAppearance.BorderSize = 2;
+            this.runBtn1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.runBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.runBtn1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.runBtn1.Location = new System.Drawing.Point(211, 8);
             this.runBtn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn1.Name = "runBtn1";
             this.runBtn1.Size = new System.Drawing.Size(60, 28);
             this.runBtn1.TabIndex = 42;
-            this.runBtn1.Text = "동작";
+            this.runBtn1.Text = "작동";
+            this.runBtn1.UseVisualStyleBackColor = false;
             // 
             // runBtn2
             // 
             this.runBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.runBtn2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn2.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.runBtn2.FlatAppearance.BorderSize = 2;
+            this.runBtn2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.runBtn2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.runBtn2.Location = new System.Drawing.Point(211, 8);
             this.runBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn2.Name = "runBtn2";
             this.runBtn2.Size = new System.Drawing.Size(60, 28);
             this.runBtn2.TabIndex = 43;
-            this.runBtn2.Text = "동작";
+            this.runBtn2.Text = "작동";
+            this.runBtn2.UseVisualStyleBackColor = false;
             // 
             // runBtn3
             // 
             this.runBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.runBtn3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn3.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.runBtn3.FlatAppearance.BorderSize = 2;
+            this.runBtn3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.runBtn3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.runBtn3.Location = new System.Drawing.Point(211, 8);
             this.runBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn3.Name = "runBtn3";
             this.runBtn3.Size = new System.Drawing.Size(60, 28);
             this.runBtn3.TabIndex = 44;
-            this.runBtn3.Text = "동작";
+            this.runBtn3.Text = "작동";
+            this.runBtn3.UseVisualStyleBackColor = false;
             // 
             // runBtn4
             // 
             this.runBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.runBtn4.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn4.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.runBtn4.FlatAppearance.BorderSize = 2;
+            this.runBtn4.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.runBtn4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.runBtn4.Location = new System.Drawing.Point(211, 8);
             this.runBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn4.Name = "runBtn4";
             this.runBtn4.Size = new System.Drawing.Size(60, 28);
             this.runBtn4.TabIndex = 45;
-            this.runBtn4.Text = "동작";
+            this.runBtn4.Text = "작동";
+            this.runBtn4.UseVisualStyleBackColor = false;
             // 
             // runBtn5
             // 
             this.runBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.runBtn5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.runBtn5.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.runBtn5.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.runBtn5.FlatAppearance.BorderSize = 2;
+            this.runBtn5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.runBtn5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.runBtn5.Location = new System.Drawing.Point(211, 8);
             this.runBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.runBtn5.Name = "runBtn5";
             this.runBtn5.Size = new System.Drawing.Size(60, 28);
             this.runBtn5.TabIndex = 46;
-            this.runBtn5.Text = "동작";
+            this.runBtn5.Text = "작동";
+            this.runBtn5.UseVisualStyleBackColor = false;
             // 
             // stopBtn1
             // 
             this.stopBtn1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stopBtn1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.stopBtn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.stopBtn1.ForeColor = System.Drawing.Color.Yellow;
             this.stopBtn1.Location = new System.Drawing.Point(290, 8);
             this.stopBtn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stopBtn1.Name = "stopBtn1";
@@ -524,46 +563,62 @@ namespace RobotCC
             // stopBtn2
             // 
             this.stopBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.stopBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.stopBtn2.ForeColor = System.Drawing.Color.Yellow;
             this.stopBtn2.Location = new System.Drawing.Point(290, 8);
             this.stopBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stopBtn2.Name = "stopBtn2";
             this.stopBtn2.Size = new System.Drawing.Size(60, 28);
             this.stopBtn2.TabIndex = 48;
             this.stopBtn2.Text = "중지";
+            this.stopBtn2.UseVisualStyleBackColor = false;
             // 
             // stopBtn3
             // 
             this.stopBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.stopBtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.stopBtn3.ForeColor = System.Drawing.Color.Yellow;
             this.stopBtn3.Location = new System.Drawing.Point(290, 8);
             this.stopBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stopBtn3.Name = "stopBtn3";
             this.stopBtn3.Size = new System.Drawing.Size(60, 28);
             this.stopBtn3.TabIndex = 49;
             this.stopBtn3.Text = "중지";
+            this.stopBtn3.UseVisualStyleBackColor = false;
             // 
             // stopBtn4
             // 
             this.stopBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.stopBtn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.stopBtn4.ForeColor = System.Drawing.Color.Yellow;
             this.stopBtn4.Location = new System.Drawing.Point(290, 8);
             this.stopBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stopBtn4.Name = "stopBtn4";
             this.stopBtn4.Size = new System.Drawing.Size(60, 28);
             this.stopBtn4.TabIndex = 50;
             this.stopBtn4.Text = "중지";
+            this.stopBtn4.UseVisualStyleBackColor = false;
             // 
             // stopBtn5
             // 
             this.stopBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.stopBtn5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.stopBtn5.ForeColor = System.Drawing.Color.Yellow;
             this.stopBtn5.Location = new System.Drawing.Point(290, 8);
             this.stopBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.stopBtn5.Name = "stopBtn5";
             this.stopBtn5.Size = new System.Drawing.Size(60, 28);
             this.stopBtn5.TabIndex = 51;
             this.stopBtn5.Text = "중지";
+            this.stopBtn5.UseVisualStyleBackColor = false;
             // 
             // status1
             // 
@@ -641,49 +696,65 @@ namespace RobotCC
             // 
             this.homeBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.homeBtn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.homeBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.homeBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.homeBtn2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.homeBtn2.Location = new System.Drawing.Point(369, 8);
             this.homeBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn2.Name = "homeBtn2";
             this.homeBtn2.Size = new System.Drawing.Size(60, 28);
             this.homeBtn2.TabIndex = 58;
             this.homeBtn2.Text = "홈";
+            this.homeBtn2.UseVisualStyleBackColor = false;
             // 
             // homeBtn3
             // 
             this.homeBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.homeBtn3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.homeBtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.homeBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.homeBtn3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.homeBtn3.Location = new System.Drawing.Point(369, 8);
             this.homeBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn3.Name = "homeBtn3";
             this.homeBtn3.Size = new System.Drawing.Size(60, 28);
             this.homeBtn3.TabIndex = 59;
             this.homeBtn3.Text = "홈";
+            this.homeBtn3.UseVisualStyleBackColor = false;
             // 
             // homeBtn4
             // 
             this.homeBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.homeBtn4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.homeBtn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.homeBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.homeBtn4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.homeBtn4.Location = new System.Drawing.Point(370, 8);
             this.homeBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn4.Name = "homeBtn4";
             this.homeBtn4.Size = new System.Drawing.Size(60, 28);
             this.homeBtn4.TabIndex = 60;
             this.homeBtn4.Text = "홈";
+            this.homeBtn4.UseVisualStyleBackColor = false;
             // 
             // homeBtn5
             // 
             this.homeBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.homeBtn5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.homeBtn5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.homeBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.homeBtn5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.homeBtn5.Location = new System.Drawing.Point(370, 8);
             this.homeBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn5.Name = "homeBtn5";
             this.homeBtn5.Size = new System.Drawing.Size(60, 28);
             this.homeBtn5.TabIndex = 61;
             this.homeBtn5.Text = "홈";
+            this.homeBtn5.UseVisualStyleBackColor = false;
             // 
             // serialPort1
             // 
@@ -776,15 +847,19 @@ namespace RobotCC
             // 
             this.homeBtn1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.homeBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.homeBtn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.homeBtn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("homeBtn1.BackgroundImage")));
             this.homeBtn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.homeBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.homeBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.homeBtn1.Location = new System.Drawing.Point(369, 8);
             this.homeBtn1.Margin = new System.Windows.Forms.Padding(0);
             this.homeBtn1.Name = "homeBtn1";
             this.homeBtn1.Size = new System.Drawing.Size(60, 28);
             this.homeBtn1.TabIndex = 57;
             this.homeBtn1.Text = "홈";
+            this.homeBtn1.UseVisualStyleBackColor = false;
             // 
             // reportBtn
             // 
