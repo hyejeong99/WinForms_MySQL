@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Data;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 
 namespace RobotCC
@@ -56,12 +55,12 @@ namespace RobotCC
         public static int[] AUTOSTART = new int[ROBOT_CNT]; // 자동 시작 여부 ON/OFF
 
         // Control 센터의 LoRa Address 정보
-        public static string MyLoRaAddress; 
+        public static string MyLoRaAddress;
 
         public static void CheckAndMakeFolder()
         {
             // C:\RobotCC 폴더 생성
-            if(!Directory.Exists(MySystemFolder)) Directory.CreateDirectory(MySystemFolder);
+            if (!Directory.Exists(MySystemFolder)) Directory.CreateDirectory(MySystemFolder);
         }
 
         public static void CNFLoadFile()

@@ -102,8 +102,7 @@ namespace RobotCC
             //여러개의 동일 컴포넌트를 한번에 처리하기 위한 작업 - 작동 잘되나, 버튼의 경우, 테이블 레이아웃인 경우 미작동 
             LinkArrayComponent();
 
-
-            //////////////////// JUST FOR TEST : RICHTEXTBOX, COLOR
+            //////////////////// JUST FOR SAMPLE TEST : RICHTEXTBOX, COLOR
             if (G.DEBUG)
             {
                 /// ProgressBar 색상 변경을 적용하려면, 메인 program.cs에서 아래 문장을 삭제해야 제대로 동작함
@@ -187,7 +186,6 @@ namespace RobotCC
             }
 
         }
-
 
         private async void CheckLoRaPortAsync(bool option)
         {
@@ -611,9 +609,9 @@ namespace RobotCC
             }
 
             return false;
-    
+
         }
-     
+
         private void SendRegisterConfMsg(int robotAddress) // 오직 REGISTER_CONF 전달을 위한 함수
         {
             try
@@ -647,7 +645,7 @@ namespace RobotCC
             }
 
         }
-      
+
         // 버튼 명령 통합 처리 함수
         private async Task<bool> SendControlReqMesgAndCheck(int robotIndex, string cmdString)
         {
@@ -690,7 +688,7 @@ namespace RobotCC
             if (result) // Toggle Image
             {
                 Btn_STOP[robotIndex].Enabled = false;
-                
+
             }
         }
 
@@ -703,7 +701,7 @@ namespace RobotCC
             if (result) // Toggle Image
             {
                 Btn_HOME[robotIndex].Enabled = false;
-        
+
             }
         }
 
@@ -745,7 +743,6 @@ namespace RobotCC
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (serialPort1.IsOpen) serialPort1.Close();
-
         }
 
         private void 로그파일저장ToolStripMenuItem_Click(object sender, EventArgs e)
