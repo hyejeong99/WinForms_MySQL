@@ -86,7 +86,6 @@ namespace RobotCC
             this.progressText3 = new System.Windows.Forms.TextBox();
             this.progressText2 = new System.Windows.Forms.TextBox();
             this.homeBtn1 = new System.Windows.Forms.Button();
-            this.reportBtn = new System.Windows.Forms.Button();
             this.comInfo = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -268,10 +267,10 @@ namespace RobotCC
             this.optionBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn2.AutoSize = true;
             this.optionBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn2.Location = new System.Drawing.Point(970, 8);
+            this.optionBtn2.Location = new System.Drawing.Point(990, 8);
             this.optionBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn2.Name = "optionBtn2";
-            this.optionBtn2.Size = new System.Drawing.Size(140, 28);
+            this.optionBtn2.Size = new System.Drawing.Size(100, 28);
             this.optionBtn2.TabIndex = 27;
             this.optionBtn2.Text = "세부설정";
             // 
@@ -280,10 +279,10 @@ namespace RobotCC
             this.optionBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn3.AutoSize = true;
             this.optionBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn3.Location = new System.Drawing.Point(971, 8);
+            this.optionBtn3.Location = new System.Drawing.Point(990, 8);
             this.optionBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn3.Name = "optionBtn3";
-            this.optionBtn3.Size = new System.Drawing.Size(139, 28);
+            this.optionBtn3.Size = new System.Drawing.Size(100, 28);
             this.optionBtn3.TabIndex = 28;
             this.optionBtn3.Text = "세부설정";
             // 
@@ -292,10 +291,10 @@ namespace RobotCC
             this.optionBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn4.AutoSize = true;
             this.optionBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn4.Location = new System.Drawing.Point(972, 8);
+            this.optionBtn4.Location = new System.Drawing.Point(991, 8);
             this.optionBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn4.Name = "optionBtn4";
-            this.optionBtn4.Size = new System.Drawing.Size(138, 28);
+            this.optionBtn4.Size = new System.Drawing.Size(100, 28);
             this.optionBtn4.TabIndex = 29;
             this.optionBtn4.Text = "세부설정";
             // 
@@ -304,10 +303,10 @@ namespace RobotCC
             this.optionBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn5.AutoSize = true;
             this.optionBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn5.Location = new System.Drawing.Point(971, 8);
+            this.optionBtn5.Location = new System.Drawing.Point(990, 8);
             this.optionBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn5.Name = "optionBtn5";
-            this.optionBtn5.Size = new System.Drawing.Size(139, 28);
+            this.optionBtn5.Size = new System.Drawing.Size(100, 28);
             this.optionBtn5.TabIndex = 30;
             this.optionBtn5.Text = "세부설정";
             // 
@@ -460,7 +459,7 @@ namespace RobotCC
             this.runBtn1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
             this.runBtn1.FlatAppearance.BorderSize = 2;
             this.runBtn1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
-            this.runBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.runBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.runBtn1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -479,6 +478,7 @@ namespace RobotCC
             this.runBtn2.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn2.FlatAppearance.BorderSize = 2;
             this.runBtn2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.runBtn2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -497,6 +497,7 @@ namespace RobotCC
             this.runBtn3.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn3.FlatAppearance.BorderSize = 2;
             this.runBtn3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.runBtn3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -515,6 +516,7 @@ namespace RobotCC
             this.runBtn4.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn4.FlatAppearance.BorderSize = 2;
             this.runBtn4.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.runBtn4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -534,6 +536,7 @@ namespace RobotCC
             this.runBtn5.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.runBtn5.FlatAppearance.BorderSize = 2;
             this.runBtn5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.runBtn5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.runBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.runBtn5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -787,10 +790,10 @@ namespace RobotCC
             this.optionBtn1.AutoSize = true;
             this.optionBtn1.BackColor = System.Drawing.Color.Transparent;
             this.optionBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn1.Location = new System.Drawing.Point(970, 8);
+            this.optionBtn1.Location = new System.Drawing.Point(990, 8);
             this.optionBtn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn1.Name = "optionBtn1";
-            this.optionBtn1.Size = new System.Drawing.Size(140, 28);
+            this.optionBtn1.Size = new System.Drawing.Size(100, 28);
             this.optionBtn1.TabIndex = 26;
             this.optionBtn1.Text = "세부설정";
             this.optionBtn1.UseVisualStyleBackColor = false;
@@ -861,27 +864,10 @@ namespace RobotCC
             this.homeBtn1.Text = "홈";
             this.homeBtn1.UseVisualStyleBackColor = false;
             // 
-            // reportBtn
-            // 
-            this.reportBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.reportBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("reportBtn.BackgroundImage")));
-            this.reportBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.reportBtn.FlatAppearance.BorderSize = 13;
-            this.reportBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.reportBtn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.reportBtn.Image = ((System.Drawing.Image)(resources.GetObject("reportBtn.Image")));
-            this.reportBtn.Location = new System.Drawing.Point(1032, 151);
-            this.reportBtn.Name = "reportBtn";
-            this.reportBtn.Size = new System.Drawing.Size(96, 35);
-            this.reportBtn.TabIndex = 72;
-            this.reportBtn.Text = "보고서";
-            this.reportBtn.UseVisualStyleBackColor = false;
-            this.reportBtn.Click += new System.EventHandler(this.reportBtn_Click);
-            // 
             // comInfo
             // 
             this.comInfo.Font = new System.Drawing.Font("나눔스퀘어OTF", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.comInfo.Location = new System.Drawing.Point(1071, -6);
+            this.comInfo.Location = new System.Drawing.Point(1090, 0);
             this.comInfo.Name = "comInfo";
             this.comInfo.Size = new System.Drawing.Size(142, 30);
             this.comInfo.TabIndex = 75;
@@ -1313,7 +1299,6 @@ namespace RobotCC
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.comInfo);
-            this.Controls.Add(this.reportBtn);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.output);
@@ -1418,8 +1403,6 @@ namespace RobotCC
         private System.Windows.Forms.TextBox progressText3;
         private System.Windows.Forms.TextBox progressText2;
         private System.Windows.Forms.TextBox progressText1;
-
-        private System.Windows.Forms.Button reportBtn;
         private System.Windows.Forms.Label comInfo;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.RichTextBox output;
@@ -1443,5 +1426,6 @@ namespace RobotCC
         private System.Windows.Forms.ToolStripMenuItem 신규등록ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 항목삭제ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 정보변경ToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

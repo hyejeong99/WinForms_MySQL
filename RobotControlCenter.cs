@@ -742,12 +742,6 @@ namespace RobotCC
 
         }
 
-        private void reportBtn_Click(object sender, EventArgs e)  // 보고서 작성 화면으로 이동
-        {
-            ReportForm form = new ReportForm();
-            form.Show();
-        }
-
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (serialPort1.IsOpen) serialPort1.Close();
@@ -782,8 +776,8 @@ namespace RobotCC
 
         private void 보고서작성ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            reportBtn_Click(sender, e);
-
+            ReportForm form = new ReportForm();
+            form.Show();
         }
 
         private void ChangeSerialPort()
