@@ -28,9 +28,6 @@ namespace RobotCC
             con.Open();
 
             string TBL_NAME = "PlantList";
-            //string VIEW_NAME = "PlantView"; -- View는 이상하게도 동작하지 않음,
-            //SqlCommand cmd = new SqlCommand(@"select PlantId + ' ' +  PlantName, ContactPerson, ContactInfo from " + TBL_NAME, con);
-            //SqlCommand cmd = new SqlCommand(@"select * from " + VIEW_NAME, con);
             SqlCommand cmd = new SqlCommand(@"select PlantId, PlantName, ContactPerson, ContactInfo from " + TBL_NAME, con);
             DataTable dt = new DataTable();
 
@@ -48,16 +45,8 @@ namespace RobotCC
             dataGridView1.Columns["ContactInfo"].HeaderText = "연락처";
             dataGridView1.Columns["ContactInfo"].Width = 150;
 
-            plantCnt = dt.Rows.Count;
-            if (plantId.Text == "") plantId.Text = "P" + string.Format("{0:D4}", (plantCnt + 1));
-            //plantId.ReadOnly = true;
-
-            // clear old inputs
-            //plantId.Text = "";
-            //plantName.Text = "";
-            //contactPerson.Text = "";
-            //contactInfo.Text = "";
-
+           // plantCnt = dt.Rows.Count;
+           // if (plantId.Text == "") plantId.Text = "P" + string.Format("{0:D4}", (plantCnt + 1));
         }
 
         private void insertPlantBtn_Click(object sender, EventArgs e)
