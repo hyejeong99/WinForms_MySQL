@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace RobotCC
@@ -119,5 +120,20 @@ namespace RobotCC
                 G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_ON;
             else G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_OFF;
         }
+
+        private void LSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == '\b') return;
+            else if(e.KeyChar >= '0' && e.KeyChar <= '9') return;
+            else e.Handled = true; // 입력 제외
+        }
+
+        private void RSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == '\b') return;
+            else if (e.KeyChar >= '0' && e.KeyChar <= '9') return;
+            else e.Handled = true; // 입력 제외
+        }
+
     }
 }

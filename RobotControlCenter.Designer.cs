@@ -455,9 +455,9 @@ namespace RobotCC
             // 
             this.runBtn1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.runBtn1.AutoSize = true;
-            this.runBtn1.BackColor = System.Drawing.Color.LightBlue;
-            this.runBtn1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.runBtn1.FlatAppearance.BorderSize = 2;
+            this.runBtn1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.runBtn1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.runBtn1.FlatAppearance.BorderSize = 20;
             this.runBtn1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -474,9 +474,9 @@ namespace RobotCC
             // runBtn2
             // 
             this.runBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.runBtn2.BackColor = System.Drawing.Color.LightBlue;
-            this.runBtn2.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.runBtn2.FlatAppearance.BorderSize = 2;
+            this.runBtn2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.runBtn2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.runBtn2.FlatAppearance.BorderSize = 20;
             this.runBtn2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -493,9 +493,9 @@ namespace RobotCC
             // runBtn3
             // 
             this.runBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.runBtn3.BackColor = System.Drawing.Color.LightBlue;
-            this.runBtn3.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.runBtn3.FlatAppearance.BorderSize = 2;
+            this.runBtn3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.runBtn3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.runBtn3.FlatAppearance.BorderSize = 20;
             this.runBtn3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -512,9 +512,9 @@ namespace RobotCC
             // runBtn4
             // 
             this.runBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.runBtn4.BackColor = System.Drawing.Color.LightBlue;
-            this.runBtn4.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.runBtn4.FlatAppearance.BorderSize = 2;
+            this.runBtn4.BackColor = System.Drawing.Color.DodgerBlue;
+            this.runBtn4.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.runBtn4.FlatAppearance.BorderSize = 20;
             this.runBtn4.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -532,9 +532,9 @@ namespace RobotCC
             // 
             this.runBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.runBtn5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.runBtn5.BackColor = System.Drawing.Color.LightBlue;
-            this.runBtn5.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.runBtn5.FlatAppearance.BorderSize = 2;
+            this.runBtn5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.runBtn5.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.runBtn5.FlatAppearance.BorderSize = 20;
             this.runBtn5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.runBtn5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.runBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -551,7 +551,7 @@ namespace RobotCC
             // stopBtn1
             // 
             this.stopBtn1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stopBtn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn1.BackColor = System.Drawing.Color.Red;
             this.stopBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.stopBtn1.ForeColor = System.Drawing.Color.Yellow;
@@ -566,7 +566,7 @@ namespace RobotCC
             // stopBtn2
             // 
             this.stopBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stopBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn2.BackColor = System.Drawing.Color.Red;
             this.stopBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.stopBtn2.ForeColor = System.Drawing.Color.Yellow;
@@ -581,7 +581,7 @@ namespace RobotCC
             // stopBtn3
             // 
             this.stopBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stopBtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn3.BackColor = System.Drawing.Color.Red;
             this.stopBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.stopBtn3.ForeColor = System.Drawing.Color.Yellow;
@@ -596,7 +596,7 @@ namespace RobotCC
             // stopBtn4
             // 
             this.stopBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stopBtn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn4.BackColor = System.Drawing.Color.Red;
             this.stopBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.stopBtn4.ForeColor = System.Drawing.Color.Yellow;
@@ -611,7 +611,7 @@ namespace RobotCC
             // stopBtn5
             // 
             this.stopBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stopBtn5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.stopBtn5.BackColor = System.Drawing.Color.Red;
             this.stopBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.stopBtn5.ForeColor = System.Drawing.Color.Yellow;
@@ -702,7 +702,7 @@ namespace RobotCC
             this.homeBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.homeBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.homeBtn2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.homeBtn2.ForeColor = System.Drawing.Color.Teal;
             this.homeBtn2.Location = new System.Drawing.Point(369, 8);
             this.homeBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn2.Name = "homeBtn2";
@@ -718,7 +718,7 @@ namespace RobotCC
             this.homeBtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.homeBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.homeBtn3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.homeBtn3.ForeColor = System.Drawing.Color.Teal;
             this.homeBtn3.Location = new System.Drawing.Point(369, 8);
             this.homeBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn3.Name = "homeBtn3";
@@ -734,7 +734,7 @@ namespace RobotCC
             this.homeBtn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.homeBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.homeBtn4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.homeBtn4.ForeColor = System.Drawing.Color.Teal;
             this.homeBtn4.Location = new System.Drawing.Point(370, 8);
             this.homeBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn4.Name = "homeBtn4";
@@ -750,7 +750,7 @@ namespace RobotCC
             this.homeBtn5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.homeBtn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.homeBtn5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.homeBtn5.ForeColor = System.Drawing.Color.Teal;
             this.homeBtn5.Location = new System.Drawing.Point(370, 8);
             this.homeBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.homeBtn5.Name = "homeBtn5";
@@ -855,7 +855,7 @@ namespace RobotCC
             this.homeBtn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.homeBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.homeBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.homeBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.homeBtn1.ForeColor = System.Drawing.Color.Teal;
             this.homeBtn1.Location = new System.Drawing.Point(369, 8);
             this.homeBtn1.Margin = new System.Windows.Forms.Padding(0);
             this.homeBtn1.Name = "homeBtn1";

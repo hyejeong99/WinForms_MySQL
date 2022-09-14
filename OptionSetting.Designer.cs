@@ -53,16 +53,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "가로 길이(m)";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(50, 115);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "로봇이름"; 
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -72,7 +62,16 @@
             this.label3.Size = new System.Drawing.Size(96, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "세로 길이(m)";
-   
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(50, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 18);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "로봇이름";
             // 
             // label4
             // 
@@ -94,9 +93,8 @@
             this.robotName.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.robotName.Name = "robotName";
             this.robotName.ReadOnly = true;
-            this.robotName.Size = new System.Drawing.Size(164, 31);
+            this.robotName.Size = new System.Drawing.Size(164, 26);
             this.robotName.TabIndex = 5;
-            this.robotName.Text = "";
             // 
             // LSize
             // 
@@ -104,11 +102,10 @@
             this.LSize.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.LSize.Location = new System.Drawing.Point(192, 160);
             this.LSize.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.LSize.Multiline = false;
             this.LSize.Name = "LSize";
-            this.LSize.Size = new System.Drawing.Size(162, 31);
+            this.LSize.Size = new System.Drawing.Size(162, 26);
             this.LSize.TabIndex = 6;
-            this.LSize.Text = "";
+            this.LSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LSize_KeyPress);
             // 
             // RSize
             // 
@@ -116,11 +113,10 @@
             this.RSize.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.RSize.Location = new System.Drawing.Point(192, 209);
             this.RSize.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.RSize.Multiline = false;
             this.RSize.Name = "RSize";
-            this.RSize.Size = new System.Drawing.Size(162, 31);
+            this.RSize.Size = new System.Drawing.Size(162, 26);
             this.RSize.TabIndex = 7;
-            this.RSize.Text = "";
+            this.RSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RSize_KeyPress);
             // 
             // radioButtonV
             // 
