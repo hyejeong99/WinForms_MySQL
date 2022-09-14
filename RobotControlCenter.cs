@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RobotControlCenter;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -878,6 +879,15 @@ namespace RobotCC
         private void 정보변경ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdatePlantList form = new UpdatePlantList();
+            form.ShowDialog();
+
+            // refresh the combobox
+            LinkComboBoxPlantList();
+        }
+
+        private void 보고서작성ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlantListManagement form = new PlantListManagement();
             form.ShowDialog();
 
             // refresh the combobox

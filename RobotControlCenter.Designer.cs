@@ -107,9 +107,6 @@ namespace RobotCC
             this.통신포트변경ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loRa연결확인ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.보고서작성ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.신규등록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.항목삭제ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.정보변경ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.보고서작성ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.progressText1 = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -1197,34 +1194,10 @@ namespace RobotCC
             // 
             // 보고서작성ToolStripMenuItem
             // 
-            this.보고서작성ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.신규등록ToolStripMenuItem,
-            this.항목삭제ToolStripMenuItem,
-            this.정보변경ToolStripMenuItem});
             this.보고서작성ToolStripMenuItem.Name = "보고서작성ToolStripMenuItem";
             this.보고서작성ToolStripMenuItem.Size = new System.Drawing.Size(121, 21);
             this.보고서작성ToolStripMenuItem.Text = "발전소 목록 관리";
-            // 
-            // 신규등록ToolStripMenuItem
-            // 
-            this.신규등록ToolStripMenuItem.Name = "신규등록ToolStripMenuItem";
-            this.신규등록ToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.신규등록ToolStripMenuItem.Text = "신규 등록";
-            this.신규등록ToolStripMenuItem.Click += new System.EventHandler(this.신규등록ToolStripMenuItem_Click);
-            // 
-            // 항목삭제ToolStripMenuItem
-            // 
-            this.항목삭제ToolStripMenuItem.Name = "항목삭제ToolStripMenuItem";
-            this.항목삭제ToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.항목삭제ToolStripMenuItem.Text = "항목 삭제";
-            this.항목삭제ToolStripMenuItem.Click += new System.EventHandler(this.항목삭제ToolStripMenuItem_Click);
-            // 
-            // 정보변경ToolStripMenuItem
-            // 
-            this.정보변경ToolStripMenuItem.Name = "정보변경ToolStripMenuItem";
-            this.정보변경ToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.정보변경ToolStripMenuItem.Text = "항목 변경";
-            this.정보변경ToolStripMenuItem.Click += new System.EventHandler(this.정보변경ToolStripMenuItem_Click);
+            this.보고서작성ToolStripMenuItem.Click += new System.EventHandler(this.보고서작성ToolStripMenuItem_Click);
             // 
             // 보고서작성ToolStripMenuItem1
             // 
@@ -1423,9 +1396,6 @@ namespace RobotCC
         private System.Windows.Forms.ToolStripMenuItem 로그파일저장ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 시스템종료ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 보고서작성ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 신규등록ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 항목삭제ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 정보변경ToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

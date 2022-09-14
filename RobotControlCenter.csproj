@@ -46,24 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPlantList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddPlantList.Designer.cs">
-      <DependentUpon>AddPlantList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeletePlantList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeletePlantList.Designer.cs">
-      <DependentUpon>DeletePlantList.cs</DependentUpon>
-    </Compile>
     <Compile Include="G.cs" />
     <Compile Include="OptionSetting.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OptionSetting.Designer.cs">
       <DependentUpon>OptionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlantListManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlantListManagement.Designer.cs">
+      <DependentUpon>PlantListManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm.cs">
       <SubType>Form</SubType>
@@ -85,20 +79,11 @@
     <Compile Include="SerialPortSetting.Designer.cs">
       <DependentUpon>SerialPortSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdatePlantList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdatePlantList.Designer.cs">
-      <DependentUpon>UpdatePlantList.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddPlantList.resx">
-      <DependentUpon>AddPlantList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeletePlantList.resx">
-      <DependentUpon>DeletePlantList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OptionSetting.resx">
       <DependentUpon>OptionSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlantListManagement.resx">
+      <DependentUpon>PlantListManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -118,9 +103,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SerialPortSetting.resx">
       <DependentUpon>SerialPortSetting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UpdatePlantList.resx">
-      <DependentUpon>UpdatePlantList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
