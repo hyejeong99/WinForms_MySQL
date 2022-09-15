@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
@@ -720,7 +721,6 @@ namespace RobotCC
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            // Another Try
             string TBL_NAME = "PlantList";
             SqlCommand cmd = new SqlCommand("select PlantNumber, PlantName from " + TBL_NAME, con);
             DataTable dt = new DataTable();
@@ -774,11 +774,6 @@ namespace RobotCC
             }
         }
 
-        private void 보고서작성ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ReportForm form = new ReportForm();
-            form.Show();
-        }
 
         private void ChangeSerialPort()
         {
@@ -849,6 +844,13 @@ namespace RobotCC
             LinkComboBoxPlantList();
         }
 
+        private void 보고서작성ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReportForm form = new ReportForm();
+            form.Show();
+        }
+
+
         public void OutputMesssage(string line)
         {
             output.AppendText(line + Environment.NewLine); // new line 추가
@@ -880,10 +882,12 @@ namespace RobotCC
         {
             string[] plantinfo = new string[2];
             plantinfo = comboBox1.Text.ToString().Split(':');
+            // ':' 전후의 빈칸 제거를 위해 아래 두줄을 수행.
             G.CurrentPlantNumber = plantinfo[0].Substring(0, plantinfo[0].Length - 1);
             G.CurrentPlantName = plantinfo[1].Substring(1);
 
-            Console.WriteLine(G.CurrentPlantNumber + "//" + G.CurrentPlantName + "//");
+            if(G.DEBUG) Console.WriteLine("<"+G.CurrentPlantNumber + ">,<" + G.CurrentPlantName + ">");
         }
+
     }
 }

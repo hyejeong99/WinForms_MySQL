@@ -127,7 +127,7 @@ namespace RobotCC
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(29, 156);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 21);
+            this.label1.Size = new System.Drawing.Size(92, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "발전소명";
             // 
@@ -136,10 +136,10 @@ namespace RobotCC
             this.comboBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.comboBox1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 21;
+            this.comboBox1.ItemHeight = 28;
             this.comboBox1.Location = new System.Drawing.Point(114, 153);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(355, 29);
+            this.comboBox1.Size = new System.Drawing.Size(355, 36);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -150,7 +150,7 @@ namespace RobotCC
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label9.Location = new System.Drawing.Point(32, 510);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 21);
+            this.label9.Size = new System.Drawing.Size(119, 28);
             this.label9.TabIndex = 14;
             this.label9.Text = "결과 출력창";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -315,10 +315,10 @@ namespace RobotCC
             this.robotName1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.robotName1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName1.Location = new System.Drawing.Point(71, 12);
+            this.robotName1.Location = new System.Drawing.Point(71, 10);
             this.robotName1.Name = "robotName1";
             this.robotName1.ReadOnly = true;
-            this.robotName1.Size = new System.Drawing.Size(123, 19);
+            this.robotName1.Size = new System.Drawing.Size(123, 23);
             this.robotName1.TabIndex = 31;
             this.robotName1.Text = "R00001";
             this.robotName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -329,10 +329,10 @@ namespace RobotCC
             this.robotName2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.robotName2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName2.Location = new System.Drawing.Point(71, 12);
+            this.robotName2.Location = new System.Drawing.Point(71, 10);
             this.robotName2.Name = "robotName2";
             this.robotName2.ReadOnly = true;
-            this.robotName2.Size = new System.Drawing.Size(123, 19);
+            this.robotName2.Size = new System.Drawing.Size(123, 23);
             this.robotName2.TabIndex = 32;
             this.robotName2.Text = "R00002";
             this.robotName2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -343,10 +343,10 @@ namespace RobotCC
             this.robotName3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.robotName3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName3.Location = new System.Drawing.Point(71, 12);
+            this.robotName3.Location = new System.Drawing.Point(71, 10);
             this.robotName3.Name = "robotName3";
             this.robotName3.ReadOnly = true;
-            this.robotName3.Size = new System.Drawing.Size(123, 19);
+            this.robotName3.Size = new System.Drawing.Size(123, 23);
             this.robotName3.TabIndex = 33;
             this.robotName3.Text = "R00003";
             this.robotName3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -357,10 +357,10 @@ namespace RobotCC
             this.robotName4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.robotName4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName4.Location = new System.Drawing.Point(71, 12);
+            this.robotName4.Location = new System.Drawing.Point(71, 10);
             this.robotName4.Name = "robotName4";
             this.robotName4.ReadOnly = true;
-            this.robotName4.Size = new System.Drawing.Size(123, 19);
+            this.robotName4.Size = new System.Drawing.Size(123, 23);
             this.robotName4.TabIndex = 34;
             this.robotName4.Text = "R00004";
             this.robotName4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -371,10 +371,10 @@ namespace RobotCC
             this.robotName5.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.robotName5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName5.Location = new System.Drawing.Point(71, 12);
+            this.robotName5.Location = new System.Drawing.Point(71, 10);
             this.robotName5.Name = "robotName5";
             this.robotName5.ReadOnly = true;
-            this.robotName5.Size = new System.Drawing.Size(123, 19);
+            this.robotName5.Size = new System.Drawing.Size(123, 23);
             this.robotName5.TabIndex = 35;
             this.robotName5.Text = "R00005";
             this.robotName5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -781,7 +781,7 @@ namespace RobotCC
             this.label11.ForeColor = System.Drawing.Color.Blue;
             this.label11.Location = new System.Drawing.Point(276, 68);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(699, 53);
+            this.label11.Size = new System.Drawing.Size(873, 66);
             this.label11.TabIndex = 67;
             this.label11.Text = "태양광 패널 청소 로봇 관리 시스템";
             // 
@@ -805,10 +805,10 @@ namespace RobotCC
             this.progressText5.BackColor = System.Drawing.SystemColors.HighlightText;
             this.progressText5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.progressText5.Font = new System.Drawing.Font("나눔스퀘어OTF", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.progressText5.Location = new System.Drawing.Point(909, 14);
+            this.progressText5.Location = new System.Drawing.Point(909, 12);
             this.progressText5.Name = "progressText5";
             this.progressText5.ReadOnly = true;
-            this.progressText5.Size = new System.Drawing.Size(53, 16);
+            this.progressText5.Size = new System.Drawing.Size(53, 20);
             this.progressText5.TabIndex = 66;
             // 
             // progressText4
@@ -817,10 +817,10 @@ namespace RobotCC
             this.progressText4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.progressText4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.progressText4.Font = new System.Drawing.Font("나눔스퀘어OTF", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.progressText4.Location = new System.Drawing.Point(908, 14);
+            this.progressText4.Location = new System.Drawing.Point(908, 12);
             this.progressText4.Name = "progressText4";
             this.progressText4.ReadOnly = true;
-            this.progressText4.Size = new System.Drawing.Size(54, 16);
+            this.progressText4.Size = new System.Drawing.Size(54, 20);
             this.progressText4.TabIndex = 65;
             // 
             // progressText3
@@ -829,10 +829,10 @@ namespace RobotCC
             this.progressText3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.progressText3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.progressText3.Font = new System.Drawing.Font("나눔스퀘어OTF", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.progressText3.Location = new System.Drawing.Point(908, 14);
+            this.progressText3.Location = new System.Drawing.Point(908, 12);
             this.progressText3.Name = "progressText3";
             this.progressText3.ReadOnly = true;
-            this.progressText3.Size = new System.Drawing.Size(54, 16);
+            this.progressText3.Size = new System.Drawing.Size(54, 20);
             this.progressText3.TabIndex = 64;
             // 
             // progressText2
@@ -841,10 +841,10 @@ namespace RobotCC
             this.progressText2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.progressText2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.progressText2.Font = new System.Drawing.Font("나눔스퀘어OTF", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.progressText2.Location = new System.Drawing.Point(907, 14);
+            this.progressText2.Location = new System.Drawing.Point(907, 12);
             this.progressText2.Name = "progressText2";
             this.progressText2.ReadOnly = true;
-            this.progressText2.Size = new System.Drawing.Size(54, 16);
+            this.progressText2.Size = new System.Drawing.Size(54, 20);
             this.progressText2.TabIndex = 63;
             // 
             // homeBtn1
@@ -880,10 +880,10 @@ namespace RobotCC
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(1003, 7);
+            this.label8.Location = new System.Drawing.Point(994, 4);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 21);
+            this.label8.Size = new System.Drawing.Size(92, 28);
             this.label8.TabIndex = 12;
             this.label8.Text = "세부설정";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1146,7 +1146,7 @@ namespace RobotCC
             this.보고서작성ToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1232, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1232, 31);
             this.menuStrip1.TabIndex = 81;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1156,20 +1156,20 @@ namespace RobotCC
             this.로그파일저장ToolStripMenuItem,
             this.시스템종료ToolStripMenuItem});
             this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
-            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(46, 21);
+            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(58, 27);
             this.파일ToolStripMenuItem.Text = "파일";
             // 
             // 로그파일저장ToolStripMenuItem
             // 
             this.로그파일저장ToolStripMenuItem.Name = "로그파일저장ToolStripMenuItem";
-            this.로그파일저장ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.로그파일저장ToolStripMenuItem.Size = new System.Drawing.Size(225, 28);
             this.로그파일저장ToolStripMenuItem.Text = "출력창 내용 저장";
             this.로그파일저장ToolStripMenuItem.Click += new System.EventHandler(this.로그파일저장ToolStripMenuItem_Click);
             // 
             // 시스템종료ToolStripMenuItem
             // 
             this.시스템종료ToolStripMenuItem.Name = "시스템종료ToolStripMenuItem";
-            this.시스템종료ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.시스템종료ToolStripMenuItem.Size = new System.Drawing.Size(225, 28);
             this.시스템종료ToolStripMenuItem.Text = "시스템 종료";
             this.시스템종료ToolStripMenuItem.Click += new System.EventHandler(this.시스템종료ToolStripMenuItem_Click);
             // 
@@ -1179,34 +1179,34 @@ namespace RobotCC
             this.통신포트변경ToolStripMenuItem,
             this.loRa연결확인ToolStripMenuItem});
             this.통신포트ToolStripMenuItem.Name = "통신포트ToolStripMenuItem";
-            this.통신포트ToolStripMenuItem.Size = new System.Drawing.Size(98, 21);
+            this.통신포트ToolStripMenuItem.Size = new System.Drawing.Size(126, 27);
             this.통신포트ToolStripMenuItem.Text = "통신포트설정";
             // 
             // 통신포트변경ToolStripMenuItem
             // 
             this.통신포트변경ToolStripMenuItem.Name = "통신포트변경ToolStripMenuItem";
-            this.통신포트변경ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.통신포트변경ToolStripMenuItem.Size = new System.Drawing.Size(211, 28);
             this.통신포트변경ToolStripMenuItem.Text = "통신포트 변경";
             this.통신포트변경ToolStripMenuItem.Click += new System.EventHandler(this.통신포트변경ToolStripMenuItem_Click);
             // 
             // loRa연결확인ToolStripMenuItem
             // 
             this.loRa연결확인ToolStripMenuItem.Name = "loRa연결확인ToolStripMenuItem";
-            this.loRa연결확인ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loRa연결확인ToolStripMenuItem.Size = new System.Drawing.Size(211, 28);
             this.loRa연결확인ToolStripMenuItem.Text = "LoRa 연결 확인";
             this.loRa연결확인ToolStripMenuItem.Click += new System.EventHandler(this.loRa연결확인ToolStripMenuItem_Click);
             // 
             // 보고서작성ToolStripMenuItem
             // 
             this.보고서작성ToolStripMenuItem.Name = "보고서작성ToolStripMenuItem";
-            this.보고서작성ToolStripMenuItem.Size = new System.Drawing.Size(111, 21);
+            this.보고서작성ToolStripMenuItem.Size = new System.Drawing.Size(143, 27);
             this.보고서작성ToolStripMenuItem.Text = "발전소목록관리";
             this.보고서작성ToolStripMenuItem.Click += new System.EventHandler(this.발전소목록관리ToolStripMenuItem_Click);
             // 
             // 보고서작성ToolStripMenuItem1
             // 
             this.보고서작성ToolStripMenuItem1.Name = "보고서작성ToolStripMenuItem1";
-            this.보고서작성ToolStripMenuItem1.Size = new System.Drawing.Size(85, 21);
+            this.보고서작성ToolStripMenuItem1.Size = new System.Drawing.Size(109, 27);
             this.보고서작성ToolStripMenuItem1.Text = "보고서작성";
             this.보고서작성ToolStripMenuItem1.Click += new System.EventHandler(this.보고서작성ToolStripMenuItem1_Click);
             // 
@@ -1216,10 +1216,10 @@ namespace RobotCC
             this.progressText1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.progressText1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.progressText1.Font = new System.Drawing.Font("나눔스퀘어OTF", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.progressText1.Location = new System.Drawing.Point(907, 14);
+            this.progressText1.Location = new System.Drawing.Point(907, 12);
             this.progressText1.Name = "progressText1";
             this.progressText1.ReadOnly = true;
-            this.progressText1.Size = new System.Drawing.Size(54, 16);
+            this.progressText1.Size = new System.Drawing.Size(54, 20);
             this.progressText1.TabIndex = 82;
             // 
             // progressBar1
@@ -1271,7 +1271,7 @@ namespace RobotCC
             this.plantListManagementBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.plantListManagementBtn.Location = new System.Drawing.Point(485, 153);
             this.plantListManagementBtn.Name = "plantListManagementBtn";
-            this.plantListManagementBtn.Size = new System.Drawing.Size(148, 31);
+            this.plantListManagementBtn.Size = new System.Drawing.Size(176, 38);
             this.plantListManagementBtn.TabIndex = 83;
             this.plantListManagementBtn.Text = "발전소 목록 관리";
             this.plantListManagementBtn.UseVisualStyleBackColor = true;

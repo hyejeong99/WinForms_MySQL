@@ -24,7 +24,7 @@ namespace RobotCC
 
             // Another Try
             string TBL_NAME = "PlantList";
-            SqlCommand cmd = new SqlCommand("select PlantId, PlantName from " + TBL_NAME, con);
+            SqlCommand cmd = new SqlCommand("select PlantNumber, PlantName from " + TBL_NAME, con);
             DataTable dt = new DataTable();
             SqlDataReader sdr = cmd.ExecuteReader();
 
