@@ -41,7 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.plantId = new System.Windows.Forms.TextBox();
+            this.plantNumber = new System.Windows.Forms.TextBox();
             this.contactPerson = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.insertBtn = new System.Windows.Forms.Button();
@@ -60,9 +60,9 @@
             // exitBtn
             // 
             this.exitBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.exitBtn.Location = new System.Drawing.Point(880, 52);
+            this.exitBtn.Location = new System.Drawing.Point(894, 47);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(94, 37);
+            this.exitBtn.Size = new System.Drawing.Size(80, 30);
             this.exitBtn.TabIndex = 98;
             this.exitBtn.Text = "종료";
             this.exitBtn.UseVisualStyleBackColor = true;
@@ -74,14 +74,14 @@
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.LightBlue;
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.79567F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.20433F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.43544F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.56457F));
             this.tableLayoutPanel2.Controls.Add(this.contactInfo, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.plantName, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.plantId, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.plantNumber, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.contactPerson, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel2.Font = new System.Drawing.Font("굴림체", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -102,33 +102,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.contactInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.contactInfo.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.contactInfo.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.contactInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.contactInfo.Location = new System.Drawing.Point(143, 148);
+            this.contactInfo.Location = new System.Drawing.Point(122, 148);
             this.contactInfo.Multiline = true;
             this.contactInfo.Name = "contactInfo";
-            this.contactInfo.Size = new System.Drawing.Size(187, 81);
+            this.contactInfo.Size = new System.Drawing.Size(208, 81);
             this.contactInfo.TabIndex = 82;
             // 
             // plantName
             // 
             this.plantName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.plantName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.plantName.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.plantName.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.plantName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.plantName.Location = new System.Drawing.Point(143, 60);
+            this.plantName.Location = new System.Drawing.Point(122, 62);
             this.plantName.Name = "plantName";
-            this.plantName.Size = new System.Drawing.Size(187, 26);
+            this.plantName.Size = new System.Drawing.Size(208, 22);
             this.plantName.TabIndex = 80;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림체", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(22, 16);
+            this.label4.Font = new System.Drawing.Font("나눔스퀘어OTF", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(18, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 15);
+            this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 75;
             this.label4.Text = "발전소 코드";
             // 
@@ -136,10 +136,10 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("굴림체", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(22, 66);
+            this.label5.Font = new System.Drawing.Font("나눔스퀘어OTF", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(18, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 15);
+            this.label5.Size = new System.Drawing.Size(82, 17);
             this.label5.TabIndex = 76;
             this.label5.Text = "발전소 이름";
             // 
@@ -147,51 +147,51 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("굴림체", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(10, 114);
+            this.label6.Font = new System.Drawing.Font("나눔스퀘어OTF", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(8, 113);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 15);
+            this.label6.Size = new System.Drawing.Size(102, 17);
             this.label6.TabIndex = 77;
             this.label6.Text = "담당자명(직책)";
             // 
-            // plantId
+            // plantNumber
             // 
-            this.plantId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.plantId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.plantId.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.plantId.Location = new System.Drawing.Point(143, 11);
-            this.plantId.Name = "plantId";
-            this.plantId.Size = new System.Drawing.Size(187, 26);
-            this.plantId.TabIndex = 79;
+            this.plantNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.plantNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.plantNumber.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.plantNumber.Location = new System.Drawing.Point(122, 13);
+            this.plantNumber.Name = "plantNumber";
+            this.plantNumber.Size = new System.Drawing.Size(208, 22);
+            this.plantNumber.TabIndex = 79;
             // 
             // contactPerson
             // 
             this.contactPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.contactPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.contactPerson.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.contactPerson.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.contactPerson.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.contactPerson.Location = new System.Drawing.Point(143, 109);
+            this.contactPerson.Location = new System.Drawing.Point(122, 111);
             this.contactPerson.Name = "contactPerson";
-            this.contactPerson.Size = new System.Drawing.Size(187, 26);
+            this.contactPerson.Size = new System.Drawing.Size(208, 22);
             this.contactPerson.TabIndex = 81;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림체", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(14, 181);
+            this.label7.Font = new System.Drawing.Font("나눔스퀘어OTF", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(11, 180);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 15);
+            this.label7.Size = new System.Drawing.Size(96, 17);
             this.label7.TabIndex = 78;
             this.label7.Text = "담당자 연락처";
             // 
             // insertBtn
             // 
             this.insertBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.insertBtn.Location = new System.Drawing.Point(21, 400);
+            this.insertBtn.Location = new System.Drawing.Point(47, 400);
             this.insertBtn.Name = "insertBtn";
-            this.insertBtn.Size = new System.Drawing.Size(98, 37);
+            this.insertBtn.Size = new System.Drawing.Size(80, 30);
             this.insertBtn.TabIndex = 95;
             this.insertBtn.Text = "등록";
             this.insertBtn.UseVisualStyleBackColor = true;
@@ -203,6 +203,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -214,14 +216,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(382, 150);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.GrayText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidth = 80;
@@ -253,7 +257,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("나눔스퀘어OTF ExtraBold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label1.Location = new System.Drawing.Point(364, 52);
+            this.label1.Location = new System.Drawing.Point(362, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 33);
             this.label1.TabIndex = 92;
@@ -273,9 +277,9 @@
             // updateBtn
             // 
             this.updateBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.updateBtn.Location = new System.Drawing.Point(138, 400);
+            this.updateBtn.Location = new System.Drawing.Point(154, 400);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(98, 37);
+            this.updateBtn.Size = new System.Drawing.Size(80, 30);
             this.updateBtn.TabIndex = 99;
             this.updateBtn.Text = "수정";
             this.updateBtn.UseVisualStyleBackColor = true;
@@ -284,9 +288,9 @@
             // deleteBtn
             // 
             this.deleteBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.deleteBtn.Location = new System.Drawing.Point(257, 400);
+            this.deleteBtn.Location = new System.Drawing.Point(259, 400);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(98, 37);
+            this.deleteBtn.Size = new System.Drawing.Size(80, 30);
             this.deleteBtn.TabIndex = 100;
             this.deleteBtn.Text = "삭제";
             this.deleteBtn.UseVisualStyleBackColor = true;
@@ -331,7 +335,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox plantId;
+        private System.Windows.Forms.TextBox plantNumber;
         private System.Windows.Forms.TextBox contactPerson;
         private System.Windows.Forms.Button insertBtn;
         private System.Windows.Forms.DataGridView dataGridView1;

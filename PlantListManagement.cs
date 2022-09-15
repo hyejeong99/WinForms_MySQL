@@ -31,7 +31,7 @@ namespace RobotControlCenter
             con.Open();
 
             string TBL_NAME = "PlantList";
-            SqlCommand cmd = new SqlCommand(@"select PlantId, PlantName, ContactPerson, ContactInfo from " + TBL_NAME, con);
+            SqlCommand cmd = new SqlCommand(@"select PlantNumber, PlantName, ContactPerson, ContactInfo from " + TBL_NAME, con);
             DataTable dt = new DataTable();
 
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -39,8 +39,8 @@ namespace RobotControlCenter
             con.Close();
 
             dataGridView1.DataSource = dt;
-            dataGridView1.Columns["PlantId"].HeaderText = "빌전소 코드";
-            dataGridView1.Columns["PlantId"].Width = 100;
+            dataGridView1.Columns["PlantNumber"].HeaderText = "빌전소 코드";
+            dataGridView1.Columns["PlantNumber"].Width = 100;
             dataGridView1.Columns["PlantName"].HeaderText = "발전소 이름";
             dataGridView1.Columns["PlantName"].Width = 120;
             dataGridView1.Columns["ContactPerson"].HeaderText = "담당자명";
@@ -48,20 +48,18 @@ namespace RobotControlCenter
             dataGridView1.Columns["ContactInfo"].HeaderText = "연락처";
             dataGridView1.Columns["ContactInfo"].Width = 150;
 
-            // plantCnt = dt.Rows.Count;
-            // if (plantId.Text == "") plantId.Text = "P" + string.Format("{0:D4}", (plantCnt + 1));
         }
 
 
-        private int getCntPlantDB(string plantNumber)
+        private int getCntPlantDB(string PlantNumber)
         {
             string TBL_NAME = "PlantList";
 
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand(@"select * from " + TBL_NAME + " where PlantID = @PlantId", con);
-            cmd.Parameters.AddWithValue("@PlantId", plantId.Text);
+            SqlCommand cmd = new SqlCommand(@"select * from " + TBL_NAME + " where PlantNumber = @PlantNumber", con);
+            cmd.Parameters.AddWithValue("@PlantNumber", PlantNumber);
             DataTable dt = new DataTable();
             SqlDataReader sdr = cmd.ExecuteReader();
 
@@ -78,7 +76,7 @@ namespace RobotControlCenter
             string PlantNumber;
             string TBL_NAME = "PlantList";
 
-            PlantNumber = plantId.Text.Trim();
+            PlantNumber = plantNumber.Text.Trim();
             if (PlantNumber.Length < 5) // 너무 짧은 것은 무시
             {
                 MessageBox.Show("입력한 발전소 코드를 확인하세요.");
@@ -94,12 +92,14 @@ namespace RobotControlCenter
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("insert into " + TBL_NAME + " values (@PlantId, @PlantName, @ContactPerson, @ContactInfo)", con);
-            cmd.Parameters.AddWithValue("@PlantId", plantId.Text);
+            SqlCommand cmd = new SqlCommand("insert into " + TBL_NAME + " values (@PlantNumber, @PlantName, @ContactPerson, @ContactInfo)", con);
+            cmd.Parameters.AddWithValue("@PlantNumber", plantNumber.Text);
             cmd.Parameters.AddWithValue("@PlantName", plantName.Text.Trim());
             cmd.Parameters.AddWithValue("@ContactPerson", contactPerson.Text.Trim());
             cmd.Parameters.AddWithValue("@ContactInfo", contactInfo.Text.Trim());
-            string newPlantName = plantName.Text.Trim();
+            string PlantName = plantName.Text.Trim();
+            string ContactPerson = contactPerson.Text.Trim();
+            string ContactInfo = contactInfo.Text.Trim();
 
             try
             {
@@ -118,7 +118,9 @@ namespace RobotControlCenter
 
             string msg = @"새로운 발전소가 신규 등록되었습니다." + Environment.NewLine +
                 "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
-                "# 발전소 이름 : " + newPlantName;
+                "# 발전소 이름 : " + PlantName +Environment.NewLine +
+                "# 담당자명 : " + ContactPerson + Environment.NewLine +
+                "# 연락처 : " + ContactInfo;
             MessageBox.Show(msg, "DB등록완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
@@ -129,7 +131,7 @@ namespace RobotControlCenter
             string PlantNumber;
             string TBL_NAME = "PlantList";
 
-            PlantNumber = plantId.Text.Trim();
+            PlantNumber = plantNumber.Text.Trim();
             if (PlantNumber.Length < 5) // 너무 짧은 것은 무시
             {
                 MessageBox.Show("입력한 발전소 코드를 확인하세요.");
@@ -139,12 +141,14 @@ namespace RobotControlCenter
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand(@"update " + TBL_NAME + " set PlantId = @PlantId, PlantName = @PlantName, ContactPerson = @ContactPerson, ContactInfo = @ContactInfo where PlantId = @PlantId", con);
-            cmd.Parameters.AddWithValue("@PlantId", plantId.Text);
+            SqlCommand cmd = new SqlCommand(@"update " + TBL_NAME + " set PlantNumber = @PlantNumber, PlantName = @PlantName, ContactPerson = @ContactPerson, ContactInfo = @ContactInfo where PlantNumber = @PlantNumber", con);
+            cmd.Parameters.AddWithValue("@PlantNumber", plantNumber.Text);
             cmd.Parameters.AddWithValue("@PlantName", plantName.Text.Trim());
             cmd.Parameters.AddWithValue("@ContactPerson", contactPerson.Text.Trim());
             cmd.Parameters.AddWithValue("@ContactInfo", contactInfo.Text.Trim());
-            string newPlantName = plantName.Text.Trim();
+            string PlantName = plantName.Text.Trim();
+            string ContactPerson = contactPerson.Text.Trim();
+            string ContactInfo = contactInfo.Text.Trim();
 
             try
             {
@@ -161,7 +165,11 @@ namespace RobotControlCenter
 
             RefreshPlantDB();
 
-            string msg = "발전소(" + PlantNumber + ":" + newPlantName + ") 정보가 수정되었습니다.";
+            string msg = @"선택한 발전소 정보가 수정되었습니다." + Environment.NewLine +
+                "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
+                "# 발전소 이름 : " + PlantName + Environment.NewLine +
+                "# 담당자명 : " + ContactPerson + Environment.NewLine +
+                "# 연락처 : " + ContactInfo;
             MessageBox.Show(msg, "DB수정완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
@@ -174,8 +182,8 @@ namespace RobotControlCenter
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("select PlantId, PlantName from " + TBL_NAME + " where PlantID = @PlantId", con);
-            cmd.Parameters.AddWithValue("@PlantId", plantId.Text);
+            SqlCommand cmd = new SqlCommand("select PlantNumber, PlantName from " + TBL_NAME + " where PlantNumber = @PlantNumber", con);
+            cmd.Parameters.AddWithValue("@PlantNumber", this.plantNumber.Text);
             SqlDataReader sdr = cmd.ExecuteReader();
 
             while (sdr.Read())
@@ -195,29 +203,35 @@ namespace RobotControlCenter
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            string deletePlantNumber = plantId.Text.Trim();
+            string PlantNumber = plantNumber.Text.Trim();
 
-            if (deletePlantNumber.Length < 5) // 너무 짧은 경우 확인
+            if (PlantNumber.Length < 5) // 너무 짧은 경우 확인
             {
                 MessageBox.Show("입력한 발전소 코드를 확인하세요.");
                 return;
             }
 
-            if (getCntPlantDB(deletePlantNumber) == 0) // 존재하지 않는 행
+            if (getCntPlantDB(PlantNumber) == 0) // 존재하지 않는 행
             {
                 MessageBox.Show("해당되는 발전소 코드가 없습니다.", "DB 입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            //// 지우기 전에 삭제할 발전소명을 먼저 읽어 저장한다. // 사용자 편의
-            string deletePlantName = getPlantName(deletePlantNumber);
+            //// 지우기 전에 삭제할 발전소명을 먼저 읽어 저장하고, 다시 한번 확인한다. // 사용자 편의
+            string PlantName = getPlantName(PlantNumber);
+
+            string del_msg = @"다음 발전소를 DB에서 삭제할까요?" + Environment.NewLine +
+               "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
+               "# 발전소 이름 : " + PlantName;
+            if (MessageBox.Show(del_msg, "삭제 확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return; // 취소
 
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
             string TBL_NAME = "PlantList";
-            SqlCommand cmd2 = new SqlCommand("delete from " + TBL_NAME + " where PlantID = @PlantId", con);
-            cmd2.Parameters.AddWithValue("@PlantId", deletePlantNumber);
+            SqlCommand cmd2 = new SqlCommand("delete from " + TBL_NAME + " where PlantNumber = @PlantNumber", con);
+            cmd2.Parameters.AddWithValue("@PlantNumber", PlantNumber);
 
             try
             {
@@ -231,37 +245,26 @@ namespace RobotControlCenter
 
             RefreshPlantDB();
 
-            string msg = @"선택한 발전소가 삭제되었습니다." + Environment.NewLine +
-                "# 발전소 코드 : " + deletePlantNumber + Environment.NewLine +
-                "# 발전소 이름 : " + deletePlantName;
-            MessageBox.Show(msg, "DB삭제완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //string msg = @"선택한 발전소가 삭제되었습니다." + Environment.NewLine +
+            //    "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
+            //    "# 발전소 이름 : " + PlantName;
+            //MessageBox.Show(msg, "DB삭제완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             // Clear all deleted info
-            plantId.Text = "";
-            plantName.Text = "";
-            contactPerson.Text = "";
-            contactInfo.Text = "";
+            plantNumber.Clear();
+            plantName.Clear();
+            contactPerson.Clear();
+            contactInfo.Clear();
 
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            //DataGridViewRow row = dataGridView1.SelectedRows[0];
             // 데이터 테이블의 순서가 정렬될 경우도 가정하여 코딩 작업 필요....
-            //Console.WriteLine(dataGridView1.CurrentRow.Index);           
-            plantId.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            plantNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             plantName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             contactPerson.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             contactInfo.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            //plantId.Text = dataGridView1.SelectedRows.Count.ToString();
-            //plantId.Text = Gdt.Rows[dataGridView1.CurrentRow.Index][0].ToString();
-            //plantName.Text = Gdt.Rows[dataGridView1.CurrentRow.Index][1].ToString();
-            //contactPerson.Text = Gdt.Rows[dataGridView1.CurrentRow.Index][2].ToString();
-            //contactInfo.Text = Gdt.Rows[dataGridView1.CurrentRow.Index][3].ToString();
-            //plantId.Text = Gdt.Rows[e.RowIndex][0].ToString();
-            //plantName.Text = Gdt.Rows[e.RowIndex][1].ToString();
-            //contactPerson.Text = Gdt.Rows[e.RowIndex][2].ToString();
-            //contactInfo.Text = Gdt.Rows[e.RowIndex][3].ToString();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

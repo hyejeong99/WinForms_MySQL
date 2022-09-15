@@ -663,9 +663,9 @@ namespace RobotCC
             return result;
         }
 
-        /*  
-         *  버튼 동작 처리 부분
-         */
+        ///////////////////////////
+        /// 버튼 동작 처리 부분 ///
+        ///////////////////////////
         private async void runActionAsync(int robotIndex)
         {
             OutputMesssage("RUN #" + (robotIndex + 1) + " 버튼 실행");
@@ -722,22 +722,24 @@ namespace RobotCC
 
             // Another Try
             string TBL_NAME = "PlantList";
-            SqlCommand cmd = new SqlCommand("select PlantId, PlantName from " + TBL_NAME, con);
+            SqlCommand cmd = new SqlCommand("select PlantNumber, PlantName from " + TBL_NAME, con);
             DataTable dt = new DataTable();
             SqlDataReader sdr = cmd.ExecuteReader();
 
             comboBox1.Items.Clear();
             while (sdr.Read())
             {
-                comboBox1.Items.Add(" " + sdr.GetString(0) + "  " + sdr.GetString(1));
+                comboBox1.Items.Add(sdr.GetString(0) + " : " + sdr.GetString(1));
             }
             //dt.Load(sdr);
             con.Close();
             comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
-
+            //G.CurrentPlantNumber = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+            //G.CurrentPlantName = comboBox1.Items[comboBox1.SelectedIndex].ToString();
             //comboBox1.DataSource = dt;
             //comboBox1.DisplayMember = "PlantName";
-            //comboBox1.ValueMember = "PlantId";
+            //comboBox1.ValueMember = "PlantNumber";
+           // Console.WriteLine(G.CurrentPlantNumber + "//" + G.CurrentPlantName + "//");
 
         }
 
@@ -824,16 +826,23 @@ namespace RobotCC
             ChangeSerialPort();
         }
 
-        //string LoRaAddress;
-
         private void loRa연결확인ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheckLoRaPortAsync(true);
         }
 
-        private void 신규등록ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 발전소목록관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddPlantList form = new AddPlantList();
+            PlantListManagement form = new PlantListManagement();
+            form.ShowDialog();
+
+            // refresh the combobox
+            LinkComboBoxPlantList();
+        }
+
+        private void plantListManagementBtn_Click(object sender, EventArgs e)
+        {
+            PlantListManagement form = new PlantListManagement();
             form.ShowDialog();
 
             // refresh the combobox
@@ -867,31 +876,14 @@ namespace RobotCC
             OutputMesssage(line, Color.Red);
         }
 
-        private void 항목삭제ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeletePlantList form = new DeletePlantList();
-            form.ShowDialog();
+            string[] plantinfo = new string[2];
+            plantinfo = comboBox1.Text.ToString().Split(':');
+            G.CurrentPlantNumber = plantinfo[0].Substring(0, plantinfo[0].Length - 1);
+            G.CurrentPlantName = plantinfo[1].Substring(1);
 
-            // refresh the combobox
-            LinkComboBoxPlantList();
-        }
-
-        private void 정보변경ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UpdatePlantList form = new UpdatePlantList();
-            form.ShowDialog();
-
-            // refresh the combobox
-            LinkComboBoxPlantList();
-        }
-
-        private void 보고서작성ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PlantListManagement form = new PlantListManagement();
-            form.ShowDialog();
-
-            // refresh the combobox
-            LinkComboBoxPlantList();
+            Console.WriteLine(G.CurrentPlantNumber + "//" + G.CurrentPlantName + "//");
         }
     }
 }

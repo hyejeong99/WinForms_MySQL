@@ -57,6 +57,11 @@ namespace RobotCC
         // Control 센터의 LoRa Address 정보
         public static string MyLoRaAddress;
 
+        // 현재 작업 중인 발전소 정보
+        public static string CurrentPlantNumber;
+        public static string CurrentPlantName;
+
+
         public static void CheckAndMakeFolder()
         {
             // C:\RobotCC 폴더 생성

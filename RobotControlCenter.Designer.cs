@@ -111,6 +111,7 @@ namespace RobotCC
             this.progressText1 = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.plantListManagementBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -133,13 +134,14 @@ namespace RobotCC
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.comboBox1.Font = new System.Drawing.Font("나눔스퀘어OTF", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.comboBox1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 15;
-            this.comboBox1.Location = new System.Drawing.Point(125, 158);
+            this.comboBox1.ItemHeight = 21;
+            this.comboBox1.Location = new System.Drawing.Point(114, 153);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(355, 23);
+            this.comboBox1.Size = new System.Drawing.Size(355, 29);
             this.comboBox1.TabIndex = 3;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -763,9 +765,11 @@ namespace RobotCC
             // 
             // output
             // 
+            this.output.BackColor = System.Drawing.SystemColors.Info;
             this.output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.output.Location = new System.Drawing.Point(36, 541);
             this.output.Name = "output";
+            this.output.ReadOnly = true;
             this.output.Size = new System.Drawing.Size(1118, 141);
             this.output.TabIndex = 66;
             this.output.Text = "";
@@ -1175,35 +1179,35 @@ namespace RobotCC
             this.통신포트변경ToolStripMenuItem,
             this.loRa연결확인ToolStripMenuItem});
             this.통신포트ToolStripMenuItem.Name = "통신포트ToolStripMenuItem";
-            this.통신포트ToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
-            this.통신포트ToolStripMenuItem.Text = "통신포트 설정";
+            this.통신포트ToolStripMenuItem.Size = new System.Drawing.Size(98, 21);
+            this.통신포트ToolStripMenuItem.Text = "통신포트설정";
             // 
             // 통신포트변경ToolStripMenuItem
             // 
             this.통신포트변경ToolStripMenuItem.Name = "통신포트변경ToolStripMenuItem";
-            this.통신포트변경ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.통신포트변경ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.통신포트변경ToolStripMenuItem.Text = "통신포트 변경";
             this.통신포트변경ToolStripMenuItem.Click += new System.EventHandler(this.통신포트변경ToolStripMenuItem_Click);
             // 
             // loRa연결확인ToolStripMenuItem
             // 
             this.loRa연결확인ToolStripMenuItem.Name = "loRa연결확인ToolStripMenuItem";
-            this.loRa연결확인ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.loRa연결확인ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loRa연결확인ToolStripMenuItem.Text = "LoRa 연결 확인";
             this.loRa연결확인ToolStripMenuItem.Click += new System.EventHandler(this.loRa연결확인ToolStripMenuItem_Click);
             // 
             // 보고서작성ToolStripMenuItem
             // 
             this.보고서작성ToolStripMenuItem.Name = "보고서작성ToolStripMenuItem";
-            this.보고서작성ToolStripMenuItem.Size = new System.Drawing.Size(121, 21);
-            this.보고서작성ToolStripMenuItem.Text = "발전소 목록 관리";
-            this.보고서작성ToolStripMenuItem.Click += new System.EventHandler(this.보고서작성ToolStripMenuItem_Click);
+            this.보고서작성ToolStripMenuItem.Size = new System.Drawing.Size(111, 21);
+            this.보고서작성ToolStripMenuItem.Text = "발전소목록관리";
+            this.보고서작성ToolStripMenuItem.Click += new System.EventHandler(this.발전소목록관리ToolStripMenuItem_Click);
             // 
             // 보고서작성ToolStripMenuItem1
             // 
             this.보고서작성ToolStripMenuItem1.Name = "보고서작성ToolStripMenuItem1";
-            this.보고서작성ToolStripMenuItem1.Size = new System.Drawing.Size(90, 21);
-            this.보고서작성ToolStripMenuItem1.Text = "보고서 작성";
+            this.보고서작성ToolStripMenuItem1.Size = new System.Drawing.Size(85, 21);
+            this.보고서작성ToolStripMenuItem1.Text = "보고서작성";
             this.보고서작성ToolStripMenuItem1.Click += new System.EventHandler(this.보고서작성ToolStripMenuItem1_Click);
             // 
             // progressText1
@@ -1260,12 +1264,26 @@ namespace RobotCC
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1116, 44);
             this.tableLayoutPanel2.TabIndex = 82;
             // 
+            // plantListManagementBtn
+            // 
+            this.plantListManagementBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.plantListManagementBtn.AutoSize = true;
+            this.plantListManagementBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.plantListManagementBtn.Location = new System.Drawing.Point(485, 153);
+            this.plantListManagementBtn.Name = "plantListManagementBtn";
+            this.plantListManagementBtn.Size = new System.Drawing.Size(148, 31);
+            this.plantListManagementBtn.TabIndex = 83;
+            this.plantListManagementBtn.Text = "발전소 목록 관리";
+            this.plantListManagementBtn.UseVisualStyleBackColor = true;
+            this.plantListManagementBtn.Click += new System.EventHandler(this.plantListManagementBtn_Click);
+            // 
             // RobotControlCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1232, 729);
+            this.Controls.Add(this.plantListManagementBtn);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.tableLayoutPanel6);
@@ -1397,5 +1415,6 @@ namespace RobotCC
         private System.Windows.Forms.ToolStripMenuItem 시스템종료ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 보고서작성ToolStripMenuItem1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button plantListManagementBtn;
     }
 }
