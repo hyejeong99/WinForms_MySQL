@@ -131,14 +131,13 @@ namespace RobotCC
 
         public static void CNFSaveFile()
         {
-
             string lines = "";
 
             lines += G.SelectedSerialPortName + Environment.NewLine;
 
             for (int i = 0; i < G.ROBOT_CNT; i++)
             {
-                lines += robotID[i] + "," + LSize[i] + "," + RSize[i] + "," + OT[i] + "," + AUTOSTART[i] + Environment.NewLine;
+                lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," + G.AUTOSTART[i] + Environment.NewLine;
             }
             File.WriteAllText(G.CNFFileName, lines);
 
@@ -155,9 +154,6 @@ namespace RobotCC
 
             Console.WriteLine(@"로그 파일 저장 완료");
         }
-
-
     }
-
 
 }

@@ -82,13 +82,8 @@ namespace RobotCC
             // 설정 파일 읽어 오기
             G.CNFLoadFile();
 
-            // 저장된 로봇명을 보여줌
-            robotName1.Text = G.robotID[0];
-            robotName2.Text = G.robotID[1];
-            robotName3.Text = G.robotID[2];
-            robotName4.Text = G.robotID[3];
-            robotName5.Text = G.robotID[4];
-            // LSize, RSize, OT는 읽어 오되, 화면에 따로 보여주지는 않음 (세부설정시 보여줌)
+            // 읽은 로봇 정보 및 설정을 화면에 표시
+            DisplayRobotInformation();
 
             //통신 포트 검사
             OutputMesssage("## [4] 통신 포트 검사 ##", Color.Blue);
@@ -123,6 +118,18 @@ namespace RobotCC
                 battery5.SelectionAlignment = HorizontalAlignment.Center;
 
             }
+        }
+
+        private void DisplayRobotInformation()
+        {
+            // 저장된 로봇명을 보여줌
+            robotName1.Text = G.robotID[0];
+            robotName2.Text = G.robotID[1];
+            robotName3.Text = G.robotID[2];
+            robotName4.Text = G.robotID[3];
+            robotName5.Text = G.robotID[4];
+            // LSize, RSize, OT는 읽어 오되, 화면에 따로 보여주지는 않음 (세부설정시 보여줌)
+
         }
 
         private void CheckSerialPortAtStart()
@@ -262,6 +269,7 @@ namespace RobotCC
             Btn_RUN[0] = runBtn1; Btn_RUN[1] = runBtn2; Btn_RUN[2] = runBtn3;
             Btn_RUN[3] = runBtn4; Btn_RUN[4] = runBtn5;
 
+
             //// [2] STOP 버튼 연결
             Btn_STOP[0] = stopBtn1; Btn_STOP[1] = stopBtn2; Btn_STOP[2] = stopBtn3;
             Btn_STOP[3] = stopBtn4; Btn_STOP[4] = stopBtn5;
@@ -393,7 +401,7 @@ namespace RobotCC
                     {
                         case REGISTER_REQ: /////////  로봇 등록 명령 처리 R->C
 
-                            string robotName = Cmd.Substring(1, 9); // 사용 길이에 따라 재조정
+                            string robotName = Cmd.Substring(1, dataSize-1); // 사용 길이에 따라 재조정
 
                             //if (G.DEBUG) OutputMesssage($" < { recvMsgs[i]} >" + " : " + " REGISTER_REQ");
                             //if (G.DEBUG) OutputMesssage("ROBOT_NAME : " + robotName);
@@ -405,22 +413,24 @@ namespace RobotCC
 
                             ///////////////////////////////
                             // [2] 로봇명을 추출하여, 관련 업데이트 작업 필요
-
-                            G.robotID[senderIndex] = robotName;
-
                             ///메인화면 정보 업데이트 + DB 업데이트
-                            if (senderIndex == 0) robotName1.Text = robotName;
-                            else if (senderIndex == 1) robotName2.Text = robotName;
-                            else if (senderIndex == 2) robotName3.Text = robotName;
-                            else if (senderIndex == 3) robotName4.Text = robotName;
-                            else if (senderIndex == 4) robotName5.Text = robotName;
+                            G.robotID[senderIndex] = robotName;
+                            TBox_RobotName[senderIndex].Text = robotName;
+                            //if (senderIndex == 0) robotName1.Text = robotName;
+                            //else if (senderIndex == 1) robotName2.Text = robotName;
+                            //else if (senderIndex == 2) robotName3.Text = robotName;
+                            //else if (senderIndex == 3) robotName4.Text = robotName;
+                            //else if (senderIndex == 4) robotName5.Text = robotName;
 
-                            //Console.WriteLine("robot index = " + senderIndex + " // Robot Name = " + robotName);
+                            Console.WriteLine("robot index = " + senderIndex + " // Robot Name = " + G.robotID[senderIndex]);
 
                             //robotID[robotIndex] = ????
                             /////////////////////////////  메인화면 
 
                             recvMsgs.RemoveAt(i);  // 해당 메시지 삭제
+
+                            // 로봇명 변경시 언제든지 자동으로 설정 파일을 저장한다.
+                            G.CNFSaveFile(); // 현재 설정을 자동 저장한다.
                             break;
 
                         case REPORT_REQ://  상태 보고 메시지 처리 R->C
@@ -434,7 +444,7 @@ namespace RobotCC
 
                             ///////////////////////////////////
                             // [2] 로봇 번호 및 명령어 종류에 따라 작업
-                            string robotInfo = Cmd.Substring(2, 9); // 사용 길이에 따라 재조정
+                            string robotInfo = Cmd.Substring(2, dataSize - 2); // 사용 길이에 따라 재조정
 
                             if (optionCode == OPTION_CODE_STATUS)
                             {
@@ -467,7 +477,7 @@ namespace RobotCC
                         default:  // 잘못된 명령어, 삭제
 
                             if (G.DEBUG) OutputMesssage(@"잘못된 명령어 수신. 명령어 = " + Cmd, Color.Red);
-                            //MessageBox.Show(@"시스템 오류 - 예상못한 경우가 발생했습니다.", "시스템 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (G.DEBUG) MessageBox.Show(@"시스템 오류 - 예상못한 경우가 발생했습니다.", "시스템 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             recvMsgs.RemoveAt(i); // 해당 메시지 삭제
 
                             break;
@@ -515,7 +525,7 @@ namespace RobotCC
                     if (cmdCode == CONTROL_REQ)  // 오직 이 경우에만 CONFIRM을 기다림
                     {
                         G.confirmWaitingMode = true;  ////// 중요
-                        bool result = await CheckAsyncControlConfmMsg(robotAddress);
+                        bool result = await CheckAsyncControlConfMsg(robotAddress);
                         G.confirmWaitingMode = false;
 
                         if (result == true)
@@ -566,7 +576,7 @@ namespace RobotCC
 
         }
 
-        async Task<bool> CheckAsyncControlConfmMsg(int robotAddr) // CONTROL_REQ 명령에 대해서는 CONF 필요
+        async Task<bool> CheckAsyncControlConfMsg(int robotAddr) // CONTROL_REQ 명령에 대해서는 CONF 필요
         {
             // CONTROL_REQ 명령의 경우, 로봇의 CONFIRM 필요
             if (G.confirmWaitingMode != true)
@@ -586,6 +596,7 @@ namespace RobotCC
                 byte[] buffs = Encoding.ASCII.GetBytes(parts[2]);
                 byte cmdCode = buffs[0];
 
+                // 응답 메시지는 senderAddr과 일치, cmdCode는 respCode여야 한다. 
                 if (robotAddr == int.Parse(parts[0]) && respCode == cmdCode)
                 {
                     confMsgs.RemoveAt(i); // 해당 메시지 삭제
@@ -603,6 +614,7 @@ namespace RobotCC
                 byte[] buffs = Encoding.ASCII.GetBytes(parts[2]);
                 byte cmdCode = buffs[0];
 
+                // 응답 메시지는 senderAddr과 일치, cmdCode는 respCode여야 한다. 
                 if (robotAddr == int.Parse(parts[0]) && respCode == cmdCode)
                 {
                     confMsgs.RemoveAt(i); // 해당 메시지 삭제
@@ -743,11 +755,6 @@ namespace RobotCC
 
         }
 
-        private void Form_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (serialPort1.IsOpen) serialPort1.Close();
-        }
-
         private void 로그파일저장ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             G.SaveLogFile(output.Text.Trim()); // 로그 정보 파일 저장
@@ -772,8 +779,8 @@ namespace RobotCC
 
                 this.Close();
             }
-        }
 
+        }
 
         private void ChangeSerialPort()
         {
@@ -850,7 +857,6 @@ namespace RobotCC
             form.Show();
         }
 
-
         public void OutputMesssage(string line)
         {
             output.AppendText(line + Environment.NewLine); // new line 추가
@@ -888,6 +894,5 @@ namespace RobotCC
 
             if(G.DEBUG) Console.WriteLine("<"+G.CurrentPlantNumber + ">,<" + G.CurrentPlantName + ">");
         }
-
     }
 }
