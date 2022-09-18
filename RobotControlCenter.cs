@@ -201,7 +201,7 @@ namespace RobotCC
             if (!serialPort1.IsOpen) return;
 
             bool respResult = false;
-            OutputMesssage(@"Lora 통신 포트 테스트 중 ......");
+            OutputMesssage(@"Lora 통신 테스트 중 ......");
 
             // 선택된 통신 포트가 Lora 포트인지 점검
             string sendMesg = "AT+ADDRESS?";

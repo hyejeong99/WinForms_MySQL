@@ -50,7 +50,6 @@ namespace RobotControlCenter
 
         }
 
-
         private int getCntPlantDB(string PlantNumber)
         {
             string TBL_NAME = "PlantList";
@@ -125,7 +124,6 @@ namespace RobotControlCenter
 
         }
 
-
         private void updateBtn_Click(object sender, EventArgs e)
         {
             string PlantNumber;
@@ -173,6 +171,7 @@ namespace RobotControlCenter
             MessageBox.Show(msg, "DB수정완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
+        
         string deletePlantName;
 
         private string getPlantName(string plantNumber)
