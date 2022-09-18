@@ -85,7 +85,7 @@ namespace RobotControlCenter
 
             if (getCntPlantDB(PlantNumber) > 0) // 이미 존재
             {
-                MessageBox.Show("발전소 코드가 이미 존재합니다.", "DB 입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("입력한 발전소 코드가 이미 존재합니다.", "DB 입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -116,7 +116,7 @@ namespace RobotControlCenter
 
             RefreshPlantDB();
 
-            string msg = @"새로운 발전소가 신규 등록되었습니다." + Environment.NewLine +
+            string msg = @"새로운 발전소가 신규 등록되었습니다." + Environment.NewLine + Environment.NewLine +
                 "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
                 "# 발전소 이름 : " + PlantName +Environment.NewLine +
                 "# 담당자명 : " + ContactPerson + Environment.NewLine +
@@ -165,7 +165,7 @@ namespace RobotControlCenter
 
             RefreshPlantDB();
 
-            string msg = @"선택한 발전소 정보가 수정되었습니다." + Environment.NewLine +
+            string msg = @"선택한 발전소 정보가 수정되었습니다." + Environment.NewLine + Environment.NewLine +
                 "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
                 "# 발전소 이름 : " + PlantName + Environment.NewLine +
                 "# 담당자명 : " + ContactPerson + Environment.NewLine +
@@ -220,7 +220,7 @@ namespace RobotControlCenter
             //// 지우기 전에 삭제할 발전소명을 먼저 읽어 저장하고, 다시 한번 확인한다. // 사용자 편의
             string PlantName = getPlantName(PlantNumber);
 
-            string del_msg = @"다음 발전소를 DB에서 삭제할까요?" + Environment.NewLine +
+            string del_msg = @"다음 발전소를 DB에서 삭제할까요?" + Environment.NewLine + Environment.NewLine +
                "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
                "# 발전소 이름 : " + PlantName;
             if (MessageBox.Show(del_msg, "삭제 확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)

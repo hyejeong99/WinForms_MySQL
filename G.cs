@@ -47,7 +47,7 @@ namespace RobotCC
         public static string oldSelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
 
         // Robot 정보 저장용 : 현재 ROBOT_CNT 개수만큼 설정
-        public static int[] robotAddress = new int[ROBOT_CNT] { 10, 20, 30, 40, 50 }; // 로봇별 통신 주소
+        public static int[] robotAddress = new int[ROBOT_CNT] { 10, 20, 30, 40, 50 }; // 로봇별 통신 주소 - 기본값, 실제값은 rcc.cnf에서 추출
         public static string[] robotID = new string[ROBOT_CNT]; // 로봇 ID(Name) 저장용
         public static double[] LSize = new double[ROBOT_CNT]; // 로봇별 청소할 가로 길이
         public static double[] RSize = new double[ROBOT_CNT]; // 로봇별 청소할 세로 길이
@@ -83,17 +83,14 @@ namespace RobotCC
                 for (int i = 0; i < G.ROBOT_CNT; i++)
                 {
                     string[] parts = lines[i + 1].Split(',');
-
-                    for (int j = 0; j < parts.Length; j++)
-                    {
-                        if (j == 0) G.robotID[i] = parts[j];
-                        else if (j == 1) G.LSize[i] = double.Parse(parts[j]);
-                        else if (j == 2) G.RSize[i] = double.Parse(parts[j]);
-                        else if (j == 3) G.OT[i] = int.Parse(parts[j]);
-                        else if (j == 4) G.AUTOSTART[i] = int.Parse(parts[j]);
-
-                    }
-
+                    if (parts.Length != 6) continue; // 잘못된 경우
+                    G.robotID[i] = parts[0];
+                    G.LSize[i] = double.Parse(parts[1]);
+                    G.RSize[i] = double.Parse(parts[2]);
+                    G.OT[i] = int.Parse(parts[3]);
+                    G.AUTOSTART[i] = int.Parse(parts[4]);
+                    G.robotAddress[i] = int.Parse(parts[5]);
+                    
                     if (G.DEBUG) Console.WriteLine("" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i]);
                 }
             }
@@ -103,11 +100,12 @@ namespace RobotCC
 
                 for (int i = 0; i < G.ROBOT_CNT; i++)
                 {
-                    G.robotID[i] = "UnNamed";
+                    G.robotID[i] = "미등록";
                     G.LSize[i] = G.DEFAULT_L_SIZE;
                     G.RSize[i] = G.DEFAULT_R_SIZE;
                     G.OT[i] = G.DEFAULT_OT;
                     G.AUTOSTART[i] = G.DEFAULT_AUTO;
+                    //G.robotAddress[i] = 원래 초기값 그대로 
                 }
             }
             //else MessageBox.Show(G.CNFFileName, "FILE ERROR");
@@ -137,7 +135,8 @@ namespace RobotCC
 
             for (int i = 0; i < G.ROBOT_CNT; i++)
             {
-                lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," + G.AUTOSTART[i] + Environment.NewLine;
+                lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," + 
+                         G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;
             }
             File.WriteAllText(G.CNFFileName, lines);
 

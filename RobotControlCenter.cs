@@ -887,10 +887,9 @@ namespace RobotCC
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] plantinfo = new string[2];
-            plantinfo = comboBox1.Text.ToString().Split(':');
-            // ':' 전후의 빈칸 제거를 위해 아래 두줄을 수행.
-            G.CurrentPlantNumber = plantinfo[0].Substring(0, plantinfo[0].Length - 1);
-            G.CurrentPlantName = plantinfo[1].Substring(1);
+            plantinfo = comboBox1.Text.ToString().Split(new string[] { " : " }, StringSplitOptions.None);
+            G.CurrentPlantNumber = plantinfo[0];
+            G.CurrentPlantName = plantinfo[1];
 
             if(G.DEBUG) Console.WriteLine("<"+G.CurrentPlantNumber + ">,<" + G.CurrentPlantName + ">");
         }
