@@ -31,7 +31,7 @@ namespace RobotControlCenter
             con.Open();
 
             string TBL_NAME = "PlantList";
-            SqlCommand cmd = new SqlCommand(@"select PlantNumber, PlantName, ContactPerson, ContactInfo from " + TBL_NAME, con);
+            SqlCommand cmd = new SqlCommand(@"select PlantNumber, PlantName, ContactPerson, ContactEmail, ContactInfo from " + TBL_NAME, con);
             DataTable dt = new DataTable();
 
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -39,14 +39,16 @@ namespace RobotControlCenter
             con.Close();
 
             dataGridView1.DataSource = dt;
-            dataGridView1.Columns["PlantNumber"].HeaderText = "빌전소 코드";
-            dataGridView1.Columns["PlantNumber"].Width = 100;
+            dataGridView1.Columns["PlantNumber"].HeaderText = "발전소 코드";
+            dataGridView1.Columns["PlantNumber"].Width = 120;
             dataGridView1.Columns["PlantName"].HeaderText = "발전소 이름";
-            dataGridView1.Columns["PlantName"].Width = 120;
+            dataGridView1.Columns["PlantName"].Width = 150;
             dataGridView1.Columns["ContactPerson"].HeaderText = "담당자명";
-            dataGridView1.Columns["ContactPerson"].Width = 120;
-            dataGridView1.Columns["ContactInfo"].HeaderText = "연락처";
-            dataGridView1.Columns["ContactInfo"].Width = 150;
+            dataGridView1.Columns["ContactPerson"].Width = 100;
+            dataGridView1.Columns["ContactEmail"].HeaderText = "담당자 이메일";
+            dataGridView1.Columns["ContactEmail"].Width = 100; 
+            dataGridView1.Columns["ContactInfo"].HeaderText = "연락처 및 주소";
+            dataGridView1.Columns["ContactInfo"].Width = 350;
 
         }
 
@@ -91,13 +93,16 @@ namespace RobotControlCenter
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("insert into " + TBL_NAME + " values (@PlantNumber, @PlantName, @ContactPerson, @ContactInfo)", con);
+            SqlCommand cmd = new SqlCommand("insert into " + TBL_NAME + " values (@PlantNumber, @PlantName, @AgencyCode, @ContactPerson, @ContactEmail, @ContactInfo)", con);
             cmd.Parameters.AddWithValue("@PlantNumber", plantNumber.Text);
             cmd.Parameters.AddWithValue("@PlantName", plantName.Text.Trim());
+            cmd.Parameters.AddWithValue("@AgencyCode", "");
             cmd.Parameters.AddWithValue("@ContactPerson", contactPerson.Text.Trim());
+            cmd.Parameters.AddWithValue("@ContactEmail", contactEmail.Text.Trim());
             cmd.Parameters.AddWithValue("@ContactInfo", contactInfo.Text.Trim());
             string PlantName = plantName.Text.Trim();
             string ContactPerson = contactPerson.Text.Trim();
+            string ContactEmail = contactEmail.Text.Trim();
             string ContactInfo = contactInfo.Text.Trim();
 
             try
@@ -119,7 +124,8 @@ namespace RobotControlCenter
                 "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
                 "# 발전소 이름 : " + PlantName +Environment.NewLine +
                 "# 담당자명 : " + ContactPerson + Environment.NewLine +
-                "# 연락처 : " + ContactInfo;
+                "# 담당자 이메일 : " + ContactEmail + Environment.NewLine +
+                "# 연락처, 주소 : " + ContactInfo;
             MessageBox.Show(msg, "DB등록완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
@@ -139,13 +145,15 @@ namespace RobotControlCenter
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand(@"update " + TBL_NAME + " set PlantNumber = @PlantNumber, PlantName = @PlantName, ContactPerson = @ContactPerson, ContactInfo = @ContactInfo where PlantNumber = @PlantNumber", con);
+            SqlCommand cmd = new SqlCommand(@"update " + TBL_NAME + " set PlantNumber = @PlantNumber, PlantName = @PlantName, ContactPerson = @ContactPerson, ContactEmail = @ContactEmail, ContactInfo = @ContactInfo where PlantNumber = @PlantNumber", con);
             cmd.Parameters.AddWithValue("@PlantNumber", plantNumber.Text);
             cmd.Parameters.AddWithValue("@PlantName", plantName.Text.Trim());
             cmd.Parameters.AddWithValue("@ContactPerson", contactPerson.Text.Trim());
+            cmd.Parameters.AddWithValue("@ContactEmail", contactEmail.Text.Trim());
             cmd.Parameters.AddWithValue("@ContactInfo", contactInfo.Text.Trim());
             string PlantName = plantName.Text.Trim();
             string ContactPerson = contactPerson.Text.Trim();
+            string ContactEmail = contactEmail.Text.Trim();
             string ContactInfo = contactInfo.Text.Trim();
 
             try
@@ -167,7 +175,8 @@ namespace RobotControlCenter
                 "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
                 "# 발전소 이름 : " + PlantName + Environment.NewLine +
                 "# 담당자명 : " + ContactPerson + Environment.NewLine +
-                "# 연락처 : " + ContactInfo;
+                "# 담당자 이메일 : " + ContactEmail + Environment.NewLine +
+                "# 연락처, 주소 : " + ContactInfo;
             MessageBox.Show(msg, "DB수정완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
@@ -182,7 +191,7 @@ namespace RobotControlCenter
             con.Open();
 
             SqlCommand cmd = new SqlCommand("select PlantNumber, PlantName from " + TBL_NAME + " where PlantNumber = @PlantNumber", con);
-            cmd.Parameters.AddWithValue("@PlantNumber", this.plantNumber.Text);
+            cmd.Parameters.AddWithValue("@PlantNumber", plantNumber);
             SqlDataReader sdr = cmd.ExecuteReader();
 
             while (sdr.Read())
@@ -263,7 +272,8 @@ namespace RobotControlCenter
             plantNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             plantName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             contactPerson.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            contactInfo.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            contactEmail.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            contactInfo.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

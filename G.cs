@@ -27,8 +27,8 @@ namespace RobotCC
         // 상수 정의 
         public const int ROBOT_CNT = 5; // 5 Robots maximum
         public const int CONF_WAIT_DURATION_1 = 1000; // 1초 응답 대기 1차
-        public const int CONF_WAIT_DURATION_2 = 3000; // 3초 응답 대기 2차
-        public const int LORA_TEST_DELAY = 3000; // 3초 응답 대기 
+        public const int CONF_WAIT_DURATION_2 = 2000; // 2초 응답 대기 2차
+        public const int LORA_TEST_DELAY = 2000; // 2초 응답 대기 
         public const double DEFAULT_L_SIZE = 4.0; // LoRA 가로
         public const double DEFAULT_R_SIZE = 2.5; // 1m 세로
 
@@ -45,6 +45,7 @@ namespace RobotCC
         public static int CurrentRobotNumer = -1;
         public static string SelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
         public static string oldSelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
+        public static int oldOrientation;
 
         // Robot 정보 저장용 : 현재 ROBOT_CNT 개수만큼 설정
         public static int[] robotAddress = new int[ROBOT_CNT] { 10, 20, 30, 40, 50 }; // 로봇별 통신 주소 - 기본값, 실제값은 rcc.cnf에서 추출
@@ -55,7 +56,7 @@ namespace RobotCC
         public static int[] AUTOSTART = new int[ROBOT_CNT]; // 자동 시작 여부 ON/OFF
 
         // Control 센터의 LoRa Address 정보
-        public static string MyLoRaAddress;
+        public static string MyLoRaAddress; // 1000?
 
         // 현재 작업 중인 발전소 정보
         public static string CurrentPlantNumber;
@@ -90,7 +91,7 @@ namespace RobotCC
                     G.OT[i] = int.Parse(parts[3]);
                     G.AUTOSTART[i] = int.Parse(parts[4]);
                     G.robotAddress[i] = int.Parse(parts[5]);
-                    
+
                     if (G.DEBUG) Console.WriteLine("" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i]);
                 }
             }
@@ -114,7 +115,6 @@ namespace RobotCC
 
         }
 
-
         public static bool CheckDBFile()
         {
             FileInfo fi = new FileInfo(G.DBFileName);
@@ -135,7 +135,7 @@ namespace RobotCC
 
             for (int i = 0; i < G.ROBOT_CNT; i++)
             {
-                lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," + 
+                lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," +
                          G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;
             }
             File.WriteAllText(G.CNFFileName, lines);

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace RobotCC
@@ -83,8 +82,7 @@ namespace RobotCC
                 Console.Write("LSize = " + G.LSize[robotIndex]);
                 Console.Write("RSize = " + G.RSize[robotIndex]);
 
-                // OT, AUTOSTART 등 기타 정보는 고칠떄마다 자동 변경
-
+                // OT, AUTOSTART 등 기타 정보는 고칠떄마다 설정 파일 자동 변경
                 G.CNFSaveFile(); // 고칠 때 마다 저장
                 this.Close();
             }
@@ -124,7 +122,7 @@ namespace RobotCC
         private void LSize_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.' || e.KeyChar == '\b') return;
-            else if(e.KeyChar >= '0' && e.KeyChar <= '9') return;
+            else if (e.KeyChar >= '0' && e.KeyChar <= '9') return;
             else e.Handled = true; // 입력 제외
         }
 

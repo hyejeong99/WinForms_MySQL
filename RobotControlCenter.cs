@@ -17,14 +17,17 @@ namespace RobotCC
     public partial class RobotControlCenter : Form
     {
         // 명령 코드 
-        public const byte REGISTER_REQ = 0x41; // A : R->C
+        public const byte REGISTER_REQ = 0x41;  // A : R->C
         public const byte REGISTER_CONF = 0x42; // B : C->R
-        public const byte REPORT_REQ = 0x43; // C : R->C (NO CONFIRM)
-        public const byte CONTROL_REQ = 0x44; // D : C->R
-        public const byte CONTROL_CONF = 0x45; // E : R->C
 
-        public const byte OPTION_CODE_STATUS = 0x46; // F : R->C
-        public const byte OPTION_CODE_BATTERY = 0x47; // G : R->C
+        public const byte REPORT_REQ = 0x43;    // C : R->C (NO CONFIRM)
+
+        public const byte CONTROL_REQ = 0x44;   // D : C->R
+        public const byte CONTROL_CONF = 0x45;  // E : R->C
+        
+        //명령 옵션 추가 코드 
+        public const byte OPTION_STATUS_CODE = 0x46; // F : R->C
+        public const byte OPTION_BATTERY_CODE = 0x47; // G : R->C
 
         // 수신 메시지 보관용 리스트
         List<string> recvMsgs = new List<string>();
@@ -104,19 +107,24 @@ namespace RobotCC
             {
                 /// ProgressBar 색상 변경을 적용하려면, 메인 program.cs에서 아래 문장을 삭제해야 제대로 동작함
                 // Application.EnableVisualStyles(); 윈도우즈 UI 표준화 작업
-                // progressText5.SelectionColor = Color.Red;
-                progressText5.ForeColor = Color.Red;
-                //progressBar5.ForeColor = Color.Red;
+                
+                Progress[0].Value = 25; TBox_Progress[0].Text = "25";
+                Progress[1].Value = 75; TBox_Progress[1].Text = "75";
+                Progress[2].Value = 3;  TBox_Progress[2].Text = "3";
+                Progress[3].Value = 10; TBox_Progress[3].Text = "10";
+                Progress[4].Value = 5; TBox_Progress[4].Text = "5";
 
-                progressBar1.Value = 25; progressText1.Text = "25";
-                progressBar2.Value = 75; progressText2.Text = "75";
-                progressBar3.Value = 50; progressText3.Text = "50";
-                progressBar3.Value = 100; progressText4.Text = "100";
-                progressBar4.Value = 5; progressText5.Text = "50";
-                //robotName1.ForeColor = Color.Red;
-                status5.SelectionAlignment = HorizontalAlignment.Center;
-                battery5.SelectionAlignment = HorizontalAlignment.Center;
+                //status5.SelectionAlignment = HorizontalAlignment.Center;
+                //battery5.SelectionAlignment = HorizontalAlignment.Center;
 
+                for(int i = 0; i < G.ROBOT_CNT; i++)
+                {
+                    if (Progress[i].Value <= 5)
+                    {
+                        Progress[i].ForeColor = Color.Red;
+                        TBox_Progress[i].ForeColor= Color.Red;
+                    }
+                }
             }
         }
 
@@ -446,12 +454,12 @@ namespace RobotCC
                             // [2] 로봇 번호 및 명령어 종류에 따라 작업
                             string robotInfo = Cmd.Substring(2, dataSize - 2); // 사용 길이에 따라 재조정
 
-                            if (optionCode == OPTION_CODE_STATUS)
+                            if (optionCode == OPTION_STATUS_CODE)
                             {
                                 TBox_Status[senderIndex].Text = robotInfo;
 
                             }
-                            else if (optionCode == OPTION_CODE_BATTERY)
+                            else if (optionCode == OPTION_BATTERY_CODE)
                             {
                                 TBox_Battery[senderIndex].Text = robotInfo;
 
@@ -665,13 +673,19 @@ namespace RobotCC
         {
             //TEST - CONF 신호 응답을 받으면 true, 아니면 false
             int Address = G.robotAddress[robotIndex];
-            Address = 20;
+            //Address = 20; // TEST를 위해 address=20으로 고정
             ////////////////////////////////////////
-            // TEST를 위해 address=20으로 고정
-            bool result = await SendCommand(Address, "D_RUN/STOP/HOME/V/H");
 
-            if (result) OutputMesssage(cmdString + " #" + (robotIndex + 1) + " 버튼 전송 완료(응답확인)");
-            else OutputMesssage(cmdString + " #" + (robotIndex + 1) + " 버튼 전송 실패(무응답)");
+            bool result = false; ;
+
+            if(cmdString.Equals("RUN")) result = await SendCommand(Address, "BR");
+            else if (cmdString.Equals("STOP")) result = await SendCommand(Address, "BS");
+            else if (cmdString.Equals("HOME")) result = await SendCommand(Address, "BH");
+            else if (cmdString.Equals("VERTICAL")) result = await SendCommand(Address, "OV");
+            else if (cmdString.Equals("HORIZONTAL")) result = await SendCommand(Address, "OH");
+            
+            if (result) OutputMesssage(cmdString + " #" + (robotIndex + 1) + " 명령 전송 완료(응답확인)");
+            else OutputMesssage(cmdString + " #" + (robotIndex + 1) + " 명령 전송 실패(무응답)");
 
             return result;
         }
@@ -719,13 +733,33 @@ namespace RobotCC
             }
         }
 
-        private void optionAction(int robotIndex)
+        private async void optionAction(int robotIndex)
         {
-            OutputMesssage("OPTION #" + (robotIndex + 1) + " 버튼 실행");
+            G.oldOrientation = G.OT[robotIndex]; //시작 전 OT 값을 임시 저장
+
+            //OutputMesssage("OPTION #" + (robotIndex + 1) + " 버튼 실행");
 
             G.CurrentRobotNumer = robotIndex;
             OptionSetting form = new OptionSetting();
             form.ShowDialog();
+
+            // 복귀시 OT[] 값 변경 여부 확인 및 변경시 로봇에 해당 명령어 전달
+            if (G.oldOrientation != G.OT[robotIndex])
+            {
+                OutputMesssage("로봇 #" + (robotIndex + 1) + " 세부설정 실행");
+                bool result;
+                if (G.OT[robotIndex] == G.VERTICAL)
+                {
+                    result = await SendControlReqMesgAndCheck(robotIndex, "VERTICAL");
+                    if(result == true) OutputMesssage("OT 명령 : 수직 설정 완료");
+                }
+                else
+                {
+                    result = await SendControlReqMesgAndCheck(robotIndex, "HORIZONTAL");
+                    if (result == true) OutputMesssage("OT 명령 : 수평 설정 완료");
+                }
+            }
+            //else Console.WriteLine("OT 값 미변경");
         }
 
         private void LinkComboBoxPlantList()
@@ -759,7 +793,6 @@ namespace RobotCC
         {
             G.SaveLogFile(output.Text.Trim()); // 로그 정보 파일 저장
             MessageBox.Show(@"출력창 내용을 로그파일로 저장했습니다.", @"로그파일 저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void 시스템종료ToolStripMenuItem_Click(object sender, EventArgs e)

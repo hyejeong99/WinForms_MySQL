@@ -1269,9 +1269,9 @@ namespace RobotCC
             this.plantListManagementBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.plantListManagementBtn.AutoSize = true;
             this.plantListManagementBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.plantListManagementBtn.Location = new System.Drawing.Point(485, 150);
+            this.plantListManagementBtn.Location = new System.Drawing.Point(485, 153);
             this.plantListManagementBtn.Name = "plantListManagementBtn";
-            this.plantListManagementBtn.Size = new System.Drawing.Size(176, 38);
+            this.plantListManagementBtn.Size = new System.Drawing.Size(150, 32);
             this.plantListManagementBtn.TabIndex = 83;
             this.plantListManagementBtn.Text = "발전소 목록 관리";
             this.plantListManagementBtn.UseVisualStyleBackColor = true;
