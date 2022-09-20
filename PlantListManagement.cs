@@ -40,15 +40,15 @@ namespace RobotControlCenter
 
             dataGridView1.DataSource = dt;
             dataGridView1.Columns["PlantNumber"].HeaderText = "발전소 코드";
-            dataGridView1.Columns["PlantNumber"].Width = 120;
+            dataGridView1.Columns["PlantNumber"].Width = 100;
             dataGridView1.Columns["PlantName"].HeaderText = "발전소 이름";
             dataGridView1.Columns["PlantName"].Width = 150;
             dataGridView1.Columns["ContactPerson"].HeaderText = "담당자명";
-            dataGridView1.Columns["ContactPerson"].Width = 100;
+            dataGridView1.Columns["ContactPerson"].Width = 120;
             dataGridView1.Columns["ContactEmail"].HeaderText = "담당자 이메일";
-            dataGridView1.Columns["ContactEmail"].Width = 100; 
+            dataGridView1.Columns["ContactEmail"].Width = 120; 
             dataGridView1.Columns["ContactInfo"].HeaderText = "연락처 및 주소";
-            dataGridView1.Columns["ContactInfo"].Width = 350;
+            dataGridView1.Columns["ContactInfo"].Width = 200;
 
         }
 
