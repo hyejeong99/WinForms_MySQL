@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 
 namespace RobotCC
@@ -147,11 +149,22 @@ namespace RobotCC
         public static void SaveLogFile(string logData)
         {
             DateTime now = DateTime.Now;
-            string logFile = G.LogFile + now.Year + now.Day + now.Hour + now.Minute + ".log";
+            string logFile = G.LogFile + now.ToString("yyyyMMdd_HHmm") + ".log";
+            //string logFile = G.LogFile + now.Year + now.Month + now.Day + now.Hour + now.Minute + ".log";
 
             File.WriteAllText(logFile, logData);
 
             Console.WriteLine(@"로그 파일 저장 완료");
+        }
+
+        public static string TimeStamp()
+        {
+            DateTime now = DateTime.Now;
+            string date = now.ToShortDateString();
+            string time = string.Format("{0:d2}", now.Hour) + ":" + string.Format("{0:d2}", now.Minute) + ":" + string.Format("{0:d2}", now.Second);
+            //string CurrentTimeStamp = now.ToString(format: "yyyy-MM-dd HH:mm:tt"); // 여기에 오전/오후가 출력됨
+            //return CurrentTimeStamp;
+            return(date + " " + time);
         }
     }
 

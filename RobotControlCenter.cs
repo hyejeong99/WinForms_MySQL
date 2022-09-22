@@ -71,7 +71,9 @@ namespace RobotCC
         private void Form_Load(object sender, EventArgs e)
         {
             OutputMesssage(G.VERSIONNAME);
-            OutputMesssage(DateTime.Now.ToString() + " : " + "SYSTEM START ");
+            //OutputMesssage(DateTime.Now.ToString() + " : " + "SYSTEM START ");
+            OutputMesssage("[" + G.TimeStamp() + "] " + "SYSTEM START ");
+
 
             OutputMesssage("## [1] 시스템 폴더 검사 ##", Color.Blue);
             // System Folder 확인 및 생성

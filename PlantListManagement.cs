@@ -40,15 +40,15 @@ namespace RobotControlCenter
 
             dataGridView1.DataSource = dt;
             dataGridView1.Columns["PlantNumber"].HeaderText = "발전소 코드";
-            dataGridView1.Columns["PlantNumber"].Width = 100;
+            dataGridView1.Columns["PlantNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridView1.Columns["PlantName"].HeaderText = "발전소 이름";
-            dataGridView1.Columns["PlantName"].Width = 150;
+            dataGridView1.Columns["PlantName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridView1.Columns["ContactPerson"].HeaderText = "담당자명";
-            dataGridView1.Columns["ContactPerson"].Width = 120;
+            dataGridView1.Columns["ContactPerson"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns["ContactEmail"].HeaderText = "담당자 이메일";
-            dataGridView1.Columns["ContactEmail"].Width = 120; 
+            dataGridView1.Columns["ContactEmail"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns["ContactInfo"].HeaderText = "연락처 및 주소";
-            dataGridView1.Columns["ContactInfo"].Width = 200;
+            dataGridView1.Columns["ContactInfo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
 
@@ -122,7 +122,7 @@ namespace RobotControlCenter
 
             string msg = @"새로운 발전소가 신규 등록되었습니다." + Environment.NewLine + Environment.NewLine +
                 "# 발전소 코드 : " + PlantNumber + Environment.NewLine +
-                "# 발전소 이름 : " + PlantName +Environment.NewLine +
+                "# 발전소 이름 : " + PlantName + Environment.NewLine +
                 "# 담당자명 : " + ContactPerson + Environment.NewLine +
                 "# 담당자 이메일 : " + ContactEmail + Environment.NewLine +
                 "# 연락처, 주소 : " + ContactInfo;
@@ -180,7 +180,7 @@ namespace RobotControlCenter
             MessageBox.Show(msg, "DB수정완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
-        
+
         string deletePlantName;
 
         private string getPlantName(string plantNumber)
@@ -275,11 +275,10 @@ namespace RobotControlCenter
             contactEmail.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             contactInfo.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
         }
-
+        
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }

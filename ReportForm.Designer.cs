@@ -41,6 +41,8 @@
             this.emailTBox = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.remarkTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label1.Location = new System.Drawing.Point(468, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(433, 33);
+            this.label1.Size = new System.Drawing.Size(539, 41);
             this.label1.TabIndex = 70;
             this.label1.Text = "보고서 작성 및 이메일 발송 시스템";
             // 
@@ -60,11 +62,11 @@
             this.comboBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.comboBox1.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 16;
+            this.comboBox1.ItemHeight = 20;
             this.comboBox1.Location = new System.Drawing.Point(123, 185);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(315, 24);
+            this.comboBox1.Size = new System.Drawing.Size(315, 28);
             this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 72;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -75,7 +77,7 @@
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(30, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.Size = new System.Drawing.Size(92, 28);
             this.label2.TabIndex = 71;
             this.label2.Text = "발전소명";
             // 
@@ -120,7 +122,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(123, 248);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(228, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(228, 30);
             this.dateTimePicker1.TabIndex = 76;
             // 
             // dateTimePicker2
@@ -129,7 +131,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(408, 249);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(228, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(228, 30);
             this.dateTimePicker2.TabIndex = 77;
             // 
             // label3
@@ -138,7 +140,7 @@
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(491, 189);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 21);
+            this.label3.Size = new System.Drawing.Size(119, 28);
             this.label3.TabIndex = 78;
             this.label3.Text = "이메일 주소";
             // 
@@ -148,7 +150,7 @@
             this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(370, 255);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 16);
+            this.label4.Size = new System.Drawing.Size(26, 20);
             this.label4.TabIndex = 80;
             this.label4.Text = "~";
             // 
@@ -158,8 +160,9 @@
             this.emailTBox.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.emailTBox.Location = new System.Drawing.Point(593, 185);
             this.emailTBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.emailTBox.Multiline = false;
             this.emailTBox.Name = "emailTBox";
-            this.emailTBox.Size = new System.Drawing.Size(308, 28);
+            this.emailTBox.Size = new System.Drawing.Size(200, 28);
             this.emailTBox.TabIndex = 81;
             this.emailTBox.Text = "";
             // 
@@ -169,7 +172,7 @@
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(30, 252);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 21);
+            this.label5.Size = new System.Drawing.Size(99, 28);
             this.label5.TabIndex = 82;
             this.label5.Text = "작업 기간";
             // 
@@ -178,15 +181,38 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(28, 297);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1296, 414);
             this.dataGridView1.TabIndex = 83;
             // 
+            // remarkTextBox
+            // 
+            this.remarkTextBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.remarkTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.remarkTextBox.Location = new System.Drawing.Point(30, 772);
+            this.remarkTextBox.Multiline = true;
+            this.remarkTextBox.Name = "remarkTextBox";
+            this.remarkTextBox.Size = new System.Drawing.Size(1294, 157);
+            this.remarkTextBox.TabIndex = 84;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(28, 737);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 22);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "(추가 사항)";
+            // 
             // ReportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1351, 941);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.remarkTextBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.emailTBox);
@@ -226,5 +252,7 @@
         private System.Windows.Forms.RichTextBox emailTBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox remarkTextBox;
+        private System.Windows.Forms.Label label6;
     }
 }

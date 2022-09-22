@@ -1268,8 +1268,9 @@ namespace RobotCC
             // 
             this.plantListManagementBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.plantListManagementBtn.AutoSize = true;
+            this.plantListManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.plantListManagementBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.plantListManagementBtn.Location = new System.Drawing.Point(485, 153);
+            this.plantListManagementBtn.Location = new System.Drawing.Point(485, 151);
             this.plantListManagementBtn.Name = "plantListManagementBtn";
             this.plantListManagementBtn.Size = new System.Drawing.Size(150, 32);
             this.plantListManagementBtn.TabIndex = 83;
@@ -1413,7 +1414,6 @@ namespace RobotCC
         private System.Windows.Forms.ToolStripMenuItem 로그파일저장ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 시스템종료ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 보고서작성ToolStripMenuItem1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button plantListManagementBtn;
     }
 }
