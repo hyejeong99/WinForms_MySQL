@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 
 namespace RobotCC
@@ -42,15 +40,14 @@ namespace RobotCC
         public const int DEFAULT_AUTO = AUTO_OFF; // 수동
         public const string DEFAULT_SERIALPORT_NAME = "Com1"; // 초기값
 
-        public static bool confirmWaitingMode = false;
+        public static bool CONF_WAIT_MODE = false;
 
         public static int CurrentRobotNumer = -1;
         public static string SelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
         public static string oldSelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
-        public static int oldOrientation;
 
         // Robot 정보 저장용 : 현재 ROBOT_CNT 개수만큼 설정
-        public static int[] robotAddress = new int[ROBOT_CNT] { 10, 20, 30, 40, 50 }; // 로봇별 통신 주소 - 기본값, 실제값은 rcc.cnf에서 추출
+        public static int[] robotAddress = new int[ROBOT_CNT]; // 로봇별 통신 주소 - 기본값, 실제값은 rcc.cnf에서 추출
         public static string[] robotID = new string[ROBOT_CNT]; // 로봇 ID(Name) 저장용
         public static double[] LSize = new double[ROBOT_CNT]; // 로봇별 청소할 가로 길이
         public static double[] RSize = new double[ROBOT_CNT]; // 로봇별 청소할 세로 길이
@@ -108,7 +105,7 @@ namespace RobotCC
                     G.RSize[i] = G.DEFAULT_R_SIZE;
                     G.OT[i] = G.DEFAULT_OT;
                     G.AUTOSTART[i] = G.DEFAULT_AUTO;
-                    //G.robotAddress[i] = 원래 초기값 그대로 
+                    G.robotAddress[i] = 0; 
                 }
             }
             //else MessageBox.Show(G.CNFFileName, "FILE ERROR");
@@ -149,7 +146,7 @@ namespace RobotCC
         public static void SaveLogFile(string logData)
         {
             DateTime now = DateTime.Now;
-            string logFile = G.LogFile + now.ToString("yyyyMMdd_HHmm") + ".log";
+            string logFile = G.LogFile + now.ToString("yyyyMMddHHmm") + ".log";
             //string logFile = G.LogFile + now.Year + now.Month + now.Day + now.Hour + now.Minute + ".log";
 
             File.WriteAllText(logFile, logData);
@@ -164,7 +161,7 @@ namespace RobotCC
             string time = string.Format("{0:d2}", now.Hour) + ":" + string.Format("{0:d2}", now.Minute) + ":" + string.Format("{0:d2}", now.Second);
             //string CurrentTimeStamp = now.ToString(format: "yyyy-MM-dd HH:mm:tt"); // 여기에 오전/오후가 출력됨
             //return CurrentTimeStamp;
-            return(date + " " + time);
+            return (date + " " + time);
         }
     }
 

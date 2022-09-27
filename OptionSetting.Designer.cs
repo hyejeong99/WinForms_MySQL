@@ -31,12 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.robotName = new System.Windows.Forms.TextBox();
             this.LSize = new System.Windows.Forms.TextBox();
             this.RSize = new System.Windows.Forms.TextBox();
-            this.radioButtonV = new System.Windows.Forms.RadioButton();
-            this.radioButtonH = new System.Windows.Forms.RadioButton();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -73,23 +70,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "로봇이름";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(50, 265);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 18);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "운용 방향";
-            // 
             // robotName
             // 
             this.robotName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.robotName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.robotName.Enabled = false;
             this.robotName.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName.Location = new System.Drawing.Point(190, 115);
+            this.robotName.Location = new System.Drawing.Point(190, 107);
             this.robotName.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.robotName.Name = "robotName";
             this.robotName.ReadOnly = true;
@@ -118,36 +105,10 @@
             this.RSize.TabIndex = 7;
             this.RSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RSize_KeyPress);
             // 
-            // radioButtonV
-            // 
-            this.radioButtonV.AutoSize = true;
-            this.radioButtonV.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButtonV.Location = new System.Drawing.Point(192, 263);
-            this.radioButtonV.Name = "radioButtonV";
-            this.radioButtonV.Size = new System.Drawing.Size(86, 22);
-            this.radioButtonV.TabIndex = 8;
-            this.radioButtonV.TabStop = true;
-            this.radioButtonV.Text = "수직방향";
-            this.radioButtonV.UseVisualStyleBackColor = true;
-            this.radioButtonV.CheckedChanged += new System.EventHandler(this.radioButtonV_CheckedChanged);
-            // 
-            // radioButtonH
-            // 
-            this.radioButtonH.AutoSize = true;
-            this.radioButtonH.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButtonH.Location = new System.Drawing.Point(192, 295);
-            this.radioButtonH.Name = "radioButtonH";
-            this.radioButtonH.Size = new System.Drawing.Size(86, 22);
-            this.radioButtonH.TabIndex = 9;
-            this.radioButtonH.TabStop = true;
-            this.radioButtonH.Text = "수평방향";
-            this.radioButtonH.UseVisualStyleBackColor = true;
-            this.radioButtonH.CheckedChanged += new System.EventHandler(this.radioButtonH_CheckedChanged);
-            // 
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.buttonSave.Location = new System.Drawing.Point(50, 365);
+            this.buttonSave.Location = new System.Drawing.Point(44, 335);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(198, 36);
             this.buttonSave.TabIndex = 10;
@@ -158,7 +119,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.buttonCancel.Location = new System.Drawing.Point(279, 365);
+            this.buttonCancel.Location = new System.Drawing.Point(273, 335);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(169, 36);
             this.buttonCancel.TabIndex = 11;
@@ -181,7 +142,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox1.Location = new System.Drawing.Point(386, 264);
+            this.checkBox1.Location = new System.Drawing.Point(192, 274);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(91, 22);
             this.checkBox1.TabIndex = 14;
@@ -193,22 +154,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 450);
+            this.ClientSize = new System.Drawing.Size(517, 417);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.radioButtonH);
-            this.Controls.Add(this.radioButtonV);
             this.Controls.Add(this.RSize);
             this.Controls.Add(this.LSize);
             this.Controls.Add(this.robotName);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "OptionSetting";
-            this.Text = "OPTION 설정";
+            this.Text = "세부 상세 설정";
             this.Load += new System.EventHandler(this.OptionFormLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,12 +178,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox robotName;
         private System.Windows.Forms.TextBox LSize;
         private System.Windows.Forms.TextBox RSize;
-        private System.Windows.Forms.RadioButton radioButtonV;
-        private System.Windows.Forms.RadioButton radioButtonH;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label label6;

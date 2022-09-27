@@ -5,10 +5,6 @@ namespace RobotCC
 {
     public partial class OptionSetting : Form
     {
-        const int VERTICAL = G.VERTICAL;
-        const int HORIZONTAL = G.HORIZONTAL;
-
-        int orientation = VERTICAL; // 현재 처리중인 기기의 방향 설정 값
         int robotIndex; // 현재 처리중인 로봇 번호(인덱스)
 
         public OptionSetting()
@@ -28,38 +24,14 @@ namespace RobotCC
             LSize.Text = G.LSize[robotIndex].ToString();
             RSize.Text = G.RSize[robotIndex].ToString();
 
-            // [3] 기존 설정 - 수평/수직 값을 보여줌
-            if (G.OT[robotIndex] == VERTICAL)
-            {
-                orientation = VERTICAL;
-                radioButtonV.Checked = true;
-            }
-            else
-            {
-                orientation = HORIZONTAL;
-                radioButtonH.Checked = true;
-            }
-
-            // [4] 자동 시작 설정 값을 보여줌
+            // [3] 자동 시작 설정 값을 보여줌
             if (G.AUTOSTART[robotIndex] == G.AUTO_ON) checkBox1.Checked = true;
             else checkBox1.Checked = false;
 
         }
 
-        private void radioButtonV_CheckedChanged(object sender, EventArgs e)  // 수직
-        {
-            if (orientation == HORIZONTAL) orientation = VERTICAL;
-        }
-
-        private void radioButtonH_CheckedChanged(object sender, EventArgs e)  // 수평
-        {
-            if (orientation == VERTICAL) orientation = HORIZONTAL;
-        }
-
         private void buttonSave_Click(object sender, EventArgs e)  // 저장
         {
-            if (orientation == VERTICAL) G.OT[robotIndex] = VERTICAL;
-            else G.OT[robotIndex] = HORIZONTAL;
 
             // 숫자가 아닌 입력의 경우, 오류 발생
             LSize.Text = LSize.Text.Trim();
@@ -82,7 +54,7 @@ namespace RobotCC
                 Console.Write("LSize = " + G.LSize[robotIndex]);
                 Console.Write("RSize = " + G.RSize[robotIndex]);
 
-                // OT, AUTOSTART 등 기타 정보는 고칠떄마다 설정 파일 자동 변경
+                // AUTOSTART 등 기타 정보는 고칠떄마다 설정 파일 자동 변경
                 G.CNFSaveFile(); // 고칠 때 마다 저장
                 this.Close();
             }

@@ -39,7 +39,7 @@ namespace RobotCC
                 CurrentContactEmail = sdr.GetString(2);
             }
             //dt.Load(sdr);
-            
+
             con.Close();
             comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
             emailTBox.Text = CurrentContactEmail;
