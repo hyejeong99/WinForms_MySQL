@@ -61,26 +61,26 @@ namespace RobotCC
 
         // 각종 component를 배열로 관리 처리하기 위한 선언
         //// Buttons : R/S/H/OPTION
-        public Button[] Btn_RUN = new Button[G.ROBOT_CNT];
-        public Button[] Btn_STOP = new Button[G.ROBOT_CNT];
-        public Button[] Btn_HOME = new Button[G.ROBOT_CNT];
-        public Button[] Btn_OPTION = new Button[G.ROBOT_CNT];
+        public Button[] Btn_RUN = new Button[G.ROBOT_MAX_CNT];
+        public Button[] Btn_STOP = new Button[G.ROBOT_MAX_CNT];
+        public Button[] Btn_HOME = new Button[G.ROBOT_MAX_CNT];
+        public Button[] Btn_OPTION = new Button[G.ROBOT_MAX_CNT];
 
         // TEXT BOXes
-        TextBox[] TBox_RobotName = new TextBox[G.ROBOT_CNT];
-        RichTextBox[] TBox_Status = new RichTextBox[G.ROBOT_CNT];
+        TextBox[] TBox_RobotName = new TextBox[G.ROBOT_MAX_CNT];
+        RichTextBox[] TBox_Status = new RichTextBox[G.ROBOT_MAX_CNT];
 
         // PROGRESSBARs
-        ProgressBar[] Progress = new ProgressBar[G.ROBOT_CNT];
-        RichTextBox[] TBox_Progress = new RichTextBox[G.ROBOT_CNT];
+        ProgressBar[] Progress = new ProgressBar[G.ROBOT_MAX_CNT];
+        RichTextBox[] TBox_Progress = new RichTextBox[G.ROBOT_MAX_CNT];
 
         // Battery Infos
-        ProgressBar[] BatteryLevel = new ProgressBar[G.ROBOT_CNT];
-        RichTextBox[] TBox_Battery = new RichTextBox[G.ROBOT_CNT];
+        ProgressBar[] BatteryLevel = new ProgressBar[G.ROBOT_MAX_CNT];
+        RichTextBox[] TBox_Battery = new RichTextBox[G.ROBOT_MAX_CNT];
 
         // Radio Buttons
-        RadioButton[] OT_H = new RadioButton[G.ROBOT_CNT];
-        RadioButton[] OT_V = new RadioButton[G.ROBOT_CNT];
+        RadioButton[] OT_H = new RadioButton[G.ROBOT_MAX_CNT];
+        RadioButton[] OT_V = new RadioButton[G.ROBOT_MAX_CNT];
 
 
         public RobotControlCenter()
@@ -161,7 +161,7 @@ namespace RobotCC
                 //status5.SelectionAlignment = HorizontalAlignment.Center;
                 //battery5.SelectionAlignment = HorizontalAlignment.Center;
 
-                for (int i = 0; i < G.ROBOT_CNT; i++)
+                for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
                 {
                     if (Progress[i].Value <= 5)
                     {
@@ -187,7 +187,7 @@ namespace RobotCC
             robotName5.Text = G.robotID[4];
 
             // [2] 기존 OT 설정 - 수평/수직 값을 보여줌
-            for (int i = 0; i < G.ROBOT_CNT; i++)
+            for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
             {
                 if (G.OT[i] == G.VERTICAL) OT_V[i].Checked = true;
                 else OT_H[i].Checked = true;
@@ -320,7 +320,7 @@ namespace RobotCC
             RobotSet.Clear();
             //Console.WriteLine("RobotSet 초기화 : " + RobotSet.Count);
 
-            for (int i = 0; i < G.ROBOT_CNT; i++)
+            for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
             {
                 //Console.WriteLine(G.robotID[i] + " /" + G.robotAddress[i]);
                 //Console.WriteLine("TEST -- "+ G.robotAddress[i]);
@@ -395,7 +395,7 @@ namespace RobotCC
 
             //// [12] 각 버튼 클릭 이벤트 공동 연결
             //// 디자인 파일에 직접 설정변경하면 디자인 화면 (경고) 오류 발생 ==> 여기서 연결
-            for (int i = 0; i < G.ROBOT_CNT; i++)
+            for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
             {
                 int index = i; // 주의 : 반드시 내부 변수를 별도로 사용해야 잘 동작
                 this.Btn_RUN[i].Click += (sender, ex) => this.runActionAsync(index);
@@ -532,7 +532,7 @@ namespace RobotCC
                             }
                         }
 
-                        if (RobotSet.Count > G.ROBOT_CNT)
+                        if (RobotSet.Count > G.ROBOT_MAX_CNT)
                         {
                             MessageBox.Show("예상치 못한 경우 발생 : 등록 로봇의 개수가 너무 많습니다.",
                                 "로봇 등록 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -638,7 +638,7 @@ namespace RobotCC
         // Address로부터 기기 순서/번호를 알아낸다. 1~5
         int getRobotIndex(int Address)
         {
-            for (int i = 0; i < G.ROBOT_CNT; i++)
+            for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
                 if (G.robotAddress[i] == Address) return i;
             return -1;  // 이 경우는 발생하면 안됨
         }

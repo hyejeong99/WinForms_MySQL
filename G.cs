@@ -25,7 +25,7 @@ namespace RobotCC
 
 
         // 상수 정의 
-        public const int ROBOT_CNT = 5; // 5 Robots maximum
+        public const int ROBOT_MAX_CNT = 5; // 5 Robots maximum
         public const int CONF_WAIT_DURATION_1 = 1000; // 1초 응답 대기 1차
         public const int CONF_WAIT_DURATION_2 = 2000; // 2초 응답 대기 2차
         public const int LORA_TEST_DELAY = 2000; // 2초 응답 대기 
@@ -47,12 +47,12 @@ namespace RobotCC
         public static string oldSelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
 
         // Robot 정보 저장용 : 현재 ROBOT_CNT 개수만큼 설정
-        public static int[] robotAddress = new int[ROBOT_CNT]; // 로봇별 통신 주소 - 기본값, 실제값은 rcc.cnf에서 추출
-        public static string[] robotID = new string[ROBOT_CNT]; // 로봇 ID(Name) 저장용
-        public static double[] LSize = new double[ROBOT_CNT]; // 로봇별 청소할 가로 길이
-        public static double[] RSize = new double[ROBOT_CNT]; // 로봇별 청소할 세로 길이
-        public static int[] OT = new int[ROBOT_CNT]; // 로봇별 청소할 방향 
-        public static int[] AUTOSTART = new int[ROBOT_CNT]; // 자동 시작 여부 ON/OFF
+        public static int[] robotAddress = new int[ROBOT_MAX_CNT] {10, 20, 30, 40, 50}; // 로봇별 통신 주소 - 기본값, 실제값은 rcc.cnf에서 추출
+        public static string[] robotID = new string[ROBOT_MAX_CNT] {"", "", "", "", "" }; // 로봇 ID(Name) 저장용
+        public static double[] LSize = new double[ROBOT_MAX_CNT]; // 로봇별 청소할 가로 길이
+        public static double[] RSize = new double[ROBOT_MAX_CNT]; // 로봇별 청소할 세로 길이
+        public static int[] OT = new int[ROBOT_MAX_CNT]; // 로봇별 청소할 방향 
+        public static int[] AUTOSTART = new int[ROBOT_MAX_CNT]; // 자동 시작 여부 ON/OFF
 
         // Control 센터의 LoRa Address 정보
         public static string MyLoRaAddress; // 1000?
@@ -80,7 +80,7 @@ namespace RobotCC
                 G.SelectedSerialPortName = lines[0];
 
                 // 로봇별 정보 추출
-                for (int i = 0; i < G.ROBOT_CNT; i++)
+                for (int i = 0; i < lines.Length -1 ; i++)
                 {
                     string[] parts = lines[i + 1].Split(',');
                     if (parts.Length != 6) continue; // 잘못된 경우
@@ -93,12 +93,23 @@ namespace RobotCC
 
                     if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
                 }
+                for (int i = lines.Length; i < G.ROBOT_MAX_CNT; i++)
+                {
+                    G.robotID[i] = "NO_NAME_" + i;
+                    G.LSize[i] = G.DEFAULT_L_SIZE;
+                    G.RSize[i] = G.DEFAULT_R_SIZE;
+                    G.OT[i] = G.DEFAULT_OT;
+                    G.AUTOSTART[i] = G.DEFAULT_AUTO;
+                    //G.robotAddress[i] = ; 원래 초기값
+
+                    if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
+                }
             }
             else // 설정 파일이 없는 경우, 초기값 설정
             {
                 G.SelectedSerialPortName = G.DEFAULT_SERIALPORT_NAME;
 
-                for (int i = 0; i < G.ROBOT_CNT; i++)
+                for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
                 {
                     G.robotID[i] = "NO_NAME_" + i;
                     G.LSize[i] = G.DEFAULT_L_SIZE;
@@ -119,7 +130,7 @@ namespace RobotCC
 
             lines += G.SelectedSerialPortName + Environment.NewLine;
 
-            for (int i = 0; i < G.ROBOT_CNT; i++)
+            for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
             {
                 lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," +
                          G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;
