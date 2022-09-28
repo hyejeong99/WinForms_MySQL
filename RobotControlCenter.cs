@@ -51,10 +51,10 @@ namespace RobotCC
 
 
         // 수신 메시지 보관용 리스트
-        List<string> recvMsgs = new List<string>();
-        List<string> confMsgs = new List<string>();
-        List<string> addrMsgs = new List<string>();
-        List<string> sendMsgs = new List<string>();
+        List<string> recvMsgs = new List<string>();  // 수신 메시지 전체 보관
+        List<string> confMsgs = new List<string>();  // CONF 메시지 분리 보관
+        List<string> addrMsgs = new List<string>();  // 주소 관련 메시지 분리 보관
+        //List<string> sendMsgs = new List<string>();
 
         // 로봇 통신 주소 보관용 리스트 - 이름순 정렬된 구조 - 향후 사용 예정
         SortedDictionary<string, int> RobotSet = new SortedDictionary<string, int> ();
@@ -91,7 +91,8 @@ namespace RobotCC
             recvMsgs.Clear();
             addrMsgs.Clear();
             confMsgs.Clear();
-            sendMsgs.Clear();
+            //sendMsgs.Clear();
+            RobotSet.Clear();
 
             // 출력 창 설정
             output.Select(output.Text.Length, 0);
@@ -117,6 +118,10 @@ namespace RobotCC
             OutputMesssage("## [단계 3] 설정 파일 업로드 ##", Color.Blue);
             // 설정 파일 읽어 오기
             G.CNFLoadFile();
+
+            // 설정 파일 읽어온 후, RobotSet 만들기
+            // 각 로봇의 이름과 LORA 주소 목록 생성
+            getRobotNameAndLoraAddress();
 
             //통신 포트 검사
             OutputMesssage("## [단계 4] 통신 포트 검사 ##", Color.Blue);
@@ -306,16 +311,27 @@ namespace RobotCC
                 }
             }
 
+ 
+        }
+
+        private void getRobotNameAndLoraAddress()
+        {
             // 로봇명/주소 세트를 생성
-            for(int i = 0; i < G.ROBOT_CNT; i++)
+            RobotSet.Clear();
+            //Console.WriteLine("RobotSet 초기화 : " + RobotSet.Count);
+
+            for (int i = 0; i < G.ROBOT_CNT; i++)
             {
+                //Console.WriteLine(G.robotID[i] + " /" + G.robotAddress[i]);
+                //Console.WriteLine("TEST -- "+ G.robotAddress[i]);
                 RobotSet.Add(G.robotID[i], G.robotAddress[i]);
             }
 
             // 현재 로봇/주소 목록 출력
+            if (G.DEBUG) OutputMesssage("로봇명/주소 목록");
             foreach (var s in RobotSet)
             {
-                if(G.DEBUG) OutputMesssage("로봇명/주소 = " + s.Key + " / " + s.Value);
+                if (G.DEBUG) OutputMesssage("로봇명/주소 = " + s.Key + " / " + s.Value);
             }
         }
 
@@ -426,12 +442,13 @@ namespace RobotCC
         private void ManageRecvMessages(object o, EventArgs e) // CMD 종류에 따라 처리 - WorkLog 업데이트 작업도 해야 함
         {
             ////////////////////////  수신 메시지 처리 ///////////////////////////
+
             for (int i = 0; i < recvMsgs.Count; i++)
             {
                 try
                 {
-                    if (G.DEBUG) OutputMesssage($"< # {i} : {recvMsgs[i]} >" + " - " + " MESG");
-                    if (G.DEBUG) Console.WriteLine($"< {recvMsgs[i]} >" + " : " + " MESG");
+                    if (G.DEBUG) OutputMesssage($"수신 메시지 : < # {i} : {recvMsgs[i]} >");
+                    if (G.DEBUG) Console.WriteLine($"수신 메시지 : < {recvMsgs[i]} >");
 
                     // 통신용 헤더 정보와 송수신 메시지 분리
                     int index = recvMsgs[i].IndexOf("=");
@@ -456,7 +473,7 @@ namespace RobotCC
 
                     //// [4] 명령어에 따른 작업
                     string CmdCode = parts[3]; // 명령어 종류 파악
-
+                    
                     // 명령어 종류에 따라 해당 작업 수행
                     if (CmdCode.Equals(REGISTER_REQ)) //  로봇 등록 명령 처리 R->C
                     {
@@ -478,25 +495,54 @@ namespace RobotCC
 
                         //if (G.DEBUG) Console.WriteLine("robot index = " + senderIndex + " // Robot Name = " + G.robotID[senderIndex]);
 
-                        if(!RobotSet.ContainsKey(robotName)) // 로봇명 일치하는 것이 없으면, 로봇명과 주소를 신규 등록
+                        /////////////////////////////////////////////////
+                        ///// 모든 RobotSet 목록은 로봇명/주소가 Unique해야 한다. 
+                        /////////////////////////////////////////////////
+
+                        Console.WriteLine("로봇명 = " + robotName + "/" + senderAddr);
+                        // [1] 로봇명 및 주소가 일치하는 것이 없으면, 로봇명과 주소를 신규 등록
+                        if (!RobotSet.ContainsKey(robotName) && !RobotSet.ContainsValue(senderAddr))
                             RobotSet.Add(robotName, senderAddr);
-                        else if (RobotSet.ContainsKey(robotName) && RobotSet[robotName] != senderAddr) // 같은 로봇명이지만, 다른 주소이면 나중 것 사용                       {
-                        {
-                            RobotSet.Remove(robotName); // 기존 정보 삭제
-                            RobotSet.Add(robotName, senderAddr);  // 새로운 정보로 대체
-                            OutputMesssage("로봇명 "+ robotName + "의 통신 주소가 " + senderAddr + "으로 변경되었습니다.");
-                            //MessageBox.Show("예상치 못한 경우 발생");
-                        }
-                        
-                        if(RobotSet.Count > G.ROBOT_CNT)
-                        {
-                            MessageBox.Show("예상치 못한 경우 발생, 등록 로봇의 개수가 너무 많습니다.");
 
+                        // [2] 로봇명은 일치하는 경우,        
+                        else if (RobotSet.ContainsKey(robotName))
+                        {
+                            // [2-1] 로봇명은 일치하나 주소가 다른 경우 -- 동일 로봇의 통신 주소 변경 
+                            if (RobotSet[robotName] != senderAddr)
+                            {
+                                // 목록 대체 : 원래 항목을 삭제하고 새로운 것을 추가                
+                                RobotSet.Remove(robotName); // 기존 정보 삭제
+                                RobotSet.Add(robotName, senderAddr);  // 새로운 정보로 대체
+                                OutputMesssage("로봇명 " + robotName + "의 통신 주소가 " + senderAddr + "으로 변경되었습니다.");
+                            }
+                            // 나머지 경우, 즉 로봇명과 주소가 동일한 경우, 건너뜀
+                        }
+                        // [3] 로봇명은 다르나, 주소가 동일한 것이 이미 존재하면
+                        // 예시, 기존 로봇 고장 등으로 주소가 다른 새로운 로봇이 추가되는 경우,
+                        else if (RobotSet.ContainsValue(senderAddr)) // 동일 주소 존재
+                        {
+                            foreach (var s in RobotSet)
+                            {
+                                if (s.Value == senderAddr) // 주소는 일치하나, 로봇명이 다른 경우, 
+                                {
+                                    RobotSet.Remove(s.Key); // 해당 주소를 갖는 항목/쌍을 제거
+                                    RobotSet.Add(robotName, senderAddr); // 새로운 목록 구성
+                                    break;
+                                }
+                            }
                         }
 
+                        if (RobotSet.Count > G.ROBOT_CNT)
+                        {
+                            MessageBox.Show("예상치 못한 경우 발생 : 등록 로봇의 개수가 너무 많습니다.",
+                                "로봇 등록 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        if (G.DEBUG) Console.WriteLine("로봇명/주소 목록");
                         foreach (var s in RobotSet)
                         {
-                            Console.WriteLine("로봇명/주소 = " + s.Key + " / " + s.Value);
+                            if (G.DEBUG) Console.WriteLine("로봇명/주소 = " + s.Key + " / " + s.Value);
                         }
 
                         recvMsgs.RemoveAt(i);  // 해당 메시지 삭제
@@ -630,8 +676,8 @@ namespace RobotCC
                         }
                         else
                         {
-                            if (G.DEBUG) OutputMesssage("No Confirm Msg. --명령 전송 실패");
-                            if (G.DEBUG) Console.WriteLine(@"응답 메시지 없음");
+                            if (G.DEBUG) OutputMesssage("응답 확인 없음");
+                            if (G.DEBUG) Console.WriteLine(@"응답 확인 메시지 없음");
                             return false;
                         }
                     }
@@ -665,9 +711,8 @@ namespace RobotCC
 
         private void LoRaWrite(int robotAddress, string cmdCode)
         {
-            string HEADER_SEND = "AT+SEND=";
             string sendMesg = MSG_HEADER + "," + cmdCode; // "LX"+ "," + 명령어 코드
-            String sendPacket = HEADER_SEND + robotAddress + "," + sendMesg.Length + "," + sendMesg;
+            String sendPacket = "AT+SEND=" + robotAddress + "," + sendMesg.Length + "," + sendMesg;
 
             serialPort1.Write(sendPacket + Environment.NewLine);
 
@@ -750,9 +795,8 @@ namespace RobotCC
         private async Task<bool> SendCommandAndCheckCONF(int robotIndex, string cmdCode) // 특정 로봇에게 명령을 전송하고, CONF 신호를 기다림
         {
             int Address = G.robotAddress[robotIndex];
-            ////////////////////////////////////////
 
-            bool result = await SendCommand(Address, cmdCode);
+            bool result = await SendCommand(Address, cmdCode); // cmdCode 명령 전송
 
             if (result) OutputMesssage(cmdCode + " #" + (robotIndex + 1) + " 명령 전송 완료(응답확인)");
             else OutputMesssage(cmdCode + " #" + (robotIndex + 1) + " 명령 전송 실패(무응답)");
@@ -1026,7 +1070,7 @@ namespace RobotCC
             G.CurrentPlantNumber = plantinfo[0];
             G.CurrentPlantName = plantinfo[1];
 
-            if (G.DEBUG) Console.WriteLine("<" + G.CurrentPlantNumber + ">,<" + G.CurrentPlantName + ">");
+            if (G.DEBUG) Console.WriteLine("Selected Plant : <" + G.CurrentPlantNumber + ">,<" + G.CurrentPlantName + ">");
         }
 
     }

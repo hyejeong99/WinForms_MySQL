@@ -72,7 +72,7 @@ namespace RobotCC
         {
             FileInfo fi = new FileInfo(G.CNFFileName);
 
-            if (fi.Exists)
+            if (fi.Exists) // rcc 설정파일 존재시
             {
                 string[] lines = File.ReadAllLines(G.CNFFileName);
 
@@ -91,7 +91,7 @@ namespace RobotCC
                     G.AUTOSTART[i] = int.Parse(parts[4]);
                     G.robotAddress[i] = int.Parse(parts[5]);
 
-                    if (G.DEBUG) Console.WriteLine("" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i]);
+                    if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
                 }
             }
             else // 설정 파일이 없는 경우, 초기값 설정
@@ -100,29 +100,16 @@ namespace RobotCC
 
                 for (int i = 0; i < G.ROBOT_CNT; i++)
                 {
-                    G.robotID[i] = "미등록";
+                    G.robotID[i] = "NO_NAME_" + i;
                     G.LSize[i] = G.DEFAULT_L_SIZE;
                     G.RSize[i] = G.DEFAULT_R_SIZE;
                     G.OT[i] = G.DEFAULT_OT;
                     G.AUTOSTART[i] = G.DEFAULT_AUTO;
-                    G.robotAddress[i] = 0; 
+                    //G.robotAddress[i] = 0; 기본값 
+
+                    if (G.DEBUG) Console.WriteLine("초기세팅 - R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
                 }
             }
-            //else MessageBox.Show(G.CNFFileName, "FILE ERROR");
-
-            Console.WriteLine("CNF 설정 파일 적용");
-
-        }
-
-        public static bool CheckDBFile()
-        {
-            FileInfo fi = new FileInfo(G.DBFileName);
-
-            if (fi.Exists)
-            {
-                return true;
-            }
-            else return false;
 
         }
 
