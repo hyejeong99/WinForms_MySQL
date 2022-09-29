@@ -345,7 +345,6 @@ namespace RobotCC
             this.robotName1.ReadOnly = true;
             this.robotName1.Size = new System.Drawing.Size(123, 19);
             this.robotName1.TabIndex = 31;
-            this.robotName1.Text = "RX000001";
             this.robotName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // robotName2
@@ -359,7 +358,6 @@ namespace RobotCC
             this.robotName2.ReadOnly = true;
             this.robotName2.Size = new System.Drawing.Size(123, 19);
             this.robotName2.TabIndex = 32;
-            this.robotName2.Text = "R00002";
             this.robotName2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // robotName3
@@ -373,7 +371,6 @@ namespace RobotCC
             this.robotName3.ReadOnly = true;
             this.robotName3.Size = new System.Drawing.Size(123, 19);
             this.robotName3.TabIndex = 33;
-            this.robotName3.Text = "R00003";
             this.robotName3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // robotName4
@@ -387,7 +384,6 @@ namespace RobotCC
             this.robotName4.ReadOnly = true;
             this.robotName4.Size = new System.Drawing.Size(123, 19);
             this.robotName4.TabIndex = 34;
-            this.robotName4.Text = "R00004";
             this.robotName4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // robotName5
@@ -401,7 +397,6 @@ namespace RobotCC
             this.robotName5.ReadOnly = true;
             this.robotName5.Size = new System.Drawing.Size(123, 19);
             this.robotName5.TabIndex = 35;
-            this.robotName5.Text = "R00005";
             this.robotName5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // batteryText1
