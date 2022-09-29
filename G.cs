@@ -84,12 +84,12 @@ namespace RobotCC
                 G.RSize[i] = G.DEFAULT_R_SIZE;
                 G.OT[i] = G.DEFAULT_OT;
                 G.AUTOSTART[i] = G.DEFAULT_AUTO;
-                G.robotAddress[i] = 10 * i + 10; // 초기값, 10-50 기본값 
+                G.robotAddress[i] = 0; // 초기값, 0
 
                 //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
             }
 
-            G.CURRENT_ROBOT_NUM = 0;  // 일단 0으로 초기화 후 아래에서 적절히 변경
+            G.CURRENT_ROBOT_NUM = 0;  // 일단 항상 0으로 초기화 
 
             if (fi.Exists) // rcc 설정파일 존재시
             {
@@ -98,10 +98,11 @@ namespace RobotCC
                 // rcc 설정 파일 내용 중 PortName만 활용
                 G.SelectedSerialPortName = lines[0];
 
-                // 로봇별 정보 추출 - 라인수만큼만 추출
+                // 로봇별 정보 추출 - 라인수만큼만 추출 - 사용자 편의상 일부 값은 기존 세팅 활용
                 for (int i = 0; i < lines.Length - 1; i++)
                 {
                     if (!lines[i + 1].Contains(",")) continue; // 내용이 빈 라인의 경우, 무시
+
                     // G.CURRENT_ROBOT_NUM++;
                     //if (G.DEBUG) Console.WriteLine("ROBOT CNT = " + G.CURRENT_ROBOT_NUM);
 
@@ -117,8 +118,6 @@ namespace RobotCC
 
                     if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
                 }
-
-                //    if (G.DEBUG) Console.WriteLine("ROBOT CNT = " + G.CURRENT_ROBOT_NUM);
             }
         }
 

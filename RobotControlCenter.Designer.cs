@@ -291,7 +291,7 @@ namespace RobotCC
             this.optionBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn2.AutoSize = true;
             this.optionBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn2.Location = new System.Drawing.Point(1186, 8);
+            this.optionBtn2.Location = new System.Drawing.Point(1188, 8);
             this.optionBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn2.Name = "optionBtn2";
             this.optionBtn2.Size = new System.Drawing.Size(100, 28);
@@ -303,7 +303,7 @@ namespace RobotCC
             this.optionBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn3.AutoSize = true;
             this.optionBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn3.Location = new System.Drawing.Point(1186, 8);
+            this.optionBtn3.Location = new System.Drawing.Point(1188, 8);
             this.optionBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn3.Name = "optionBtn3";
             this.optionBtn3.Size = new System.Drawing.Size(100, 28);
@@ -315,7 +315,7 @@ namespace RobotCC
             this.optionBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn4.AutoSize = true;
             this.optionBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn4.Location = new System.Drawing.Point(1186, 8);
+            this.optionBtn4.Location = new System.Drawing.Point(1188, 8);
             this.optionBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn4.Name = "optionBtn4";
             this.optionBtn4.Size = new System.Drawing.Size(100, 28);
@@ -327,7 +327,7 @@ namespace RobotCC
             this.optionBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn5.AutoSize = true;
             this.optionBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn5.Location = new System.Drawing.Point(1186, 8);
+            this.optionBtn5.Location = new System.Drawing.Point(1188, 8);
             this.optionBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn5.Name = "optionBtn5";
             this.optionBtn5.Size = new System.Drawing.Size(100, 28);
@@ -828,7 +828,7 @@ namespace RobotCC
             this.optionBtn1.AutoSize = true;
             this.optionBtn1.BackColor = System.Drawing.Color.Transparent;
             this.optionBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn1.Location = new System.Drawing.Point(1186, 8);
+            this.optionBtn1.Location = new System.Drawing.Point(1188, 8);
             this.optionBtn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn1.Name = "optionBtn1";
             this.optionBtn1.Size = new System.Drawing.Size(100, 28);
@@ -933,7 +933,7 @@ namespace RobotCC
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel4.Controls.Add(this.radioV2, 11, 0);
             this.tableLayoutPanel4.Controls.Add(this.batteryBar2, 6, 0);
             this.tableLayoutPanel4.Controls.Add(this.radioH2, 10, 0);
@@ -1009,7 +1009,7 @@ namespace RobotCC
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel5.Controls.Add(this.radioV3, 11, 0);
             this.tableLayoutPanel5.Controls.Add(this.radioH3, 10, 0);
             this.tableLayoutPanel5.Controls.Add(this.batteryBar3, 6, 0);
@@ -1085,7 +1085,7 @@ namespace RobotCC
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel6.Controls.Add(this.radioV4, 11, 0);
             this.tableLayoutPanel6.Controls.Add(this.radioH4, 10, 0);
             this.tableLayoutPanel6.Controls.Add(this.batteryBar4, 6, 0);
@@ -1161,7 +1161,7 @@ namespace RobotCC
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel7.Controls.Add(this.radioV5, 11, 0);
             this.tableLayoutPanel7.Controls.Add(this.radioH5, 10, 0);
             this.tableLayoutPanel7.Controls.Add(this.batteryBar5, 6, 0);
@@ -1248,14 +1248,14 @@ namespace RobotCC
             // 로그파일저장ToolStripMenuItem
             // 
             this.로그파일저장ToolStripMenuItem.Name = "로그파일저장ToolStripMenuItem";
-            this.로그파일저장ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.로그파일저장ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.로그파일저장ToolStripMenuItem.Text = "출력창 내용 저장";
             this.로그파일저장ToolStripMenuItem.Click += new System.EventHandler(this.로그파일저장ToolStripMenuItem_Click);
             // 
             // 시스템종료ToolStripMenuItem
             // 
             this.시스템종료ToolStripMenuItem.Name = "시스템종료ToolStripMenuItem";
-            this.시스템종료ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.시스템종료ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.시스템종료ToolStripMenuItem.Text = "시스템 종료";
             this.시스템종료ToolStripMenuItem.Click += new System.EventHandler(this.시스템종료ToolStripMenuItem_Click);
             // 
@@ -1313,7 +1313,7 @@ namespace RobotCC
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel2.Controls.Add(this.radioV1, 11, 0);
             this.tableLayoutPanel2.Controls.Add(this.batteryBar1, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.optionBtn1, 12, 0);
@@ -1411,7 +1411,7 @@ namespace RobotCC
             this.label8.Location = new System.Drawing.Point(1161, 2);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(148, 32);
+            this.label8.Size = new System.Drawing.Size(152, 32);
             this.label8.TabIndex = 12;
             this.label8.Text = "세부설정";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1504,7 +1504,7 @@ namespace RobotCC
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel1.Controls.Add(this.label16, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);

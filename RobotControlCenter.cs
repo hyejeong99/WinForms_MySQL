@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,9 +54,9 @@ namespace RobotCC
         List<string> recvMsgs = new List<string>();  // 수신 메시지 전체 보관
         List<string> confMsgs = new List<string>();  // CONF 메시지 분리 보관
         List<string> addrMsgs = new List<string>();  // 주소 관련 메시지 분리 보관
-        //List<string> sendMsgs = new List<string>();
+                                                     //List<string> sendMsgs = new List<string>();
 
-     
+
         // 각종 component를 배열로 관리 처리하기 위한 선언
         //// Buttons : R/S/H/OPTION
         public Button[] Btn_RUN = new Button[G.ROBOT_MAX_CNT];
@@ -192,7 +191,7 @@ namespace RobotCC
 
         private void DisableRow(int i)
         {
-            Btn_RUN[i].Enabled = false;  Btn_STOP[i].Enabled = false; Btn_HOME[i].Enabled = false;
+            Btn_RUN[i].Enabled = false; Btn_STOP[i].Enabled = false; Btn_HOME[i].Enabled = false;
             OT_H[i].Enabled = false; OT_V[i].Enabled = false;
             Btn_OPTION[i].Enabled = false;
 
@@ -205,11 +204,11 @@ namespace RobotCC
 
         private void EnableRow(int i)
         {
-            Btn_RUN[i].Enabled = true; Btn_STOP[i].Enabled = true; 
+            Btn_RUN[i].Enabled = true; Btn_STOP[i].Enabled = true;
             Btn_HOME[i].Enabled = true; Btn_OPTION[i].Enabled = true;
             OT_V[i].Enabled = true; OT_H[i].Enabled = true;
-            
-            TBox_RobotName[i].Enabled = true; 
+
+            TBox_RobotName[i].Enabled = true;
             TBox_Status[i].Enabled = true;
 
             Progress[i].Visible = true; TBox_Progress[i].Enabled = true;
@@ -237,7 +236,7 @@ namespace RobotCC
                 else OT_H[i].Checked = true;
 
                 TBox_Status[i].Text = "로봇 전원 OFF, 주소 = " + G.robotAddress[i];
-                BatteryLevel[i].Value = 0;  Progress[i].Value = 0;
+                BatteryLevel[i].Value = 0; Progress[i].Value = 0;
 
                 DisableRow(i); // 전원 ON될 때까지 각종 컴포넌트 일시 비활성화
             }
@@ -363,7 +362,7 @@ namespace RobotCC
                 }
             }
 
- 
+
         }
 
         private void CheckDBFile()
@@ -587,7 +586,7 @@ namespace RobotCC
 
                     //// [4] 명령어에 따른 작업
                     string CmdCode = parts[3]; // 명령어 종류 파악
-                    
+
                     // 명령어 종류에 따라 해당 작업 수행
                     if (CmdCode.Equals(REGISTER_REQ)) //  로봇 등록 명령 처리 R->C
                     {
@@ -605,9 +604,9 @@ namespace RobotCC
                         ///메인화면 정보 업데이트 + DB 업데이트
 
                         bool found = false;
-                        for(int r = 0; r < G.CURRENT_ROBOT_NUM; r++)
+                        for (int r = 0; r < G.CURRENT_ROBOT_NUM; r++)
                         {
-                            if(G.robotID[r].Equals(robotName) && G.robotAddress[r] == senderAddr)  // 2-1 경우
+                            if (G.robotID[r].Equals(robotName) && G.robotAddress[r] == senderAddr)  // 2-1 경우
                             {
                                 EnableRow(r);
                                 TBox_RobotName[r].Text = robotName;
@@ -641,7 +640,7 @@ namespace RobotCC
                             }
                         }
 
-                        if(!found)
+                        if (!found)
                         {
                             // 동일한 값이 전혀 없는 경우 - 2-4 경우
                             // 새로운 기기 추가
@@ -667,7 +666,7 @@ namespace RobotCC
                             Console.WriteLine("로봇명/주소 목록");
 
                             for (int r = 0; r < G.CURRENT_ROBOT_NUM; r++)
-                            { 
+                            {
                                 Console.WriteLine(G.robotID[r] + "/" + G.robotAddress[r]);
                             }
                         }
@@ -692,7 +691,7 @@ namespace RobotCC
                         // [2] 전달된 추가적인 정보, 즉 배터리 수준을 보여줌
                         // 추후 숫자가 아니라, progressbar 형식으로 출력
                         if (G.DEBUG) OutputMesssage(senderAddr + " : " + CmdCode + " BATTERY INFO");
-                        
+
                         TBox_Status[senderIndex].Text = "배터리 정보 수집";
 
                         TBox_Battery[senderIndex].Text = parts[4];
