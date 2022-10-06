@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -524,6 +525,13 @@ namespace RobotCC
                     //// [4] 명령어에 따른 작업
                     string CmdCode = parts[3]; // 명령어 종류 파악
 
+                    // 특수 경우 검사
+                    if(!CmdCode.Equals(REGISTER_REQ) && senderIndex == -1)
+                    {
+                        Console.WriteLine("오류 : 미등록된 로봇으로부터 로봇 등록 이외의 메시지 수신 - 무시.");
+                        continue;
+                    }
+
                     // 명령어 종류에 따라 해당 작업 수행
                     if (CmdCode.Equals(REGISTER_REQ)) //  로봇 등록 명령 처리 R->C
                     {
@@ -635,8 +643,11 @@ namespace RobotCC
                                 G.ROBOT_REG_CNT++;
                             }
                         }
-                       
+
+                        SoundBeep(0, 300); //도
+
                         G.CNFSaveFile(); // 현재 설정을 자동 저장한다.
+
                     }
                     else if (CmdCode.Equals(ERR_STATUS_REQ))
                     {
@@ -646,8 +657,10 @@ namespace RobotCC
                         SendConfMsgToRobot(senderAddr, ERR_STATUS_CNF);
 
                         // [2] 에러 코드를 Status 란에 보여준다. 추가 액션/DB 관리 가능
-                        TBox_Status[senderIndex].Text = "작동오류, 중지 : " + errorCodeStr;
                         TBox_Status[senderIndex].ForeColor = Color.Red;
+                        TBox_Status[senderIndex].Text = "작동오류, 중지 : " + errorCodeStr;
+                        Refresh();// 화면 출력 후 소리 재생
+                        SoundBeep(7, 3000); SoundBeep(3, 3000); SoundBeep(7, 3000); 
 
                         // [3] 작업 상태(ERROR_STOP)를 DB에 저장한다. 카운트는 현재 값으로 
                         DB.insertWorkLog(senderIndex, G.ERROR_STOP, errorCodeStr);
@@ -659,19 +672,24 @@ namespace RobotCC
                         // 추후 숫자가 아니라, progressbar 형식으로 출력
                         if (G.DEBUG) OutputMesssage(senderAddr + " : " + CmdCode + " BATTERY INFO");
 
-                        TBox_Status[senderIndex].Text = "배터리 정보 수집";
-                        TBox_Status[senderIndex].ForeColor = G.DefaultColor;
-
                         TBox_Battery[senderIndex].Text = parts[4];
                         BatteryLevel[senderIndex].Value = int.Parse(parts[4]);
 
                         if (BatteryLevel[senderIndex].Value <= 10)
                         {
+                            TBox_Status[senderIndex].ForeColor = Color.Red;
+                            TBox_Status[senderIndex].Text = "배터리 충전 필요";
+
                             BatteryLevel[senderIndex].ForeColor = Color.Red;
                             TBox_Battery[senderIndex].ForeColor = Color.Red;
+                            Refresh();// 화면 출력 후 소리 재생
+
+                            SoundBeep(1, 100); SoundBeep(3, 500);
                         }
                         else
                         {
+                            TBox_Status[senderIndex].ForeColor = G.DefaultColor;
+                            TBox_Status[senderIndex].Text = "배터리 정보 수집";
                             BatteryLevel[senderIndex].ForeColor = ProgressBar.DefaultForeColor;
                             TBox_Battery[senderIndex].ForeColor = G.DefaultColor;
                         }
@@ -707,7 +725,13 @@ namespace RobotCC
                         SendConfMsgToRobot(senderAddr, FINISH_STATUS_CNF);
 
                         // [2] 작업 종료 사실을 Status란에 보여준다. 추가 액션/DB 관리 가능
-                        TBox_Status[senderIndex].Text = "작업 완료";
+                      
+                        TBox_Status[senderIndex].Text = "작업 완료!"; 
+                        TBox_Status[senderIndex].ForeColor = Color.Blue;
+                        Refresh();// 화면 출력 후 소리 재생
+
+                        SoundBeep(7, 500); //도
+                        SoundBeep(7, 500); //도
 
                         // [3] 작업 상태를 DB에 저장한다. 카운트는 최신 값으로 
                         DB.insertWorkLog(senderIndex, G.FINISHED, "" );
@@ -1150,6 +1174,18 @@ namespace RobotCC
             G.CurrentPlantName = plantinfo[1];
 
             //if (G.DEBUG) Console.WriteLine("Selected Plant : <" + G.CurrentPlantNumber + ">,<" + G.CurrentPlantName + ">");
+        }
+
+        private void SoundBeep(int cord, int time)
+        {
+            if(cord == 0) Console.Beep(262, time); //도 
+            else if(cord == 1) Console.Beep(294, time); //레
+            else if (cord == 2) Console.Beep(330, time); //미 
+            else if (cord == 3) Console.Beep(349, time); //파
+            else if (cord == 4) Console.Beep(392, time); //솔 
+            else if (cord == 5) Console.Beep(440, time); //라
+            else if (cord == 6) Console.Beep(494, time); //시
+            else Console.Beep(523, time); //도
         }
 
     }

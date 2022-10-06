@@ -34,8 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.emailBtn = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeFrom = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeTo = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.emailTBox = new System.Windows.Forms.RichTextBox();
@@ -115,28 +115,28 @@
             this.emailBtn.UseVisualStyleBackColor = false;
             this.emailBtn.Click += new System.EventHandler(this.emailBtn_Click);
             // 
-            // dateTimePicker1
+            // dateTimeFrom
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm";
-            this.dateTimePicker1.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(134, 187);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 26);
-            this.dateTimePicker1.TabIndex = 76;
+            this.dateTimeFrom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimeFrom.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.dateTimeFrom.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeFrom.Location = new System.Drawing.Point(134, 187);
+            this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimeFrom.Name = "dateTimeFrom";
+            this.dateTimeFrom.Size = new System.Drawing.Size(140, 26);
+            this.dateTimeFrom.TabIndex = 76;
             // 
-            // dateTimePicker2
+            // dateTimeTo
             // 
-            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:mm";
-            this.dateTimePicker2.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(304, 187);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(140, 26);
-            this.dateTimePicker2.TabIndex = 77;
+            this.dateTimeTo.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.dateTimeTo.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeTo.Location = new System.Drawing.Point(304, 187);
+            this.dateTimeTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimeTo.Name = "dateTimeTo";
+            this.dateTimeTo.Size = new System.Drawing.Size(140, 26);
+            this.dateTimeTo.TabIndex = 77;
             // 
             // label3
             // 
@@ -186,6 +186,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(45, 228);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -244,8 +245,8 @@
             this.Controls.Add(this.emailTBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimeTo);
+            this.Controls.Add(this.dateTimeFrom);
             this.Controls.Add(this.emailBtn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.comboBox1);
@@ -271,8 +272,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button emailBtn;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimeFrom;
+        private System.Windows.Forms.DateTimePicker dateTimeTo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox emailTBox;

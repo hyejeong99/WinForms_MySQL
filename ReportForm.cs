@@ -97,8 +97,8 @@ namespace RobotCC
         {
             string TBL_NAME = "WorkLog";
 
-            DateTime From = dateTimePicker1.Value;
-            DateTime To = dateTimePicker2.Value;
+            DateTime From = dateTimeFrom.Value;
+            DateTime To = dateTimeTo.Value;
 
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
@@ -123,18 +123,6 @@ namespace RobotCC
             dt.Load(sdr);
             con.Close();
 
-            //TimeSpan Diff = To - From;
-
-
-            //Console.WriteLine("TEST1 : " + dateTimePicker1.Value.ToShortDateString());
-            //Console.WriteLine("TEST2 : " + dateTimePicker2.Value.ToShortDateString());
-            //Console.WriteLine("TEST3 : " + (To - From).Days);
-
-            //Console.WriteLine("TEST1 : " + dateTimePicker1.Value.ToShortTimeString());
-            //Console.WriteLine("TEST2 : " + dateTimePicker2.Value.ToShortTimeString());
-            //Console.WriteLine("TEST3 : " + (To - From).Minutes);
-            //Console.WriteLine("TEST4 : " + Diff.TotalMinutes);
-
             dataGridView1.DataSource = dt;
             dataGridView1.Columns["PlantNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns["TimeStamp"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -142,15 +130,15 @@ namespace RobotCC
             dataGridView1.Columns["LSize"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns["RSize"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns["Counter"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns["Etc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
-
 
         // 다른 버전
         private void searchBtn1_Click(object sender, EventArgs e)
         {
             string TBL_NAME = "ReportData";
-            DateTime From = dateTimePicker1.Value;
-            DateTime To = dateTimePicker2.Value;
+            DateTime From = dateTimeFrom.Value;
+            DateTime To = dateTimeTo.Value;
 
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
