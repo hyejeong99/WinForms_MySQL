@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB.cs" />
     <Compile Include="G.cs" />
     <Compile Include="OptionSetting.cs">
       <SubType>Form</SubType>

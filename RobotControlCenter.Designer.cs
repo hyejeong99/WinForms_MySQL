@@ -291,7 +291,7 @@ namespace RobotCC
             this.optionBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn2.AutoSize = true;
             this.optionBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn2.Location = new System.Drawing.Point(1188, 8);
+            this.optionBtn2.Location = new System.Drawing.Point(1190, 8);
             this.optionBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn2.Name = "optionBtn2";
             this.optionBtn2.Size = new System.Drawing.Size(100, 28);
@@ -303,7 +303,7 @@ namespace RobotCC
             this.optionBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn3.AutoSize = true;
             this.optionBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn3.Location = new System.Drawing.Point(1188, 8);
+            this.optionBtn3.Location = new System.Drawing.Point(1190, 8);
             this.optionBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn3.Name = "optionBtn3";
             this.optionBtn3.Size = new System.Drawing.Size(100, 28);
@@ -315,7 +315,7 @@ namespace RobotCC
             this.optionBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn4.AutoSize = true;
             this.optionBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn4.Location = new System.Drawing.Point(1188, 8);
+            this.optionBtn4.Location = new System.Drawing.Point(1190, 8);
             this.optionBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn4.Name = "optionBtn4";
             this.optionBtn4.Size = new System.Drawing.Size(100, 28);
@@ -327,7 +327,7 @@ namespace RobotCC
             this.optionBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn5.AutoSize = true;
             this.optionBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn5.Location = new System.Drawing.Point(1188, 8);
+            this.optionBtn5.Location = new System.Drawing.Point(1190, 8);
             this.optionBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn5.Name = "optionBtn5";
             this.optionBtn5.Size = new System.Drawing.Size(100, 28);
@@ -339,11 +339,11 @@ namespace RobotCC
             this.robotName1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.robotName1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.robotName1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName1.Location = new System.Drawing.Point(78, 12);
+            this.robotName1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.robotName1.Location = new System.Drawing.Point(77, 11);
             this.robotName1.Name = "robotName1";
             this.robotName1.ReadOnly = true;
-            this.robotName1.Size = new System.Drawing.Size(123, 19);
+            this.robotName1.Size = new System.Drawing.Size(125, 22);
             this.robotName1.TabIndex = 31;
             this.robotName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -352,11 +352,11 @@ namespace RobotCC
             this.robotName2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.robotName2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.robotName2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName2.Location = new System.Drawing.Point(78, 12);
+            this.robotName2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.robotName2.Location = new System.Drawing.Point(77, 11);
             this.robotName2.Name = "robotName2";
             this.robotName2.ReadOnly = true;
-            this.robotName2.Size = new System.Drawing.Size(123, 19);
+            this.robotName2.Size = new System.Drawing.Size(125, 22);
             this.robotName2.TabIndex = 32;
             this.robotName2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -365,11 +365,11 @@ namespace RobotCC
             this.robotName3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.robotName3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.robotName3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName3.Location = new System.Drawing.Point(78, 12);
+            this.robotName3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.robotName3.Location = new System.Drawing.Point(77, 11);
             this.robotName3.Name = "robotName3";
             this.robotName3.ReadOnly = true;
-            this.robotName3.Size = new System.Drawing.Size(123, 19);
+            this.robotName3.Size = new System.Drawing.Size(125, 22);
             this.robotName3.TabIndex = 33;
             this.robotName3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -378,11 +378,11 @@ namespace RobotCC
             this.robotName4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.robotName4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.robotName4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName4.Location = new System.Drawing.Point(78, 12);
+            this.robotName4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.robotName4.Location = new System.Drawing.Point(77, 11);
             this.robotName4.Name = "robotName4";
             this.robotName4.ReadOnly = true;
-            this.robotName4.Size = new System.Drawing.Size(123, 19);
+            this.robotName4.Size = new System.Drawing.Size(125, 22);
             this.robotName4.TabIndex = 34;
             this.robotName4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -391,11 +391,11 @@ namespace RobotCC
             this.robotName5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.robotName5.BackColor = System.Drawing.SystemColors.HighlightText;
             this.robotName5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.robotName5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.robotName5.Location = new System.Drawing.Point(78, 12);
+            this.robotName5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.robotName5.Location = new System.Drawing.Point(77, 11);
             this.robotName5.Name = "robotName5";
             this.robotName5.ReadOnly = true;
-            this.robotName5.Size = new System.Drawing.Size(123, 19);
+            this.robotName5.Size = new System.Drawing.Size(125, 22);
             this.robotName5.TabIndex = 35;
             this.robotName5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -647,10 +647,11 @@ namespace RobotCC
             this.status1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.status1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.status1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.status1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.status1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.status1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.status1.Location = new System.Drawing.Point(487, 9);
             this.status1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.status1.Multiline = false;
             this.status1.Name = "status1";
             this.status1.ReadOnly = true;
             this.status1.Size = new System.Drawing.Size(199, 25);
@@ -662,9 +663,10 @@ namespace RobotCC
             this.status2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.status2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.status2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.status2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.status2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.status2.Location = new System.Drawing.Point(487, 9);
             this.status2.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.status2.Multiline = false;
             this.status2.Name = "status2";
             this.status2.ReadOnly = true;
             this.status2.Size = new System.Drawing.Size(199, 25);
@@ -676,9 +678,10 @@ namespace RobotCC
             this.status3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.status3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.status3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.status3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.status3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.status3.Location = new System.Drawing.Point(487, 9);
             this.status3.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.status3.Multiline = false;
             this.status3.Name = "status3";
             this.status3.ReadOnly = true;
             this.status3.Size = new System.Drawing.Size(199, 25);
@@ -690,9 +693,10 @@ namespace RobotCC
             this.status4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.status4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.status4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.status4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.status4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.status4.Location = new System.Drawing.Point(487, 9);
             this.status4.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.status4.Multiline = false;
             this.status4.Name = "status4";
             this.status4.ReadOnly = true;
             this.status4.Size = new System.Drawing.Size(199, 25);
@@ -704,10 +708,11 @@ namespace RobotCC
             this.status5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.status5.BackColor = System.Drawing.SystemColors.HighlightText;
             this.status5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.status5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.status5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.status5.ForeColor = System.Drawing.Color.Red;
             this.status5.Location = new System.Drawing.Point(487, 9);
             this.status5.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.status5.Multiline = false;
             this.status5.Name = "status5";
             this.status5.ReadOnly = true;
             this.status5.Size = new System.Drawing.Size(199, 25);
@@ -828,7 +833,7 @@ namespace RobotCC
             this.optionBtn1.AutoSize = true;
             this.optionBtn1.BackColor = System.Drawing.Color.Transparent;
             this.optionBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn1.Location = new System.Drawing.Point(1188, 8);
+            this.optionBtn1.Location = new System.Drawing.Point(1190, 8);
             this.optionBtn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn1.Name = "optionBtn1";
             this.optionBtn1.Size = new System.Drawing.Size(100, 28);
@@ -933,7 +938,7 @@ namespace RobotCC
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel4.Controls.Add(this.radioV2, 11, 0);
             this.tableLayoutPanel4.Controls.Add(this.batteryBar2, 6, 0);
             this.tableLayoutPanel4.Controls.Add(this.radioH2, 10, 0);
@@ -1009,7 +1014,7 @@ namespace RobotCC
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel5.Controls.Add(this.radioV3, 11, 0);
             this.tableLayoutPanel5.Controls.Add(this.radioH3, 10, 0);
             this.tableLayoutPanel5.Controls.Add(this.batteryBar3, 6, 0);
@@ -1085,7 +1090,7 @@ namespace RobotCC
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel6.Controls.Add(this.radioV4, 11, 0);
             this.tableLayoutPanel6.Controls.Add(this.radioH4, 10, 0);
             this.tableLayoutPanel6.Controls.Add(this.batteryBar4, 6, 0);
@@ -1161,7 +1166,7 @@ namespace RobotCC
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel7.Controls.Add(this.radioV5, 11, 0);
             this.tableLayoutPanel7.Controls.Add(this.radioH5, 10, 0);
             this.tableLayoutPanel7.Controls.Add(this.batteryBar5, 6, 0);
@@ -1248,14 +1253,14 @@ namespace RobotCC
             // 로그파일저장ToolStripMenuItem
             // 
             this.로그파일저장ToolStripMenuItem.Name = "로그파일저장ToolStripMenuItem";
-            this.로그파일저장ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.로그파일저장ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.로그파일저장ToolStripMenuItem.Text = "출력창 내용 저장";
             this.로그파일저장ToolStripMenuItem.Click += new System.EventHandler(this.로그파일저장ToolStripMenuItem_Click);
             // 
             // 시스템종료ToolStripMenuItem
             // 
             this.시스템종료ToolStripMenuItem.Name = "시스템종료ToolStripMenuItem";
-            this.시스템종료ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.시스템종료ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.시스템종료ToolStripMenuItem.Text = "시스템 종료";
             this.시스템종료ToolStripMenuItem.Click += new System.EventHandler(this.시스템종료ToolStripMenuItem_Click);
             // 
@@ -1313,7 +1318,7 @@ namespace RobotCC
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel2.Controls.Add(this.radioV1, 11, 0);
             this.tableLayoutPanel2.Controls.Add(this.batteryBar1, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.optionBtn1, 12, 0);
@@ -1411,7 +1416,7 @@ namespace RobotCC
             this.label8.Location = new System.Drawing.Point(1161, 2);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(152, 32);
+            this.label8.Size = new System.Drawing.Size(155, 32);
             this.label8.TabIndex = 12;
             this.label8.Text = "세부설정";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1504,7 +1509,7 @@ namespace RobotCC
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
             this.tableLayoutPanel1.Controls.Add(this.label16, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -44,14 +45,43 @@ namespace RobotCC
         public static string SelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
         public static string oldSelectedSerialPortName = DEFAULT_SERIALPORT_NAME;
 
-        // Robot 정보 저장용 : 현재 ROBOT_CNT 개수만큼 설정
-        public static int CURRENT_ROBOT_NUM = 0;     // 현재 사용 중인 로봇의 대수
+
+        // WORK_LOG DB에 사용되는 상태 정보 종류 
+        public const string REGISTER = "REGISTER";
+        public const string FINISHED = "FINISHED";
+        public const string ERROR_STOP = "ERROR_STOP";
+        public const string REPORT_CLEAN_COUNTER = "EDGE_CNT";
+
+        public const string RUN_BTN_PRESSED = "RUN_BTN";
+        public const string STOP_BTN_PRESSED = "STOP_BTN";
+        public const string HOME_BTN_PRESSED = "HOME_BTN";
+        public const string OT_V_BTN_PRESSED = "OT_VERTICAL_BTN";
+        public const string OT_H_BTN_PRESSED = "OT_HORIZONTAL_BTN";
+
+
+
+        // Robot 정보 저장용 : 현재 ROBOT_MAX_CNT 개수만큼 설정
+        public static int ROBOT_REG_CNT = 0;    // 현재 사용 중인 로봇의 대수
+        public static int SAVED_ROBOT_CNT = 0;     // 설정 저장된 로봇의 대수 - 기존의 정보 최대한 유지하는 로봇의 대수
         public static int[] robotAddress = new int[ROBOT_MAX_CNT]; // 로봇별 통신 주소 - 기본값, 실제값은 rcc.cnf에서 추출
         public static string[] robotID = new string[ROBOT_MAX_CNT]; // 로봇 ID(Name) 저장용
         public static double[] LSize = new double[ROBOT_MAX_CNT]; // 로봇별 청소할 가로 길이
         public static double[] RSize = new double[ROBOT_MAX_CNT]; // 로봇별 청소할 세로 길이
         public static int[] OT = new int[ROBOT_MAX_CNT]; // 로봇별 청소할 방향 
         public static int[] AUTOSTART = new int[ROBOT_MAX_CNT]; // 자동 시작 여부 ON/OFF
+
+        // 추후 수정....
+        // OSY EDGE_CNT 보다는 WORK_PERCENTAGE를 DB에 저장하는 것이 효과적일 듯
+        // 왜냐면, EDGE_CNT는 L, R 값이외에 OT값까지 알아야 청소 면적 계산 가능함. 
+        // 반면, WORK_PERCENTAGE는 L, R 값만 알면 청소 면적 계산 가능.
+        public static int[] EDGE_CNT = new int[ROBOT_MAX_CNT]; // 로봇별 에지 도달 횟수
+        public static int[] WORK_PERCENTAGE = new int[ROBOT_MAX_CNT]; // 로봇별 작업 진행률 
+
+
+        // 설정 파일에 정보가 있는 목록 구성
+        public static Dictionary<string, int> ExistingRobotNameAndAddress = new Dictionary<string, int>();
+        public static Dictionary<string, int> ExistingRobotNameAndOT = new Dictionary<string, int>();
+        public static Dictionary<string, int> ExistingRobotNameAndAutoStart = new Dictionary<string, int>();
 
         // Control 센터의 LoRa Address 정보
         public static string MyLoRaAddress; // 1000?
@@ -62,7 +92,9 @@ namespace RobotCC
 
         // 로봇 통신 주소 보관용 리스트 - 입력순으로 목록 관리 - 향후 사용 예정
         //public static Dictionary<string, int> RobotSet = new Dictionary<string, int>();
-
+        
+        // 기본 색상
+        public static Color DefaultColor = Color.Black;
 
         public static void CheckAndMakeFolder()
         {
@@ -89,7 +121,10 @@ namespace RobotCC
                 //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
             }
 
-            G.CURRENT_ROBOT_NUM = 0;  // 일단 항상 0으로 초기화 
+            // 설정 추출 로봇 정보 초기화
+            ExistingRobotNameAndAddress.Clear();
+            ExistingRobotNameAndOT.Clear();
+            ExistingRobotNameAndAutoStart.Clear();
 
             if (fi.Exists) // rcc 설정파일 존재시
             {
@@ -103,9 +138,6 @@ namespace RobotCC
                 {
                     if (!lines[i + 1].Contains(",")) continue; // 내용이 빈 라인의 경우, 무시
 
-                    // G.CURRENT_ROBOT_NUM++;
-                    //if (G.DEBUG) Console.WriteLine("ROBOT CNT = " + G.CURRENT_ROBOT_NUM);
-
                     string[] parts = lines[i + 1].Split(',');
                     if (parts.Length != 6) continue; // 잘못된 경우
 
@@ -116,9 +148,18 @@ namespace RobotCC
                     G.AUTOSTART[i] = int.Parse(parts[4]);
                     G.robotAddress[i] = int.Parse(parts[5]);
 
+                    // 3가지 목록을 일단 저장하여 default 값으로 활용
+                    ExistingRobotNameAndAddress.Add(G.robotID[i], G.robotAddress[i]);
+                    ExistingRobotNameAndOT.Add(G.robotID[i], G.OT[i]);
+                    ExistingRobotNameAndAutoStart.Add(G.robotID[i], G.AUTOSTART[i]);
+
                     if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
                 }
             }
+
+            G.ROBOT_REG_CNT = 0; // 일단 항상 0으로 초기화 
+            G.SAVED_ROBOT_CNT = G.ExistingRobotNameAndAddress.Count; // 기존 설정값을 가진 로봇의 수
+
         }
 
         public static void CNFSaveFile()
@@ -127,7 +168,7 @@ namespace RobotCC
 
             lines += G.SelectedSerialPortName + Environment.NewLine;
 
-            for (int i = 0; i < G.CURRENT_ROBOT_NUM; i++)
+            for (int i = 0; i < G.ROBOT_REG_CNT; i++)
             {
                 lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," +
                          G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;

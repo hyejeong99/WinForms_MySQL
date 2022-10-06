@@ -26,23 +26,23 @@ namespace RobotCC
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
 
-            // Another Try
             string TBL_NAME = "PlantList";
-            SqlCommand cmd = new SqlCommand("select PlantNumber, PlantName, ContactEmail from " + TBL_NAME, con);
-            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(@"select PlantNumber, PlantName, ContactPerson, ContactEmail, ContactInfo from " + TBL_NAME, con);
+            //DataTable dt = new DataTable();
             SqlDataReader sdr = cmd.ExecuteReader();
 
             comboBox1.Items.Clear();
             while (sdr.Read())
             {
                 comboBox1.Items.Add(sdr.GetString(0) + " : " + sdr.GetString(1));
-                CurrentContactEmail = sdr.GetString(2);
+                CurrentPlantNumber = sdr.GetString(0);
+                CurrentPlantName = sdr.GetString(1);
+                CurrentContactEmail = sdr.GetString(3);
             }
             //dt.Load(sdr);
-
             con.Close();
             comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
-            emailTBox.Text = CurrentContactEmail;
+            emailTBox.Text = CurrentContactEmail.ToString();
         }
 
         private string getEmailAddress(string plantNumber)
@@ -60,7 +60,7 @@ namespace RobotCC
             {
                 if (sdr.GetString(0).Equals(plantNumber))
                 {
-                    //CurrentPlantName = sdr.GetString(1);
+                    //CurrentPlantName = sdr.GetString(0);
                     CurrentContactEmail = sdr.GetString(1);
                     break;
                 }
@@ -73,7 +73,6 @@ namespace RobotCC
         private void printBtn_Click(object sender, EventArgs e)  // 보고서 인쇄
         {
             MessageBox.Show("보고서를 인쇄합니다.", "인쇄", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
-
         }
 
         private void emailBtn_Click(object sender, EventArgs e) //  보고서 이메일 발송
@@ -83,8 +82,7 @@ namespace RobotCC
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] plantinfo = new string[2];
-            plantinfo = comboBox1.Text.ToString().Split(new string[] { " : " }, StringSplitOptions.None);
+            string[] plantinfo = comboBox1.Text.ToString().Split(new string[] { " : " }, StringSplitOptions.None);
             CurrentPlantNumber = plantinfo[0];
             CurrentPlantName = plantinfo[1];
             // PlantNumber에 해당하는 CurrentContactEmail 값을 설정
@@ -94,5 +92,91 @@ namespace RobotCC
             if (G.DEBUG) Console.WriteLine("<" + CurrentPlantNumber + ">,<" + CurrentPlantName + ">,<" + CurrentContactEmail + ">");
         }
 
+        // 검색 테스트용으로 WorkLog 자료를 보여줌
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            string TBL_NAME = "WorkLog";
+
+            DateTime From = dateTimePicker1.Value;
+            DateTime To = dateTimePicker2.Value;
+
+            SqlConnection con = new SqlConnection(G.connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("select RId, TimeStamp, PlantNumber, State, LSize, RSize, Counter, Etc  from " + TBL_NAME + " where PlantNumber = @PlantNumber AND @DT_From <= TimeStamp AND TimeStamp <= @DT_To", con);
+            cmd.Parameters.AddWithValue("@PlantNumber", CurrentPlantNumber);
+            cmd.Parameters.AddWithValue("@DT_From", From);
+            cmd.Parameters.AddWithValue("@DT_To", To);
+
+            SqlDataReader sdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+
+            //while (sdr.Read())
+            //{
+            //    if (sdr.GetString(0).Equals(plantNumber))
+            //    {
+            //        //CurrentPlantName = sdr.GetString(1);
+            //        CurrentContactEmail = sdr.GetString(1);
+            //        break;
+            //    }
+            //}
+            dt.Load(sdr);
+            con.Close();
+
+            //TimeSpan Diff = To - From;
+
+
+            //Console.WriteLine("TEST1 : " + dateTimePicker1.Value.ToShortDateString());
+            //Console.WriteLine("TEST2 : " + dateTimePicker2.Value.ToShortDateString());
+            //Console.WriteLine("TEST3 : " + (To - From).Days);
+
+            //Console.WriteLine("TEST1 : " + dateTimePicker1.Value.ToShortTimeString());
+            //Console.WriteLine("TEST2 : " + dateTimePicker2.Value.ToShortTimeString());
+            //Console.WriteLine("TEST3 : " + (To - From).Minutes);
+            //Console.WriteLine("TEST4 : " + Diff.TotalMinutes);
+
+            dataGridView1.DataSource = dt;
+            dataGridView1.Columns["PlantNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns["TimeStamp"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns["State"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns["LSize"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns["RSize"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns["Counter"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+        }
+
+
+        // 다른 버전
+        private void searchBtn1_Click(object sender, EventArgs e)
+        {
+            string TBL_NAME = "ReportData";
+            DateTime From = dateTimePicker1.Value;
+            DateTime To = dateTimePicker2.Value;
+
+            SqlConnection con = new SqlConnection(G.connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("select RId, Date, WorkingTime, WorkingAreas from " + TBL_NAME + " where PlantNumber = @PlantNumber AND @DT_From <= Date AND Date <= @DT_To", con);
+            cmd.Parameters.AddWithValue("@PlantNumber", CurrentPlantNumber);
+            cmd.Parameters.AddWithValue("@DT_From", From);
+            cmd.Parameters.AddWithValue("@DT_To", To);
+
+            SqlDataReader sdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+
+            //while (sdr.Read())
+            //{
+            //    if (sdr.GetString(0).Equals(plantNumber))
+            //    {
+            //        //CurrentPlantName = sdr.GetString(1);
+            //        CurrentContactEmail = sdr.GetString(1);
+            //        break;
+            //    }
+            //}
+            dt.Load(sdr);
+            con.Close();
+
+            dataGridView1.DataSource = dt;
+            
+        }
     }
 }
