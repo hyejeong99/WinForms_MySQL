@@ -92,7 +92,7 @@ namespace RobotCC
 
         // 로봇 통신 주소 보관용 리스트 - 입력순으로 목록 관리 - 향후 사용 예정
         //public static Dictionary<string, int> RobotSet = new Dictionary<string, int>();
-        
+
         // 기본 색상
         public static Color DefaultColor = Color.Black;
 

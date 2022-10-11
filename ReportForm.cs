@@ -164,7 +164,7 @@ namespace RobotCC
             con.Close();
 
             dataGridView1.DataSource = dt;
-            
+
         }
     }
 }

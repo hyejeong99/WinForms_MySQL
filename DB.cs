@@ -1,7 +1,6 @@
 ﻿using RobotCC;
 using System;
 using System.Data.SqlClient;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace RobotControlCenter
@@ -21,9 +20,9 @@ namespace RobotControlCenter
             cmd.Parameters.AddWithValue("@DateTime", DateTime.Now);
             cmd.Parameters.AddWithValue("@PlantNumber", G.CurrentPlantNumber);
             cmd.Parameters.AddWithValue("@Action", action);
-            cmd.Parameters.AddWithValue("@LSize", (float) G.LSize[robotIndex]);
-            cmd.Parameters.AddWithValue("@RSize", (float) G.RSize[robotIndex]);
-            cmd.Parameters.AddWithValue("@Counter", G.EDGE_CNT[robotIndex]); 
+            cmd.Parameters.AddWithValue("@LSize", (float)G.LSize[robotIndex]);
+            cmd.Parameters.AddWithValue("@RSize", (float)G.RSize[robotIndex]);
+            cmd.Parameters.AddWithValue("@Counter", G.EDGE_CNT[robotIndex]);
             cmd.Parameters.AddWithValue("@Etc", etc);
 
             try
@@ -53,8 +52,8 @@ namespace RobotControlCenter
             cmd.Parameters.AddWithValue("@frome", from); // 기간 선택
             cmd.Parameters.AddWithValue("@to", to); // 기간 선택
             cmd.Parameters.AddWithValue("@PlantNumber", plantNumber); // 발전소 선택
-            //cmd.Parameters.AddWithValue("@State", state); // 상태 선택
- 
+                                                                      //cmd.Parameters.AddWithValue("@State", state); // 상태 선택
+
             try
             {
                 cmd.ExecuteNonQuery();
