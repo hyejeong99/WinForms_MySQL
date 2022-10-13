@@ -1,12 +1,10 @@
 ﻿using RobotControlCenter;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
-using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,8 +12,10 @@ namespace RobotCC
 {
     public partial class RobotControlCenter : Form
     {
-        // 명령 코드 
+        // 메시지 HEADER
         public const string MSG_HEADER = "LX";  // R->C
+
+        // 명령 코드 
         public const string REGISTER_REQ = "10";  // R->C
         public const string REGISTER_CNF = "11"; // C->R
 
@@ -80,7 +80,7 @@ namespace RobotCC
         RadioButton[] OT_H = new RadioButton[G.ROBOT_MAX_CNT];
         RadioButton[] OT_V = new RadioButton[G.ROBOT_MAX_CNT];
 
-      
+
 
 
         public RobotControlCenter()
@@ -152,7 +152,7 @@ namespace RobotCC
                 //status5.SelectionAlignment = HorizontalAlignment.Center;
                 //battery5.SelectionAlignment = HorizontalAlignment.Center;
 
-               
+
             }
         }
 
@@ -526,7 +526,7 @@ namespace RobotCC
                     string CmdCode = parts[3]; // 명령어 종류 파악
 
                     // 특수 경우 검사
-                    if(!CmdCode.Equals(REGISTER_REQ) && senderIndex == -1)
+                    if (!CmdCode.Equals(REGISTER_REQ) && senderIndex == -1)
                     {
                         Console.WriteLine("오류 : 미등록된 로봇으로부터 로봇 등록 이외의 메시지 수신 - 무시.");
                         continue;
@@ -633,13 +633,18 @@ namespace RobotCC
                                     OutputMesssage("신규 로봇 등록 : " + robotName + ", 주소 = " + senderAddr);
                                 }
 
-                                // senderIndex를 재설정
+                                // senderIndex를 재설정 - 로봇 대수 추가
                                 senderIndex = G.ROBOT_REG_CNT;
 
-                                // [3] 작업 상태(ERROR_STOP)를 DB에 저장한다. 카운트는 현재 값으로
-                                // 이 경우는 굳이 저장할 필요는 없을 듯.
+                                // 로봇 등록시 작업 진행률 관련 수치를 모두 0으로 초기화
+                                Progress[senderIndex].Value = 0; 
+                                TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
+                                G.WORK_PERCENTAGE[senderIndex] = 0; //전체 진행률
+                                G.EDGE_CNT[senderIndex] = 0; //모서리 카운트 초기화
+
+                                // 로봇 등록 사항을 DB에 기록
                                 DB.insertWorkLog(senderIndex, G.REGISTER, "");
-                              
+
                                 G.ROBOT_REG_CNT++;
                             }
                         }
@@ -660,7 +665,7 @@ namespace RobotCC
                         TBox_Status[senderIndex].ForeColor = Color.Red;
                         TBox_Status[senderIndex].Text = "작동오류, 중지 : " + errorCodeStr;
                         Refresh();// 화면 출력 후 소리 재생
-                        SoundBeep(7, 3000); SoundBeep(3, 3000); SoundBeep(7, 3000); 
+                        SoundBeep(7, 3000); SoundBeep(3, 3000); SoundBeep(7, 3000);
 
                         // [3] 작업 상태(ERROR_STOP)를 DB에 저장한다. 카운트는 현재 값으로 
                         DB.insertWorkLog(senderIndex, G.ERROR_STOP, errorCodeStr);
@@ -702,20 +707,17 @@ namespace RobotCC
                         ///////////////////////// ProgressBar 값 변경 등 
                         ///
                         G.EDGE_CNT[senderIndex] = Counter; // 전달받은 카운터를 저장
-                        
+
                         // 테스트 차원에서 PROGRESS를 10 더함, 실제로는 자세한 계산 필요
-
-                        Progress[senderIndex].Value += 10;
+                        Progress[senderIndex].Value += 10; // 구체적인 계산 필요.
                         TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
-
-                        // 필요시 아래 내용도 같이 수정 - 저장
-                        G.WORK_PERCENTAGE[senderIndex] = Progress[senderIndex].Value;
+                        G.WORK_PERCENTAGE[senderIndex] = Progress[senderIndex].Value; //전체 진행률
 
                         // 작업 상태를 DB에 저장한다. 
                         // DB 저장은 굳이 하지 않아도 될 듯하나 - 일단 저장
                         DB.insertWorkLog(senderIndex, G.REPORT_CLEAN_COUNTER, "");
 
-                        Console.WriteLine("EDGE COUNTER : " + Counter);
+                        if(G.DEBUG) Console.WriteLine("EDGE COUNTER : " + Counter);
                     }
                     else if (CmdCode.Equals(FINISH_STATUS_REQ)) // 작업 종료 보고
                     {
@@ -725,16 +727,21 @@ namespace RobotCC
                         SendConfMsgToRobot(senderAddr, FINISH_STATUS_CNF);
 
                         // [2] 작업 종료 사실을 Status란에 보여준다. 추가 액션/DB 관리 가능
-                      
-                        TBox_Status[senderIndex].Text = "작업 완료!"; 
+
+                        TBox_Status[senderIndex].Text = "작업 완료!";
                         TBox_Status[senderIndex].ForeColor = Color.Blue;
                         Refresh();// 화면 출력 후 소리 재생
 
                         SoundBeep(7, 500); //도
                         SoundBeep(7, 500); //도
 
-                        // [3] 작업 상태를 DB에 저장한다. 카운트는 최신 값으로 
-                        DB.insertWorkLog(senderIndex, G.FINISHED, "" );
+                        // [3] 작업 진행률을 100%로 수정
+                        Progress[senderIndex].Value = 100; 
+                        TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
+                        G.WORK_PERCENTAGE[senderIndex] = Progress[senderIndex].Value; //전체 진행률
+                       
+                        // [4] 작업 상태를 DB에 저장한다. 카운트는 최신 값으로 
+                        DB.insertWorkLog(senderIndex, G.FINISHED, "");
                     }
                     // 수신 메시지가 명령어가 아닌 단순 CONFIRM 메시지인 경우, 
                     else if (CmdCode.Equals(RUN_CNF) || CmdCode.Equals(STOP_CNF) || CmdCode.Equals(HOME_CNF)
@@ -915,9 +922,23 @@ namespace RobotCC
 
             bool result = await SendCommand(Address, cmdCode); // cmdCode 명령 전송
 
-            if (result) OutputMesssage(cmdCode + " #" + (robotIndex + 1) + " 명령 전송 완료(응답확인)");
-            else OutputMesssage(cmdCode + " #" + (robotIndex + 1) + " 명령 전송 실패(무응답)");
+            if (result)
+            {
+                //TBox_Status[robotIndex].Text = "명령 전송 완료";
+                //TBox_Status[robotIndex].ForeColor = Color.Blue;
+                //Refresh();
 
+                OutputMesssage(cmdCode + " #" + (robotIndex + 1) + " 명령 전송 완료(응답확인)");
+            }
+            else
+            {
+                TBox_Status[robotIndex].Text = "명령 전송 실패(무응답)";
+                TBox_Status[robotIndex].ForeColor = Color.Red;
+                Refresh();// 화면 출력 후 소리 재생
+                SoundBeep(5, 1000);
+
+                OutputMesssage(cmdCode + " #" + (robotIndex + 1) + " 명령 전송 실패(무응답)");
+            }
             return result;
         }
 
@@ -1001,6 +1022,8 @@ namespace RobotCC
                 OT_V[robotIndex].Checked = true;
                 G.OT[robotIndex] = G.VERTICAL;
                 //OutputMesssage("OT 명령 : 수직 설정 완료");
+                TBox_Status[robotIndex].Text = "수직 방향 동작 설정 완료";
+                TBox_Status[robotIndex].ForeColor = Color.Blue;
 
                 DB.insertWorkLog(robotIndex, G.OT_V_BTN_PRESSED, "");
 
@@ -1021,6 +1044,9 @@ namespace RobotCC
                 OT_H[robotIndex].Checked = true;
                 G.OT[robotIndex] = G.HORIZONTAL;
                 //OutputMesssage("OT 명령 : 수평 설정 완료");
+                TBox_Status[robotIndex].Text = "수평 방향 동작 설정 완료";
+                TBox_Status[robotIndex].ForeColor = Color.Blue;
+
                 DB.insertWorkLog(robotIndex, G.OT_H_BTN_PRESSED, "");
 
             }
@@ -1178,8 +1204,8 @@ namespace RobotCC
 
         private void SoundBeep(int cord, int time)
         {
-            if(cord == 0) Console.Beep(262, time); //도 
-            else if(cord == 1) Console.Beep(294, time); //레
+            if (cord == 0) Console.Beep(262, time); //도 
+            else if (cord == 1) Console.Beep(294, time); //레
             else if (cord == 2) Console.Beep(330, time); //미 
             else if (cord == 3) Console.Beep(349, time); //파
             else if (cord == 4) Console.Beep(392, time); //솔 

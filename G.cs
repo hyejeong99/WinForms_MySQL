@@ -199,6 +199,16 @@ namespace RobotCC
             //return CurrentTimeStamp;
             return (date + " " + time);
         }
+
+        public static string TimeStamp(DateTime datetime)
+        {
+            string dateStr = datetime.ToShortDateString();
+            string timeStr = string.Format("{0:d2}", datetime.Hour) + ":" + string.Format("{0:d2}", datetime.Minute) + ":" + string.Format("{0:d2}", datetime.Second);
+            //string CurrentTimeStamp = now.ToString(format: "yyyy-MM-dd HH:mm:tt"); // 여기에 오전/오후가 출력됨
+            //return CurrentTimeStamp;
+            return (dateStr + " " + timeStr);
+        }
+
     }
 
 }

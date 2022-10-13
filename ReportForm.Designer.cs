@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +54,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("나눔스퀘어OTF ExtraBold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label1.Location = new System.Drawing.Point(468, 53);
+            this.label1.Location = new System.Drawing.Point(193, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(433, 33);
             this.label1.TabIndex = 70;
@@ -89,7 +91,7 @@
             this.printBtn.FlatAppearance.BorderSize = 13;
             this.printBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.printBtn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.printBtn.Location = new System.Drawing.Point(1243, 138);
+            this.printBtn.Location = new System.Drawing.Point(761, 180);
             this.printBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(91, 33);
@@ -106,7 +108,7 @@
             this.emailBtn.FlatAppearance.BorderSize = 13;
             this.emailBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.emailBtn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.emailBtn.Location = new System.Drawing.Point(1108, 137);
+            this.emailBtn.Location = new System.Drawing.Point(626, 180);
             this.emailBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailBtn.Name = "emailBtn";
             this.emailBtn.Size = new System.Drawing.Size(129, 33);
@@ -118,10 +120,10 @@
             // dateTimeFrom
             // 
             this.dateTimeFrom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimeFrom.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.dateTimeFrom.CustomFormat = "yyyy-MM-dd";
             this.dateTimeFrom.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeFrom.Location = new System.Drawing.Point(134, 187);
+            this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeFrom.Location = new System.Drawing.Point(121, 187);
             this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimeFrom.Name = "dateTimeFrom";
             this.dateTimeFrom.Size = new System.Drawing.Size(140, 26);
@@ -129,9 +131,9 @@
             // 
             // dateTimeTo
             // 
-            this.dateTimeTo.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.dateTimeTo.CustomFormat = "yyyy-MM-dd";
             this.dateTimeTo.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeTo.Location = new System.Drawing.Point(304, 187);
             this.dateTimeTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimeTo.Name = "dateTimeTo";
@@ -166,7 +168,7 @@
             this.emailTBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailTBox.Multiline = false;
             this.emailTBox.Name = "emailTBox";
-            this.emailTBox.Size = new System.Drawing.Size(200, 28);
+            this.emailTBox.Size = new System.Drawing.Size(262, 28);
             this.emailTBox.TabIndex = 81;
             this.emailTBox.Text = "";
             // 
@@ -182,9 +184,25 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(45, 228);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -192,7 +210,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1296, 414);
+            this.dataGridView1.Size = new System.Drawing.Size(807, 414);
             this.dataGridView1.TabIndex = 83;
             // 
             // remarkTextBox
@@ -202,7 +220,7 @@
             this.remarkTextBox.Location = new System.Drawing.Point(45, 673);
             this.remarkTextBox.Multiline = true;
             this.remarkTextBox.Name = "remarkTextBox";
-            this.remarkTextBox.Size = new System.Drawing.Size(1294, 157);
+            this.remarkTextBox.Size = new System.Drawing.Size(807, 157);
             this.remarkTextBox.TabIndex = 84;
             // 
             // label6
@@ -223,7 +241,7 @@
             this.searchBtn.FlatAppearance.BorderSize = 13;
             this.searchBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.searchBtn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.searchBtn.Location = new System.Drawing.Point(1009, 137);
+            this.searchBtn.Location = new System.Drawing.Point(530, 183);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(90, 33);
@@ -236,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 941);
+            this.ClientSize = new System.Drawing.Size(893, 941);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.remarkTextBox);
@@ -272,7 +290,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button emailBtn;
-        private System.Windows.Forms.DateTimePicker dateTimeFrom;
         private System.Windows.Forms.DateTimePicker dateTimeTo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -282,5 +299,6 @@
         private System.Windows.Forms.TextBox remarkTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.DateTimePicker dateTimeFrom;
     }
 }
