@@ -121,7 +121,6 @@ namespace RobotControlCenter
                 "# 담당자 이메일 : " + ContactEmail + Environment.NewLine +
                 "# 연락처, 주소 : " + ContactInfo;
             MessageBox.Show(msg, "DB등록완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -172,7 +171,6 @@ namespace RobotControlCenter
                 "# 담당자 이메일 : " + ContactEmail + Environment.NewLine +
                 "# 연락처, 주소 : " + ContactInfo;
             MessageBox.Show(msg, "DB수정완료", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
         }
 
         string deletePlantName;

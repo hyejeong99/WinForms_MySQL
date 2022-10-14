@@ -637,7 +637,7 @@ namespace RobotCC
                                 senderIndex = G.ROBOT_REG_CNT;
 
                                 // 로봇 등록시 작업 진행률 관련 수치를 모두 0으로 초기화
-                                Progress[senderIndex].Value = 0; 
+                                Progress[senderIndex].Value = 0;
                                 TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
                                 G.WORK_PERCENTAGE[senderIndex] = 0; //전체 진행률
                                 G.EDGE_CNT[senderIndex] = 0; //모서리 카운트 초기화
@@ -717,7 +717,7 @@ namespace RobotCC
                         // DB 저장은 굳이 하지 않아도 될 듯하나 - 일단 저장
                         DB.insertWorkLog(senderIndex, G.REPORT_CLEAN_COUNTER, "");
 
-                        if(G.DEBUG) Console.WriteLine("EDGE COUNTER : " + Counter);
+                        if (G.DEBUG) Console.WriteLine("EDGE COUNTER : " + Counter);
                     }
                     else if (CmdCode.Equals(FINISH_STATUS_REQ)) // 작업 종료 보고
                     {
@@ -736,10 +736,10 @@ namespace RobotCC
                         SoundBeep(7, 500); //도
 
                         // [3] 작업 진행률을 100%로 수정
-                        Progress[senderIndex].Value = 100; 
+                        Progress[senderIndex].Value = 100;
                         TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
                         G.WORK_PERCENTAGE[senderIndex] = Progress[senderIndex].Value; //전체 진행률
-                       
+
                         // [4] 작업 상태를 DB에 저장한다. 카운트는 최신 값으로 
                         DB.insertWorkLog(senderIndex, G.FINISHED, "");
                     }

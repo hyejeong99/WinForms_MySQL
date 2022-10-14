@@ -54,7 +54,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("나눔스퀘어OTF ExtraBold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label1.Location = new System.Drawing.Point(193, 49);
+            this.label1.Location = new System.Drawing.Point(202, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(433, 33);
             this.label1.TabIndex = 70;
@@ -66,7 +66,7 @@
             this.comboBox1.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ItemHeight = 16;
-            this.comboBox1.Location = new System.Drawing.Point(134, 142);
+            this.comboBox1.Location = new System.Drawing.Point(134, 127);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(310, 24);
@@ -77,7 +77,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(41, 142);
+            this.label2.Location = new System.Drawing.Point(41, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 71;
@@ -91,7 +91,7 @@
             this.printBtn.FlatAppearance.BorderSize = 13;
             this.printBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.printBtn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.printBtn.Location = new System.Drawing.Point(761, 180);
+            this.printBtn.Location = new System.Drawing.Point(761, 166);
             this.printBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(91, 33);
@@ -108,7 +108,7 @@
             this.emailBtn.FlatAppearance.BorderSize = 13;
             this.emailBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.emailBtn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.emailBtn.Location = new System.Drawing.Point(626, 180);
+            this.emailBtn.Location = new System.Drawing.Point(626, 167);
             this.emailBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailBtn.Name = "emailBtn";
             this.emailBtn.Size = new System.Drawing.Size(129, 33);
@@ -123,7 +123,7 @@
             this.dateTimeFrom.CustomFormat = "yyyy-MM-dd";
             this.dateTimeFrom.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeFrom.Location = new System.Drawing.Point(121, 187);
+            this.dateTimeFrom.Location = new System.Drawing.Point(138, 172);
             this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimeFrom.Name = "dateTimeFrom";
             this.dateTimeFrom.Size = new System.Drawing.Size(140, 26);
@@ -134,7 +134,7 @@
             this.dateTimeTo.CustomFormat = "yyyy-MM-dd";
             this.dateTimeTo.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeTo.Location = new System.Drawing.Point(304, 187);
+            this.dateTimeTo.Location = new System.Drawing.Point(304, 172);
             this.dateTimeTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimeTo.Name = "dateTimeTo";
             this.dateTimeTo.Size = new System.Drawing.Size(140, 26);
@@ -144,7 +144,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(467, 144);
+            this.label3.Location = new System.Drawing.Point(467, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 21);
             this.label3.TabIndex = 78;
@@ -154,7 +154,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(278, 192);
+            this.label4.Location = new System.Drawing.Point(279, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 16);
             this.label4.TabIndex = 80;
@@ -164,11 +164,11 @@
             // 
             this.emailTBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailTBox.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.emailTBox.Location = new System.Drawing.Point(569, 140);
+            this.emailTBox.Location = new System.Drawing.Point(569, 125);
             this.emailTBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailTBox.Multiline = false;
             this.emailTBox.Name = "emailTBox";
-            this.emailTBox.Size = new System.Drawing.Size(262, 28);
+            this.emailTBox.Size = new System.Drawing.Size(283, 28);
             this.emailTBox.TabIndex = 81;
             this.emailTBox.Text = "";
             // 
@@ -176,7 +176,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(41, 187);
+            this.label5.Location = new System.Drawing.Point(41, 172);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 21);
             this.label5.TabIndex = 82;
@@ -203,31 +203,31 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(45, 228);
+            this.dataGridView1.Location = new System.Drawing.Point(45, 217);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(807, 414);
+            this.dataGridView1.Size = new System.Drawing.Size(807, 392);
             this.dataGridView1.TabIndex = 83;
             // 
             // remarkTextBox
             // 
             this.remarkTextBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.remarkTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.remarkTextBox.Location = new System.Drawing.Point(45, 673);
+            this.remarkTextBox.Location = new System.Drawing.Point(45, 641);
             this.remarkTextBox.Multiline = true;
             this.remarkTextBox.Name = "remarkTextBox";
-            this.remarkTextBox.Size = new System.Drawing.Size(807, 157);
+            this.remarkTextBox.Size = new System.Drawing.Size(807, 127);
             this.remarkTextBox.TabIndex = 84;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(42, 652);
+            this.label6.Location = new System.Drawing.Point(42, 620);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 18);
             this.label6.TabIndex = 85;
@@ -241,7 +241,7 @@
             this.searchBtn.FlatAppearance.BorderSize = 13;
             this.searchBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.searchBtn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.searchBtn.Location = new System.Drawing.Point(530, 183);
+            this.searchBtn.Location = new System.Drawing.Point(530, 168);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(90, 33);
@@ -254,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 941);
+            this.ClientSize = new System.Drawing.Size(901, 941);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.remarkTextBox);
