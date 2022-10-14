@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Dynamic;
 using System.Windows.Forms;
 
 namespace RobotCC
@@ -20,6 +18,10 @@ namespace RobotCC
 
         // 로봇명-날짜 리스트 구성 - 비교시 표준화를 위해 날짜는 string(yyyy-MM-dd)으로 저장
         private static Dictionary<string, List<string>> ReportRobotList = new Dictionary<string, List<string>>();
+
+        // 로봇당 해당 날짜의 작업 시간 및 면적
+        private int workingTime;
+        private double workingArea;
 
         public ReportForm()
         {
@@ -102,12 +104,11 @@ namespace RobotCC
             if (G.DEBUG) Console.WriteLine("<" + CurrentPlantNumber + ">,<" + CurrentPlantName + ">,<" + CurrentContactEmail + ">");
         }
 
-        // 검색 테스트용으로 WorkLog 자료를 보여줌
         private void searchBtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
-     
+
             // [1] ReportData 테이블 내용 초기화
             string REPORT_TBL_NAME = "ReportData";
             SqlCommand initcmd = new SqlCommand("delete from " + REPORT_TBL_NAME, con);
@@ -162,22 +163,20 @@ namespace RobotCC
 
                 foreach (string rdate in ReportRobotList[robotID])
                 {
-                    if (G.DEBUG) Console.WriteLine("TEST: ROBOT/DATE List -  " + robotID + "/" + DateTime.Parse(rdate).ToShortDateString());
+                    if (G.DEBUG) Console.WriteLine("############## : ROBOT/DATE List -  " + robotID + " / " + DateTime.Parse(rdate).ToShortDateString());
 
-                    int workingTime = calcWorkingTime(robotID, DateTime.Parse(rdate).Date);
-                    double workingArea = calcWorkingArea(robotID, DateTime.Parse(rdate).Date);
+                    // 로봇의 당일 workingTime, workingArea 값을 계산
+                    calcWorkingTimeAndArea(robotID, DateTime.Parse(rdate).Date);
 
+                    ////// 시간 계산 및 표시 방법 개선 필요 - 현재는 누적 초 단위 정보 제공
+                    ////int Hour = workingTime / 3600; int Minute = (workingTime % 3600) / 60; int Second = (workingTime % 60);
+                    ////string workingTimeStr = Hour + ":" + Minute + ":" + Second;
 
-                    // 시간 계산 및 표시 방법 개선 필요 - 현재는 누적 초 단위 정보 제공
-                    int Hour = workingTime / 3600;
-                    int Minute = (workingTime % 3600) / 60;
-                    int Second = (workingTime % 60);
-
-                    //string workingTimeStr = Hour + ":" + Minute + ":" + Second;
-                    string workingTimeStr = "" + workingTime ;
+                    // 작업시간 및 작업면적을 string으로 변환하여 DB에 저장
+                    string workingTimeStr = "" + workingTime;
                     string workingAreaStr = "" + workingArea;
 
-                    DB.insertReportTable(CurrentPlantNumber, s.Key, DateTime.Parse(rdate).Date, workingTimeStr, workingAreaStr);
+                    DB.insertReportTable(CurrentPlantNumber, robotID, DateTime.Parse(rdate).Date, workingTimeStr, workingAreaStr);
                 }
             }
 
@@ -185,87 +184,17 @@ namespace RobotCC
             DisplayReportTable();
         }
 
-        // WorkLog 테이블에서 <로봇명, 날짜>에 해당하는 작업시간(누적)을 추출한다.
-        private int calcWorkingTime(string robotID, DateTime reportDate)
+        // WorkLog 테이블에서 <로봇명, 날짜>에 해당하는 작업시간/작업면적(누적)을 계산한다.
+        private void calcWorkingTimeAndArea(string robotID, DateTime reportDate)
         {
             // [1] WorkLog에서 RobotID, PlantNUmber, 작업날짜 등의 조건에 맞는 자료를 시간 순으로 읽어 온다.
             SqlConnection con = new SqlConnection(G.connectionString);
-            con.Open(); 
+            con.Open();
 
             string TBL_NAME = "WorkLog";
             DateTime From = DateTime.Parse(reportDate.Date.ToShortDateString() + " 오전 00:00:00");
             DateTime To = DateTime.Parse(reportDate.AddDays(1).Date.ToShortDateString() + " 오전 00:00:00");
 
-            SqlCommand cmd = new SqlCommand("select TimeStamp, State from " + TBL_NAME + " where PlantNumber = @PlantNumber AND RId = @RobotID AND @DT_From <= TimeStamp AND TimeStamp < @DT_To ORDER BY TimeStamp", con);
-            cmd.Parameters.AddWithValue("@PlantNumber", CurrentPlantNumber);
-            cmd.Parameters.AddWithValue("@RobotID", robotID);
-            cmd.Parameters.AddWithValue("@DT_From", From.ToShortDateString());
-            cmd.Parameters.AddWithValue("@DT_To", To.ToShortDateString());
-            //주의 :  날짜 일치 검색 조건이 정확히 동작하지 않음. ==> 일단 범위에 드는 것 중 아래 조건은 while 루프안에서 제거
-            //cmd.Parameters.AddWithValue("@Date", reportDate);
-
-            SqlDataReader sdr = cmd.ExecuteReader();
-
-            int workingTime = 0;
-            bool startTimeExist = false;
-            DateTime startTime = From;
-
-            while (sdr.Read())
-            {
-                DateTime timeStamp = sdr.GetDateTime(0);    // DB의 TimeStamp 값
-                string state = sdr.GetString(1); // DB의 State 값
-
-                // 날짜 표준화 후 비교, 다른 날짜인 경우, 건너띔
-                if (!timeStamp.ToShortDateString().Equals(reportDate.ToShortDateString())) 
-                    continue;
-
-                // state 종류 중 작동 시작 관련된 것은 RUN_BTN_PRESSED(작동 시작 버튼),
-                if (state.Equals(G.RUN_BTN_PRESSED))  // 작업 시작 시각
-                {
-                    startTime = timeStamp;
-                    startTimeExist = true; //작업 시작시간 세팅
-                }
-                // state 종류 중 작동 완료 관련된 것은 STOP_BTN_PRESSED(정지 버튼), ERROR_STOP(오류로 중단), FINISHED(정상 작업 완료) 등이 있음,
-                else if (state.Equals(G.FINISHED) || state.Equals(G.STOP_BTN_PRESSED) || state.Equals(G.ERROR_STOP)) // 작업 중단/완료 시각
-                {
-                    // 시작 시간은 없dl 종료 시간만 검색되는 경우, 건너띔
-                    if (!startTimeExist) continue;
-
-                    if (startTime.CompareTo(timeStamp) >= 0)  // 시작과 끝 시간이 같거나 순서가 뒤바뀐 경우이면 예외적인 경우로 취급하여 무시
-                        continue;
-
-                    TimeSpan timeSpan = timeStamp - startTime;
-                    workingTime += (int)timeSpan.TotalSeconds;
-
-                    if (G.DEBUG)
-                    {
-                        Console.WriteLine("ROBOT ID : " + robotID + " WORKED FROM " + G.TimeStamp(startTime) + " TO " + G.TimeStamp(timeStamp));
-                        Console.WriteLine("TIMESPAN = " + timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
-                        //Console.WriteLine("STATE = " + state);
-                    }
-
-                    startTimeExist = false; // 다음 시간 간격 검사를 위해 다시 false로 변경
-                }
-            }
-
-            con.Close();
-
-            return workingTime;
-        }
-
-        // WorkLog 테이블에서 <로봇명, 날짜>에 해당하는 작업 면적(누적)을 추출한다.
-        // 중단, 수행, 중단 등 여러 경우가 있으므로, progress 값을 잘 누적 추적해야 한다.
-        // 또한 ptogress 누적 추적시 L/R 값이 바뀔 수도 있어 면적도 잘 계산하여야 함.
-        private double calcWorkingArea(string robotID, DateTime reportDate)
-        {
-            // [1] WorkLog에서 자료를 읽어 온다.
-            SqlConnection con = new SqlConnection(G.connectionString);
-            con.Open(); 
-            
-            string TBL_NAME = "WorkLog";
-            DateTime From = DateTime.Parse(reportDate.Date.ToShortDateString() + " 오전 00:00:00");
-            DateTime To = DateTime.Parse(reportDate.AddDays(1).Date.ToShortDateString() + " 오전 00:00:00");
-         
             SqlCommand cmd = new SqlCommand("select TimeStamp, State, LSize, RSize, Counter, Progress from " + TBL_NAME + " where PlantNumber = @PlantNumber AND RId = @RobotID AND @DT_From <= TimeStamp AND TimeStamp < @DT_To ", con);
             cmd.Parameters.AddWithValue("@PlantNumber", CurrentPlantNumber);
             cmd.Parameters.AddWithValue("@RobotID", robotID);
@@ -273,52 +202,65 @@ namespace RobotCC
             cmd.Parameters.AddWithValue("@DT_To", To.ToShortDateString());
             //주의 :  날짜 일치 검색 조건이 정확히 동작하지 않음. ==> 일단 범위에 드는 것 중 아래 조건은 while 루프안에서 제거
             //cmd.Parameters.AddWithValue("@Date", reportDate);
-
             SqlDataReader sdr = cmd.ExecuteReader();
 
-            double workingArea = 0;
+            // 매번 변수 초기화 후 계산
+            workingTime = 0;
+            workingArea = 0;
+
+            // 작업시각, 작업진행률초기값 설정
+            DateTime startTime = From;
             int startProgress = 0;
+            bool startFound = false;
 
             while (sdr.Read())
             {
                 DateTime timeStamp = sdr.GetDateTime(0);        // DB의 TimeStamp 값
                 string state = sdr.GetString(1);                // DB의 State 값
                 double lsize = (double)sdr.GetSqlDouble(2);     // DB의 LSize 값
-                double rsize = (double) sdr.GetSqlDouble(3);    // DB의 RSize 값
-                //int counter = sdr.GetInt32(4); ;            // DB의 edge counter 
-                int progress = sdr.GetInt32(5); ;         // DB의 progress 진도율
+                double rsize = (double)sdr.GetSqlDouble(3);     // DB의 RSize 값
+                //int counter = sdr.GetInt32(4);                // DB의 edge counter 
+                int progress = sdr.GetInt32(5);                 // DB의 progress 진도율
 
-                // 날짜 비교 전 표준화, 다른 날짜인 경우, 무시
-                if (!timeStamp.ToShortDateString().Equals(reportDate.ToShortDateString())) 
-                    continue;
-
-                if (state.Equals(G.RUN_BTN_PRESSED))  // 작업 시작 상태
+                // state 종류 중 작동 시작 관련된 것은 RUN_BTN_PRESSED(작동 시작 버튼),
+                if (state.Equals(G.RUN_BTN_PRESSED))  // 작업 시작 시각
                 {
+                    startTime = timeStamp;
                     startProgress = progress;
-                    if(G.DEBUG) Console.WriteLine(robotID + " TEST AREA = " + workingArea);
-                }
-                else if (state.Equals(G.FINISHED)) // 작업 정상 종료의 경우
-                {
-                    //?? workingArea += lsize * rsize;
-                    workingArea += lsize * rsize * (progress - startProgress) / 100;
-                    if (G.DEBUG) Console.WriteLine(robotID + " TEST AREA(FINISHED) = " + workingArea);
-                    if (G.DEBUG) Console.WriteLine("TEST L/R = " + lsize + "/" + rsize);
 
+                    startFound = true; //작업 시작시간 세팅
                 }
-                else if (state.Equals(G.STOP_BTN_PRESSED) || state.Equals(G.ERROR_STOP)) // 작업 비정상 종료의 경우
+                // state 종류 중 작동 완료 관련된 것은 STOP_BTN_PRESSED(정지 버튼), ERROR_STOP(오류로 중단), FINISHED(정상 작업 완료) 등이 있음,
+                else if (state.Equals(G.FINISHED) || state.Equals(G.STOP_BTN_PRESSED) || state.Equals(G.ERROR_STOP)) // 작업 중단/완료 시각
                 {
-                    workingArea += lsize * rsize * (progress - startProgress) / 100;
-                    if (G.DEBUG) Console.WriteLine(robotID + " TEST AREA(ERROR/STOP) = " + workingArea);
-                    if (G.DEBUG) Console.WriteLine("TEST L/R = " + lsize + "/" + rsize);
+                    //// 시작 없이 종료만 검색되는 경우, 건너띔???
+                    if (!startFound) continue;
+
+                    ////if (startTime.CompareTo(timeStamp) >= 0)  // 시작과 끝 시간이 같거나 순서가 뒤바뀐 경우이면 예외적인 경우로 취급하여 무시
+                    ////    continue;
+
+                    TimeSpan timeSpan = timeStamp - startTime;  // 경과 시간
+                    workingTime += (int)timeSpan.TotalSeconds;
+                    workingArea += lsize * rsize * (progress - startProgress) / 100; // 작업 진행률 변경
+
+                    if (G.DEBUG)
+                    {
+                        if (workingTime != 0 || workingArea != 0)
+                        {
+                            Console.WriteLine(robotID + " WORKED FROM " + G.TimeStamp(startTime) + " TO " + G.TimeStamp(timeStamp)
+                                + " ##TIMESPAN = " + timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
+                            Console.WriteLine(robotID + "의 작업 진행률 " + startProgress + " ==> " + progress);
+                        }
+                    }
+
+                    startFound = false; // 다음 검사를 위해 다시 false로 변경
                 }
-            }  
+            }
 
             con.Close();
-
-            return workingArea;
         }
 
-        // 이미 모든 조건을 만족하도록 생성된 ReportData 테이블이므로 그대로 내용을 보여준다. <로봇명, 날짜> 별로 작업시간, 작업면적을 보여준다
+        // ReportData 테이블은 조건에 딱 맞는 것만 찾아낸 것이므로 테이블 내용 전체를 보여준다.-  <로봇명, 날짜> 별로 작업시간, 작업면적을 보여준다
         private void DisplayReportTable()
         {
             string TBL_NAME = "ReportData";
