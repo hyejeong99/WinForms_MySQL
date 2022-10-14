@@ -669,6 +669,9 @@ namespace RobotCC
 
                         // [3] 작업 상태(ERROR_STOP)를 DB에 저장한다. 카운트는 현재 값으로 
                         DB.insertWorkLog(senderIndex, G.ERROR_STOP, errorCodeStr);
+
+                        // [4] 작업 버튼을 다시 활성화시킨다.
+                        Btn_RUN[senderIndex].Enabled = true;
                     }
                     else if (CmdCode.Equals(BATTERY_STATUS_REQ)) // NO CONFIRM
                     {
@@ -742,6 +745,9 @@ namespace RobotCC
 
                         // [4] 작업 상태를 DB에 저장한다. 카운트는 최신 값으로 
                         DB.insertWorkLog(senderIndex, G.FINISHED, "");
+
+                        // [5] 작업 버튼을 다시 활성화시킨다.
+                        Btn_RUN[senderIndex].Enabled = true;
                     }
                     // 수신 메시지가 명령어가 아닌 단순 CONFIRM 메시지인 경우, 
                     else if (CmdCode.Equals(RUN_CNF) || CmdCode.Equals(STOP_CNF) || CmdCode.Equals(HOME_CNF)
