@@ -56,7 +56,6 @@ namespace RobotCC
         List<string> confMsgs = new List<string>();  // CONF 메시지 분리 보관
         List<string> addrMsgs = new List<string>();  // 주소 관련 메시지 분리 보관
 
-
         // 각종 component를 배열로 관리 처리하기 위한 선언
         //// Buttons : R/S/H/OPTION
         public Button[] Btn_RUN = new Button[G.ROBOT_MAX_CNT];
@@ -79,8 +78,6 @@ namespace RobotCC
         // Radio Buttons
         RadioButton[] OT_H = new RadioButton[G.ROBOT_MAX_CNT];
         RadioButton[] OT_V = new RadioButton[G.ROBOT_MAX_CNT];
-
-
 
 
         public RobotControlCenter()
@@ -335,8 +332,6 @@ namespace RobotCC
                     //CheckLoRaPortAsync(false);
                 }
             }
-
-
         }
 
         private void CheckDBFile()

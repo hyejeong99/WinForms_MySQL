@@ -19,6 +19,9 @@ namespace RobotCC
         // 로봇명-날짜 리스트 구성 - 비교시 표준화를 위해 날짜는 string(yyyy-MM-dd)으로 저장
         private static Dictionary<string, List<string>> ReportRobotList = new Dictionary<string, List<string>>();
 
+        // 발전소별 E-Mail 값 저장용 
+        private static Dictionary<string, string> PlantEmailList = new Dictionary<string, string>();
+
         // 로봇당 해당 날짜의 작업 시간 및 면적
         private int workingTime;
         private double workingArea;
@@ -43,44 +46,53 @@ namespace RobotCC
             //DataTable dt = new DataTable();
             SqlDataReader sdr = cmd.ExecuteReader();
 
+            PlantEmailList.Clear();
             comboBox1.Items.Clear();
             while (sdr.Read())
             {
-                comboBox1.Items.Add(sdr.GetString(0) + " : " + sdr.GetString(1));
-                CurrentPlantNumber = sdr.GetString(0);
-                CurrentPlantName = sdr.GetString(1);
-                CurrentContactEmail = sdr.GetString(3);
+                string plantNumber = sdr.GetString(0);
+                string plantName = sdr.GetString(1);
+                string plantEmail = sdr.GetString(3);
+
+                comboBox1.Items.Add(plantNumber + " : " + plantName);
+                PlantEmailList.Add(plantNumber, plantEmail);
+                //CurrentPlantNumber = sdr.GetString(0);
+                //CurrentPlantName = sdr.GetString(1);
+                //CurrentContactEmail = sdr.GetString(3);
             }
             //dt.Load(sdr);
             con.Close();
-            comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
-            emailTBox.Text = CurrentContactEmail.ToString();
+            comboBox1.SelectedIndex = comboBox1.Items.Count - 1;  // 항상 최신 것을 가리키도록 조정
+            //emailTBox.Text = CurrentContactEmail.ToString();
         }
 
-        private string getEmailAddress(string plantNumber)
-        {
-            string TBL_NAME = "PlantList";
+        //private string getEmailAddress(string plantNumber)
+        //{
+        //    string TBL_NAME = "PlantList";
 
-            SqlConnection con = new SqlConnection(G.connectionString);
-            con.Open();
+        //    SqlConnection con = new SqlConnection(G.connectionString);
+        //    con.Open();
 
-            SqlCommand cmd = new SqlCommand("select PlantNumber, ContactEmail  from " + TBL_NAME + " where PlantNumber = @PlantNumber", con);
-            cmd.Parameters.AddWithValue("@PlantNumber", plantNumber);
-            SqlDataReader sdr = cmd.ExecuteReader();
+        //    SqlCommand cmd = new SqlCommand("select PlantNumber, ContactEmail  from " + TBL_NAME + " where PlantNumber = @PlantNumber", con);
+        //    cmd.Parameters.AddWithValue("@PlantNumber", plantNumber);
+        //    SqlDataReader sdr = cmd.ExecuteReader();
 
-            while (sdr.Read())
-            {
-                if (sdr.GetString(0).Equals(plantNumber))
-                {
-                    //CurrentPlantName = sdr.GetString(0);
-                    CurrentContactEmail = sdr.GetString(1);
-                    break;
-                }
-            }
-            con.Close();
+        //    // 사실 읽어들인 발전소는 단 하나여서 반복할 필요는 없음. 
+        //    //while (sdr.Read())
+        //    //{
+        //    //    if (sdr.GetString(0).Equals(plantNumber))
+        //    //    {
+        //    //        CurrentContactEmail = sdr.GetString(1);
+        //    //        break;
+        //    //    }
+        //    //}
+        //    sdr.Read();
+        //    CurrentContactEmail = sdr.GetString(1);
+            
+        //    con.Close();
 
-            return CurrentContactEmail;
-        }
+        //    return CurrentContactEmail;
+        //}
 
         private void printBtn_Click(object sender, EventArgs e)  // 보고서 인쇄
         {
@@ -98,7 +110,8 @@ namespace RobotCC
             CurrentPlantNumber = plantinfo[0];
             CurrentPlantName = plantinfo[1];
             // PlantNumber에 해당하는 CurrentContactEmail 값을 설정
-            CurrentContactEmail = getEmailAddress(CurrentPlantNumber);
+            //CurrentContactEmail = getEmailAddress(CurrentPlantNumber);
+            CurrentContactEmail= PlantEmailList[CurrentPlantNumber];
             emailTBox.Text = CurrentContactEmail.ToString();
 
             if (G.DEBUG) Console.WriteLine("<" + CurrentPlantNumber + ">,<" + CurrentPlantName + ">,<" + CurrentContactEmail + ">");
