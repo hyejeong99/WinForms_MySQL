@@ -190,7 +190,8 @@ namespace RobotCC
                 G.AUTOSTART[i] = G.ExistingRobotNameAndAutoStart[G.robotID[i]];
 
                 if (G.OT[i] == G.VERTICAL) OT_V[i].Checked = true;
-                else OT_H[i].Checked = true;
+                else if (G.OT[i] == G.HORIZONTAL) OT_H[i].Checked = true;
+                //else 둘다 그대로 놔둠; 
             }
 
         }
@@ -204,7 +205,8 @@ namespace RobotCC
                 TBox_RobotName[i].Text = G.robotID[i];
 
                 if (G.OT[i] == G.VERTICAL) OT_V[i].Checked = true;
-                else OT_H[i].Checked = true;
+                else if (G.OT[i] == G.HORIZONTAL) OT_H[i].Checked = true;
+                // else if (G.OT[i] == G.UNDEFINED) .....Do Nothing
 
                 TBox_Status[i].Text = "로봇 전원 OFF, 주소 = " + G.robotAddress[i];
                 BatteryLevel[i].Value = 0; Progress[i].Value = 0;
@@ -700,18 +702,29 @@ namespace RobotCC
                     else if (CmdCode.Equals(CLEAN_COUNT)) // NO CONFIRM
                     {
                         // [1] CONFIRM은 불필요
-                        // [2] 전달된 추가적인 정보, 즉 작업 진도량을 계산하여 보여줌
+                        // [2] 전달된 추가적인 정보, 즉 작업 진도를 계산하여 보여줌
                         int Counter = int.Parse(parts[4]); // 카운터 정보를 저장한다.
-                        ///////////////////////// ProgressBar 값 변경 등 
-                        ///
-                        G.EDGE_CNT[senderIndex] = Counter; // 전달받은 카운터를 저장
+                        G.EDGE_CNT[senderIndex] = Counter; // 전달받은 카운터를 일단 저장
 
-                        // 테스트 차원에서 PROGRESS를 10 더함, 실제로는 자세한 계산 필요
-                        Progress[senderIndex].Value += 10; // 구체적인 계산 필요.
+                        // [3] 카운터 값 변경에 따라, Progress 값을 계산하여 변경한다.
+                        if (G.OT[senderIndex] == G.VERTICAL) // 수직 방향 작업 중이면, 
+                        {
+                            double extraWork = Counter * G.DEFAULT_WIDTH / G.LSize[senderIndex] * 100; 
+                            Progress[senderIndex].Value += (int) extraWork; // 구체적인 계산 필요.
+                        }
+                        else if (G.OT[senderIndex] == G.HORIZONTAL)  // 수평방향 작업 중이면, 
+                        {
+                            double extraWork = Counter * G.DEFAULT_WIDTH / G.RSize[senderIndex] * 100;
+                            Progress[senderIndex].Value += (int) extraWork; // 구체적인 계산 필요.
+                        }
+                        else // 작업 방향이 미지정된 경우, 이 경우는 발생하면 안됨
+                            MessageBox.Show("작업 방향이 지정되어 있지 않습니다.", "작업 방향 미지정", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                       
+                        // [4] 해당 기기의 progress TextBox 수치 값을 변경하고, G.WORK_PERCENT에 저장
                         TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
                         G.WORK_PERCENTAGE[senderIndex] = Progress[senderIndex].Value; //전체 진행률
 
-                        // 작업 상태를 DB에 저장한다. 
+                        // [5] 작업 상태를 DB에 저장한다. 
                         // DB 저장은 굳이 하지 않아도 될 듯하나 - 일단 저장
                         DB.insertWorkLog(senderIndex, G.REPORT_CLEAN_COUNTER, "");
 
@@ -948,6 +961,12 @@ namespace RobotCC
         ///////////////////////////
         private async void runActionAsync(int robotIndex)
         {
+            if (G.OT[robotIndex] == G.UNDEFINED)
+            {
+                MessageBox.Show("로봇의 작업방향 설정을 먼저 선택하세요.", "사용법 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             OutputMesssage("[작동 #" + (robotIndex + 1) + "] 버튼 실행");
 
             // 해당 로봇에게 작동 개시 명령을 전송
@@ -1029,8 +1048,11 @@ namespace RobotCC
                 DB.insertWorkLog(robotIndex, G.OT_V_BTN_PRESSED, "");
 
             }
-            else MessageBox.Show(@"수직 방향 설정 오류", @"로봇 무응답", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            else
+            {
+                MessageBox.Show(@"수직 방향 설정 오류", @"로봇 무응답", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                OT_V[robotIndex].Checked = false; // 체크 무효화
+            }
         }
 
         private async void OT_HActionAsync(int robotIndex)
@@ -1049,9 +1071,12 @@ namespace RobotCC
                 TBox_Status[robotIndex].ForeColor = Color.Blue;
 
                 DB.insertWorkLog(robotIndex, G.OT_H_BTN_PRESSED, "");
-
             }
-            else MessageBox.Show(@"수평 방향 설정 오류", @"로봇 무응답 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                MessageBox.Show(@"수평 방향 설정 오류", @"로봇 무응답", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                OT_H[robotIndex].Checked = false; // 체크 무효화
+            }
         }
 
         private void optionAction(int robotIndex)
@@ -1168,7 +1193,7 @@ namespace RobotCC
 
         public void OutputMesssage(string line)
         {
-            output.AppendText(line + Environment.NewLine); // new line 추가
+            output.AppendText("[" + G.TimeStamp() + "] " + line + Environment.NewLine); // new line 추가
 
             output.Select(output.Text.Length, 0);// scroll 항상 아래
             output.ScrollToCaret();

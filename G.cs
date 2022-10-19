@@ -30,12 +30,13 @@ namespace RobotCC
         public const int LORA_TEST_DELAY = 2000; // 2초 응답 대기 
         public const double DEFAULT_L_SIZE = 4.0; // LoRA 가로
         public const double DEFAULT_R_SIZE = 2.5; // 1m 세로
+        public const double DEFAULT_WIDTH = 0.5;  // 로봇 청소 작업 기본 폭(너비)
 
+        public const int UNDEFINED = -1;
         public const int VERTICAL = 0;
         public const int HORIZONTAL = 1;
         public const int AUTO_OFF = 0;
         public const int AUTO_ON = 1;
-        public const int DEFAULT_OT = VERTICAL; // 수직 방향
         public const int DEFAULT_AUTO = AUTO_OFF; // 수동
         public const string DEFAULT_SERIALPORT_NAME = "Com1"; // 초기값
 
@@ -114,7 +115,7 @@ namespace RobotCC
                 G.robotID[i] = "";
                 G.LSize[i] = G.DEFAULT_L_SIZE;
                 G.RSize[i] = G.DEFAULT_R_SIZE;
-                G.OT[i] = G.DEFAULT_OT;
+                G.OT[i] = G.UNDEFINED;
                 G.AUTOSTART[i] = G.DEFAULT_AUTO;
                 G.robotAddress[i] = 0; // 초기값, 0
 
