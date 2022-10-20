@@ -184,16 +184,15 @@ namespace RobotCC
             TBox_Battery[i].Text = "0"; TBox_Progress[i].Text = "0";
 
             // 방향 설정, 자동 실행 정보의 경우,  이전에 설정된 정보를 적용
-            if (G.ExistingRobotNameAndAddress.ContainsKey(G.robotID[i]))
+            if (G.ExistingRobotNameAndOT.ContainsKey(G.robotID[i]))
             {
                 G.OT[i] = G.ExistingRobotNameAndOT[G.robotID[i]];
-                G.AUTOSTART[i] = G.ExistingRobotNameAndAutoStart[G.robotID[i]];
+                //G.AUTOSTART[i] = G.ExistingRobotNameAndAutoStart[G.robotID[i]];
 
                 if (G.OT[i] == G.VERTICAL) OT_V[i].Checked = true;
                 else if (G.OT[i] == G.HORIZONTAL) OT_H[i].Checked = true;
                 //else 둘다 그대로 놔둠; 
             }
-
         }
 
         private void DisplayRobotInformation()
@@ -208,10 +207,12 @@ namespace RobotCC
                 else if (G.OT[i] == G.HORIZONTAL) OT_H[i].Checked = true;
                 // else if (G.OT[i] == G.UNDEFINED) .....Do Nothing
 
-                TBox_Status[i].Text = "로봇 전원 OFF, 주소 = " + G.robotAddress[i];
+                //TBox_Status[i].Text = "로봇 전원 OFF, 주소 = " + G.robotAddress[i];
                 BatteryLevel[i].Value = 0; Progress[i].Value = 0;
 
-                DisableRow(i); // 전원 ON될 때까지 각종 컴포넌트 일시 비활성화
+                //DisableRow(i); // 전원 ON될 때까지 각종 컴포넌트 일시 비활성화
+                EnableRow(i); // 활성화
+
             }
 
             //// [2] 미사용 기기에 대한 버튼 비활성화
@@ -438,19 +439,6 @@ namespace RobotCC
             return -1;  // 이 경우는 발생하면 안됨, 그러나 주소 변경이나 신규 로봇이 추가되는 경우에 대한 대비
         }
 
-        private int RefExist(string name, int address) // 설정 저장 목록 중 name/address 일치 항목의 인덱스 반환
-        {
-            // 등록 요청한 로봇에 대한 설정 파일 정보가 있으면 최대한 활용
-            int count = 0;
-            foreach (var s in G.ExistingRobotNameAndAddress)
-            {
-                count++;
-                if (s.Key.Equals(name) && s.Value == (address)) // 기존 정보와 정확하게 일치하면
-                    return count;
-            }
-            return 0;
-        }
-
         /*
          * 수신 데이터가 있으면 무조건 List(RecvMesg)에 보관, 발신 주소는 같이 저장하여, CONF 발송 대응
          */
@@ -533,7 +521,7 @@ namespace RobotCC
                     if (CmdCode.Equals(REGISTER_REQ)) //  로봇 등록 명령 처리 R->C
                     {
                         // 이 경우는 senderIndex 새로 계산 필요 - 새로운 기기 등록 가능성 때문
-                        string robotName = parts[4]; // 로봇 등록명 추출
+                        string regRobotName = parts[4]; // 로봇 등록명 추출
 
                         // [1] CONFIRM 메시지를 먼저 보내고
                         SendConfMsgToRobot(senderAddr, REGISTER_CNF);
@@ -543,48 +531,27 @@ namespace RobotCC
                         // [2-2] 동일 로봇명의 주소만 바뀐 경우, 새로운 주소로 변경 - 통신 모듈 변경, 활성화 
                         // [2-3] 동일 주소의 로봇명이 바뀐 경우, 로봇명 변경 - 로봇 대체 + 기존 통신 모듈 사용, 활성화
                         // [2-4] 기존 목록에 없는 경우, 새로운 기기 추가, 사용 기기수 증가, 활성화
-                        ///메인화면 정보 업데이트 + DB 업데이트
+                        // ==> 전체적인 변경 : 로봇ID가 일치하면 기존 설정 값 사용. 주소는 무관
+                        /// 메인화면 정보 업데이트 + DB 업데이트
 
                         // 아래에서 senderIndex 재설정 필요
-                        bool found = false;
 
+                        bool found = false;
                         for (int r = 0; r < G.ROBOT_REG_CNT; r++)
                         {
-                            if (G.robotID[r].Equals(robotName) && G.robotAddress[r] == senderAddr)  // 2-1 경우
+                            // 등록 로봇이 이미 목록에 존재하는 경우, (예. 파워 껐다가 다시 키는 경우)
+                            // 주소 변경시 변경된 주소 그대로 사용
+                            if (G.robotID[r].Equals(regRobotName))  
                             {
                                 EnableRow(r);
-                                TBox_RobotName[r].Text = robotName;
-                                TBox_Status[r].Text = "로봇 재등록"; TBox_Status[r].ForeColor = G.DefaultColor;
-
-                                OutputMesssage("기존 로봇 : " + robotName + " 재등록, 주소(동일) = " + senderAddr);
-                                senderIndex = r;
-                                DB.insertWorkLog(senderIndex, G.REGISTER, "");
-                                found = true;
-
-                                break;
-                            }
-                            else if (G.robotID[r].Equals(robotName) && G.robotAddress[r] != senderAddr)  // 2-2 경우
-                            {
+                                
                                 G.robotAddress[r] = senderAddr;
-                                EnableRow(r);
-                                TBox_RobotName[r].Text = robotName;
-                                TBox_Status[r].Text = "로봇 등록, 주소(변경)"; TBox_Status[r].ForeColor = G.DefaultColor;
-                                OutputMesssage("등록 로봇 : " + robotName + ", 주소(변경) = " + senderAddr);
+                                TBox_RobotName[r].Text = regRobotName;
+                                TBox_Status[r].Text = "로봇 등록";
+                                TBox_Status[r].ForeColor = G.DefaultColor;
+                                OutputMesssage("등록 로봇 : " + regRobotName + ", 주소 = " + senderAddr);
                                 senderIndex = r;
-                                DB.insertWorkLog(senderIndex, G.REGISTER, "");
 
-                                found = true;
-
-                                break;
-                            }
-                            else if (!G.robotID[r].Equals(robotName) && G.robotAddress[r] == senderAddr)  // 2-3 경우
-                            {
-                                G.robotID[r] = robotName;
-                                EnableRow(r);
-                                TBox_RobotName[r].Text = robotName;
-                                TBox_Status[r].Text = "신규 등록, 주소(동일)";
-                                OutputMesssage("로봇 변경 : " + robotName + ", 주소(동일) = " + senderAddr);
-                                senderIndex = r;
                                 DB.insertWorkLog(senderIndex, G.REGISTER, "");
 
                                 found = true;
@@ -596,7 +563,7 @@ namespace RobotCC
                         // 일치하는 목록이 없으면, 신규 추가
                         if (!found)
                         {
-                            if (G.ROBOT_REG_CNT == G.ROBOT_MAX_CNT)
+                            if (G.ROBOT_REG_CNT == G.ROBOT_MAX_CNT)  // 최대 대수 초과
                             {
                                 MessageBox.Show("로봇은 최대 " + G.ROBOT_MAX_CNT + "대까지만 등록 가능합니다.",
                                     "로봇 등록 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -604,34 +571,46 @@ namespace RobotCC
                             }
                             else
                             {
-                                // 동일한 값이 전혀 없는 경우 - 2-4 경우
-                                // 새로운 기기 추가
-                                G.robotID[G.ROBOT_REG_CNT] = robotName;
-                                G.robotAddress[G.ROBOT_REG_CNT] = senderAddr;
-                                EnableRow(G.ROBOT_REG_CNT);
-                                TBox_RobotName[G.ROBOT_REG_CNT].Text = robotName;
-
-                                // 설정 파일에 저장되어 있던 로봇/주소 조합인 경우, 이를 표시
-                                int refindex = RefExist(robotName, senderAddr);
-
-
-                                if (refindex != 0)
+                                // 동일한 로봇명이 없는 경우 - 새로운 기기 추가
+                                // 검사 - 기존 주소와 동일한지 검사 필요 - 주소는 항상 고유주소 
+                                for (int k = 0; k < G.ROBOT_REG_CNT; k++)
                                 {
-                                    TBox_Status[G.ROBOT_REG_CNT].Text = "로봇 등록. 기존 설정값 사용 ";
-                                    TBox_Status[G.ROBOT_REG_CNT].ForeColor = G.DefaultColor;
-
-                                    OutputMesssage("로봇 재등록 : " + robotName + ", 주소 = " + senderAddr + ", 기존 설정값 사용");
-                                }
-                                else
-                                {
-                                    TBox_Status[G.ROBOT_REG_CNT].Text = "신규 등록, 주소(추가)";
-                                    TBox_Status[G.ROBOT_REG_CNT].ForeColor = G.DefaultColor;
-
-                                    OutputMesssage("신규 로봇 등록 : " + robotName + ", 주소 = " + senderAddr);
+                                    if (G.robotAddress[k] == senderAddr) // 동일한 주소가 이미 배정되어 있으면, 
+                                    {
+                                        MessageBox.Show("등록 요청한 로봇 ID " + regRobotName + "와 이미 등록된 다른 로봇 " + G.robotID[k]
+                                            + "의 주소가 동일합니다. 통신 모듈 주소 변경 필수.", "로봇 통신 주소 중복", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
                                 }
 
-                                // senderIndex를 재설정 - 로봇 대수 추가
+                                // senderIndex 설정 - 로봇 대수 추가
                                 senderIndex = G.ROBOT_REG_CNT;
+
+                                EnableRow(senderIndex); // 활성화
+
+                                G.robotID[senderIndex] = regRobotName;
+                                G.robotAddress[senderIndex] = senderAddr;
+                                TBox_RobotName[senderIndex].Text = regRobotName;
+
+                                if (G.ExistingRobotNameAndOT.ContainsKey(regRobotName)) // 기존 설정값이 있으면 반영
+                                {
+                                    TBox_Status[senderIndex].Text = "로봇 등록. 기존 설정 사용 ";
+                                    TBox_Status[senderIndex].ForeColor = G.DefaultColor;
+
+                                    // OT 값 반영
+                                    G.OT[senderIndex] = G.ExistingRobotNameAndOT[regRobotName];
+                                    if (G.OT[senderIndex] == G.VERTICAL) OT_V[senderIndex].Checked = true;
+                                    else if (G.OT[senderIndex] == G.HORIZONTAL) OT_H[senderIndex].Checked = true;
+                                    //else UNDEFINED 면 둘다 그대로 놔둠; 
+                                    OutputMesssage("로봇 등록 : " + regRobotName + ", 주소 = " + senderAddr + ", 기존 설정값 사용");
+                                }
+                                else // 기존 설정값이 없으면, 
+                                {
+                                    TBox_Status[senderIndex].Text = "신규 로봇 등록";
+                                    TBox_Status[senderIndex].ForeColor = G.DefaultColor;
+
+                                    OutputMesssage("신규 로봇 등록 : " + regRobotName + ", 주소 = " + senderAddr);
+                                }
 
                                 // 로봇 등록시 작업 진행률 관련 수치를 모두 0으로 초기화
                                 Progress[senderIndex].Value = 0;
@@ -662,13 +641,14 @@ namespace RobotCC
                         TBox_Status[senderIndex].ForeColor = Color.Red;
                         TBox_Status[senderIndex].Text = "작동오류, 중지 : " + errorCodeStr;
                         Refresh();// 화면 출력 후 소리 재생
-                        SoundBeep(7, 3000); SoundBeep(3, 3000); SoundBeep(7, 3000);
+                        SoundBeep(7, 2000); SoundBeep(3, 1000); SoundBeep(7, 2000);
 
                         // [3] 작업 상태(ERROR_STOP)를 DB에 저장한다. 카운트는 현재 값으로 
                         DB.insertWorkLog(senderIndex, G.ERROR_STOP, errorCodeStr);
 
-                        // [4] 작업 버튼을 다시 활성화시킨다.
-                        Btn_RUN[senderIndex].Enabled = true;
+                        // [4] 작업 버튼 및 홈 버튼을 다시 활성화시킨다.
+                        Btn_RUN[senderIndex].Enabled = true; Btn_HOME[senderIndex].Enabled = true;
+                        Btn_STOP[senderIndex].Enabled = false; 
                     }
                     else if (CmdCode.Equals(BATTERY_STATUS_REQ)) // NO CONFIRM
                     {
@@ -755,7 +735,8 @@ namespace RobotCC
                         DB.insertWorkLog(senderIndex, G.FINISHED, "");
 
                         // [5] 작업 버튼을 다시 활성화시킨다.
-                        Btn_RUN[senderIndex].Enabled = true;
+                        Btn_RUN[senderIndex].Enabled = true; 
+                        Btn_STOP[senderIndex].Enabled = false; Btn_HOME[senderIndex].Enabled = false;
                     }
                     // 수신 메시지가 명령어가 아닌 단순 CONFIRM 메시지인 경우, 
                     else if (CmdCode.Equals(RUN_CNF) || CmdCode.Equals(STOP_CNF) || CmdCode.Equals(HOME_CNF)
@@ -961,11 +942,11 @@ namespace RobotCC
         ///////////////////////////
         private async void runActionAsync(int robotIndex)
         {
-            if (G.OT[robotIndex] == G.UNDEFINED)
-            {
-                MessageBox.Show("로봇의 작업방향 설정을 먼저 선택하세요.", "사용법 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (G.OT[robotIndex] == G.UNDEFINED)
+            //{
+            //    MessageBox.Show("로봇의 작업방향 설정을 먼저 선택하세요.", "사용법 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             OutputMesssage("[작동 #" + (robotIndex + 1) + "] 버튼 실행");
 

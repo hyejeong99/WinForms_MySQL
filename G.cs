@@ -32,9 +32,11 @@ namespace RobotCC
         public const double DEFAULT_R_SIZE = 2.5; // 1m 세로
         public const double DEFAULT_WIDTH = 0.5;  // 로봇 청소 작업 기본 폭(너비)
 
-        public const int UNDEFINED = -1;
+        //public const int UNDEFINED = -1;
         public const int VERTICAL = 0;
         public const int HORIZONTAL = 1;
+        public const int DEFAULT_OT = VERTICAL; // 상하 동작
+
         public const int AUTO_OFF = 0;
         public const int AUTO_ON = 1;
         public const int DEFAULT_AUTO = AUTO_OFF; // 수동
@@ -69,7 +71,7 @@ namespace RobotCC
         public static double[] LSize = new double[ROBOT_MAX_CNT]; // 로봇별 청소할 가로 길이
         public static double[] RSize = new double[ROBOT_MAX_CNT]; // 로봇별 청소할 세로 길이
         public static int[] OT = new int[ROBOT_MAX_CNT]; // 로봇별 청소할 방향 
-        public static int[] AUTOSTART = new int[ROBOT_MAX_CNT]; // 자동 시작 여부 ON/OFF
+        //public static int[] AUTOSTART = new int[ROBOT_MAX_CNT]; // 자동 시작 여부 ON/OFF
 
         // 추후 수정....
         // OSY EDGE_CNT 보다는 WORK_PERCENTAGE를 DB에 저장하는 것이 효과적일 듯
@@ -80,9 +82,9 @@ namespace RobotCC
 
 
         // 설정 파일에 정보가 있는 목록 구성
-        public static Dictionary<string, int> ExistingRobotNameAndAddress = new Dictionary<string, int>();
+        //public static Dictionary<string, int> ExistingRobotNameAndAddress = new Dictionary<string, int>();
         public static Dictionary<string, int> ExistingRobotNameAndOT = new Dictionary<string, int>();
-        public static Dictionary<string, int> ExistingRobotNameAndAutoStart = new Dictionary<string, int>();
+        //public static Dictionary<string, int> ExistingRobotNameAndAutoStart = new Dictionary<string, int>();
 
         // Control 센터의 LoRa Address 정보
         public static string MyLoRaAddress; // 1000?
@@ -109,23 +111,24 @@ namespace RobotCC
 
             G.SelectedSerialPortName = G.DEFAULT_SERIALPORT_NAME;
 
-            // 로봇 개수가 가변이므로 일단, 모든 배열값의 기본은 배정하고 시작
+            // 로봇 개수가 가변이므로 일단, 모든 배열값의 기본은 초기화하고 시작
             for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
             {
                 G.robotID[i] = "";
                 G.LSize[i] = G.DEFAULT_L_SIZE;
                 G.RSize[i] = G.DEFAULT_R_SIZE;
-                G.OT[i] = G.UNDEFINED;
-                G.AUTOSTART[i] = G.DEFAULT_AUTO;
+                G.OT[i] = G.DEFAULT_OT;
+                //G.AUTOSTART[i] = G.DEFAULT_AUTO;
                 G.robotAddress[i] = 0; // 초기값, 0
 
                 //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
+                if (G.DEBUG) Console.WriteLine("설정 정보 #" + i + " " + G.robotID[i] + G.OT[i]);
             }
 
             // 설정 추출 로봇 정보 초기화
-            ExistingRobotNameAndAddress.Clear();
+            //ExistingRobotNameAndAddress.Clear();
             ExistingRobotNameAndOT.Clear();
-            ExistingRobotNameAndAutoStart.Clear();
+            //ExistingRobotNameAndAutoStart.Clear();
 
             if (fi.Exists) // rcc 설정파일 존재시
             {
@@ -140,26 +143,30 @@ namespace RobotCC
                     if (!lines[i + 1].Contains(",")) continue; // 내용이 빈 라인의 경우, 무시
 
                     string[] parts = lines[i + 1].Split(',');
-                    if (parts.Length != 6) continue; // 잘못된 경우
+                    //if (parts.Length != 6) continue; // 잘못된 경우
 
+                    //G.robotID[i] = parts[0];
+                    //G.LSize[i] = double.Parse(parts[1]);
+                    //G.RSize[i] = double.Parse(parts[2]);
+                    //G.OT[i] = int.Parse(parts[3]);
+                    //G.AUTOSTART[i] = int.Parse(parts[4]);
+                    //G.robotAddress[i] = int.Parse(parts[5]);
                     G.robotID[i] = parts[0];
-                    G.LSize[i] = double.Parse(parts[1]);
-                    G.RSize[i] = double.Parse(parts[2]);
-                    G.OT[i] = int.Parse(parts[3]);
-                    G.AUTOSTART[i] = int.Parse(parts[4]);
-                    G.robotAddress[i] = int.Parse(parts[5]);
+                    G.OT[i] = int.Parse(parts[1]);
 
-                    // 3가지 목록을 일단 저장하여 default 값으로 활용
-                    ExistingRobotNameAndAddress.Add(G.robotID[i], G.robotAddress[i]);
+                    // 설정 정보 목록을 일단 저장하여 default 값으로 활용
+                    //ExistingRobotNameAndAddress.Add(G.robotID[i], G.robotAddress[i]);
                     ExistingRobotNameAndOT.Add(G.robotID[i], G.OT[i]);
-                    ExistingRobotNameAndAutoStart.Add(G.robotID[i], G.AUTOSTART[i]);
+                    //ExistingRobotNameAndAutoStart.Add(G.robotID[i], G.AUTOSTART[i]);
 
-                    if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
+                    //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
+                    if (G.DEBUG) Console.WriteLine("설정 정보 #" + i + " " + G.robotID[i] + "," + G.OT[i]);
                 }
             }
 
             G.ROBOT_REG_CNT = 0; // 일단 항상 0으로 초기화 
-            G.SAVED_ROBOT_CNT = G.ExistingRobotNameAndAddress.Count; // 기존 설정값을 가진 로봇의 수
+            //G.SAVED_ROBOT_CNT = G.ExistingRobotNameAndAddress.Count; // 기존 설정값을 가진 로봇의 수
+            G.SAVED_ROBOT_CNT = G.ExistingRobotNameAndOT.Count; // 기존 설정값을 가진 로봇의 수
 
         }
 
@@ -171,8 +178,9 @@ namespace RobotCC
 
             for (int i = 0; i < G.ROBOT_REG_CNT; i++)
             {
-                lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," +
-                         G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;
+                //lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," +
+                //         G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;
+                lines += G.robotID[i] + "," + G.OT[i] + Environment.NewLine;
             }
             File.WriteAllText(G.CNFFileName, lines);
 

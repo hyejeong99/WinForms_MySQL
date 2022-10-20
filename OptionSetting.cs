@@ -24,9 +24,9 @@ namespace RobotCC
             LSize.Text = G.LSize[robotIndex].ToString();
             RSize.Text = G.RSize[robotIndex].ToString();
 
-            // [3] 자동 시작 설정 값을 보여줌
-            if (G.AUTOSTART[robotIndex] == G.AUTO_ON) checkBox1.Checked = true;
-            else checkBox1.Checked = false;
+            //// [3] 자동 시작 설정 값을 보여줌
+            //if (G.AUTOSTART[robotIndex] == G.AUTO_ON) checkBox1.Checked = true;
+            //else checkBox1.Checked = false;
 
         }
 
@@ -86,9 +86,9 @@ namespace RobotCC
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-                G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_ON;
-            else G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_OFF;
+            //if (checkBox1.Checked == true)
+            //    G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_ON;
+            //else G.AUTOSTART[G.CurrentRobotNumer] = G.AUTO_OFF;
         }
 
         private void LSize_KeyPress(object sender, KeyPressEventArgs e)
