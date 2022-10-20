@@ -32,7 +32,7 @@ namespace RobotCC
         public const double DEFAULT_R_SIZE = 2.5; // 1m 세로
         public const double DEFAULT_WIDTH = 0.5;  // 로봇 청소 작업 기본 폭(너비)
 
-        //public const int UNDEFINED = -1;
+        public const int UNDEFINED = -1;
         public const int VERTICAL = 0;
         public const int HORIZONTAL = 1;
         public const int DEFAULT_OT = VERTICAL; // 상하 동작

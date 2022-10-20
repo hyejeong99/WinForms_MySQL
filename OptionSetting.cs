@@ -32,7 +32,6 @@ namespace RobotCC
 
         private void buttonSave_Click(object sender, EventArgs e)  // 저장
         {
-
             // 숫자가 아닌 입력의 경우, 오류 발생
             LSize.Text = LSize.Text.Trim();
             RSize.Text = RSize.Text.Trim();
@@ -54,8 +53,8 @@ namespace RobotCC
                 Console.Write("LSize = " + G.LSize[robotIndex]);
                 Console.Write("RSize = " + G.RSize[robotIndex]);
 
-                // AUTOSTART 등 기타 정보는 고칠떄마다 설정 파일 자동 변경
-                G.CNFSaveFile(); // 고칠 때 마다 저장
+                //// AUTOSTART 등 기타 정보는 고칠떄마다 설정 파일 자동 변경
+                //G.CNFSaveFile(); // 고칠 때 마다 저장  ==> 저장하지 않도록 변경
                 this.Close();
             }
 
