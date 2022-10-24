@@ -43,12 +43,12 @@ namespace RobotCC
         public const string HOME_REQ = "70";   // C->R
         public const string HOME_CNF = "71";   // R->C
 
-        // 센터 방향 지시
-        public const string OT_V_REQ = "80";   // C->R  수직 방향 지시
-        public const string OT_V_CNF = "81";   // R->C // 
+        ////// 센터 방향 지시
+        ////public const string OT_V_REQ = "80";   // C->R  수직 방향 지시
+        ////public const string OT_V_CNF = "81";   // R->C // 
 
-        public const string OT_H_REQ = "90";   // C->R 수평 방향 지시
-        public const string OT_H_CNF = "91";   // R->C
+        ////public const string OT_H_REQ = "90";   // C->R 수평 방향 지시
+        ////public const string OT_H_CNF = "91";   // R->C
 
 
         // 수신 메시지 보관용 리스트
@@ -336,48 +336,64 @@ namespace RobotCC
         {
             // 각종 버튼의 제어를 배열로 관리하기 위한 작업   
             // [1] RUN 버튼 연결
-            Btn_RUN[0] = runBtn1; Btn_RUN[1] = runBtn2; Btn_RUN[2] = runBtn3;
-            Btn_RUN[3] = runBtn4; Btn_RUN[4] = runBtn5;
+            Btn_RUN[0] = runBtn1; Btn_RUN[1] = runBtn2; Btn_RUN[2] = runBtn3; Btn_RUN[3] = runBtn4; Btn_RUN[4] = runBtn5;
+            Btn_RUN[5] = runBtn6; Btn_RUN[6] = runBtn7; Btn_RUN[7] = runBtn8; Btn_RUN[8] = runBtn9; Btn_RUN[9] = runBtn10;
 
             //// [2] STOP 버튼 연결
-            Btn_STOP[0] = stopBtn1; Btn_STOP[1] = stopBtn2; Btn_STOP[2] = stopBtn3;
-            Btn_STOP[3] = stopBtn4; Btn_STOP[4] = stopBtn5;
+            Btn_STOP[0] = stopBtn1; Btn_STOP[1] = stopBtn2; Btn_STOP[2] = stopBtn3; Btn_STOP[3] = stopBtn4; Btn_STOP[4] = stopBtn5;
+            Btn_STOP[5] = stopBtn6; Btn_STOP[6] = stopBtn7; Btn_STOP[7] = stopBtn8; Btn_STOP[8] = stopBtn9; Btn_STOP[9] = stopBtn10;
 
             //// [3] HOME 버튼 연결
-            Btn_HOME[0] = homeBtn1; Btn_HOME[1] = homeBtn2; Btn_HOME[2] = homeBtn3;
-            Btn_HOME[3] = homeBtn4; Btn_HOME[4] = homeBtn5;
+            Btn_HOME[0] = homeBtn1; Btn_HOME[1] = homeBtn2; Btn_HOME[2] = homeBtn3; Btn_HOME[3] = homeBtn4; Btn_HOME[4] = homeBtn5;
+            Btn_HOME[5] = homeBtn6; Btn_HOME[6] = homeBtn7; Btn_HOME[7] = homeBtn8; Btn_HOME[8] = homeBtn9; Btn_HOME[9] = homeBtn10;
 
             //// [4] 로봇 이름
             TBox_RobotName[0] = robotName1; TBox_RobotName[1] = robotName2; TBox_RobotName[2] = robotName3;
             TBox_RobotName[3] = robotName4; TBox_RobotName[4] = robotName5;
+            TBox_RobotName[5] = robotName6; TBox_RobotName[6] = robotName7; TBox_RobotName[7] = robotName8;
+            TBox_RobotName[8] = robotName9; TBox_RobotName[9] = robotName10;
 
             //// [5] 로봇 상태 정보
-            TBox_Status[0] = status1; TBox_Status[1] = status2; TBox_Status[2] = status3;
-            TBox_Status[3] = status4; TBox_Status[4] = status5;
+            TBox_Status[0] = status1; TBox_Status[1] = status2; TBox_Status[2] = status3; TBox_Status[3] = status4; TBox_Status[4] = status5;
+            TBox_Status[5] = status6; TBox_Status[6] = status7; TBox_Status[7] = status8; TBox_Status[8] = status9; TBox_Status[9] = status10;
 
             //// [6] 배터리 잔량 (ProgressBar 형식)
             BatteryLevel[0] = batteryBar1; BatteryLevel[1] = batteryBar2; BatteryLevel[2] = batteryBar3;
             BatteryLevel[3] = batteryBar4; BatteryLevel[4] = batteryBar5;
+            BatteryLevel[5] = batteryBar6; BatteryLevel[6] = batteryBar7; BatteryLevel[7] = batteryBar8;
+            BatteryLevel[8] = batteryBar9; BatteryLevel[9] = batteryBar10;
 
             //// [7] 배터리 정보
             TBox_Battery[0] = batteryText1; TBox_Battery[1] = batteryText2; TBox_Battery[2] = batteryText3;
             TBox_Battery[3] = batteryText4; TBox_Battery[4] = batteryText5;
+            TBox_Battery[5] = batteryText6; TBox_Battery[6] = batteryText7; TBox_Battery[7] = batteryText8;
+            TBox_Battery[8] = batteryText9; TBox_Battery[9] = batteryText10;
 
             //// [8] 작업 진행률 (ProgressBar 형식)
             Progress[0] = progressBar1; Progress[1] = progressBar2; Progress[2] = progressBar3;
             Progress[3] = progressBar4; Progress[4] = progressBar5;
+            Progress[5] = progressBar6; Progress[6] = progressBar7; Progress[7] = progressBar8;
+            Progress[8] = progressBar9; Progress[9] = progressBar10;
 
             //// [9] 진행률 숫자 정보
             TBox_Progress[0] = progressText1; TBox_Progress[1] = progressText2; TBox_Progress[2] = progressText3;
-            TBox_Progress[3] = progressText4; TBox_Progress[4] = progressText5;
+            TBox_Progress[3] = progressText4; TBox_Progress[4] = progressText5; 
+            TBox_Progress[5] = progressText6; TBox_Progress[6] = progressText7; TBox_Progress[7] = progressText8;
+            TBox_Progress[8] = progressText9; TBox_Progress[9] = progressText10;
+
 
             ////// [10] OT 선택 버튼 연결
             OT_H[0] = radioH1; OT_H[1] = radioH2; OT_H[2] = radioH3; OT_H[3] = radioH4; OT_H[4] = radioH5;
+            OT_H[5] = radioH6; OT_H[6] = radioH7; OT_H[7] = radioH8; OT_H[8] = radioH9; OT_H[9] = radioH10;
+
             OT_V[0] = radioV1; OT_V[1] = radioV2; OT_V[2] = radioV3; OT_V[3] = radioV4; OT_V[4] = radioV5;
+            OT_V[5] = radioV6; OT_V[6] = radioV7; OT_V[7] = radioV8; OT_V[8] = radioV9; OT_V[9] = radioV10;
 
             //// [11] OPTION 버튼 연결
-            Btn_OPTION[0] = optionBtn1; Btn_OPTION[1] = optionBtn2; Btn_OPTION[2] = optionBtn3;
-            Btn_OPTION[3] = optionBtn4; Btn_OPTION[4] = optionBtn5;
+            Btn_OPTION[0] = optionBtn1; Btn_OPTION[1] = optionBtn2; Btn_OPTION[2] = optionBtn3; 
+            Btn_OPTION[3] = optionBtn4; Btn_OPTION[4] = optionBtn5; 
+            Btn_OPTION[5] = optionBtn6; Btn_OPTION[6] = optionBtn7; Btn_OPTION[7] = optionBtn8;
+            Btn_OPTION[8] = optionBtn9; Btn_OPTION[9] = optionBtn10;
 
             //// [12] 각 버튼 클릭 이벤트 공동 연결
             //// 디자인 파일에 직접 설정변경하면 디자인 화면 (경고) 오류 발생 ==> 여기서 연결
@@ -480,6 +496,7 @@ namespace RobotCC
 
                         // [2] 등록요청 신호를 보낸 로봇의 로봇명을 추출한다.
                         string regRobotName = parts[4]; // 로봇 등록명 추출
+                        int batteryLevel = int.Parse(parts[5]); // 등록 초기 로봇의 배터리 잔량
 
                         // [3] 로봇 등록과 관련된 작업 수행
                         // [3-1] 이미 등록된 로봇명인 경우, 설정값 적용
@@ -499,6 +516,9 @@ namespace RobotCC
                                 TBox_RobotName[r].Text = regRobotName;
                                 TBox_Status[r].Text = "재등록";
                                 TBox_Status[r].ForeColor = G.DefaultColor;
+                                // 로봇 등록시 배터리 잔량 
+                                BatteryLevel[r].Value = batteryLevel;
+                                TBox_Battery[r].Text = "" + batteryLevel; // 초기 배터리 레벨
                                 OutputMesssage("재등록 : " + regRobotName + ", 주소 = " + senderAddr);
                                 senderIndex = r;
 
@@ -541,20 +561,20 @@ namespace RobotCC
 
                                 TBox_RobotName[senderIndex].Text = regRobotName;
 
-                                // 작업 방향 설정 - 기존 설정 값이 있으면 가능한 그대로 반영
-                                if (G.ExistingRobotNameAndOT.ContainsKey(regRobotName)) // 기존 설정값이 존재하면 반영
-                                {
-                                    TBox_Status[senderIndex].Text = "로봇 등록(기존 설정 사용)";
-                                    TBox_Status[senderIndex].ForeColor = G.DefaultColor;
+                                //// 작업 방향 설정 - 기존 설정 값이 있으면 가능한 그대로 반영
+                                //if (G.ExistingRobotNameAndOT.ContainsKey(regRobotName)) // 기존 설정값이 존재하면 반영
+                                //{
+                                //    TBox_Status[senderIndex].Text = "로봇 등록(기존 설정 사용)";
+                                //    TBox_Status[senderIndex].ForeColor = G.DefaultColor;
 
-                                    // OT 값 반영
-                                    G.OT[senderIndex] = G.ExistingRobotNameAndOT[regRobotName];
-                                    if (G.OT[senderIndex] == G.VERTICAL) OT_V[senderIndex].Checked = true;
-                                    else if (G.OT[senderIndex] == G.HORIZONTAL) OT_H[senderIndex].Checked = true;
-                                    //else UNDEFINED 면 둘다 그대로 놔둠; 
-                                    OutputMesssage("로봇 등록 : " + regRobotName + ", 주소 = " + senderAddr + ", 기존 설정값 사용");
-                                }
-                                else // 기존 설정값이 없으면, 
+                                //    // OT 값 반영
+                                //    G.OT[senderIndex] = G.ExistingRobotNameAndOT[regRobotName];
+                                //    if (G.OT[senderIndex] == G.VERTICAL) OT_V[senderIndex].Checked = true;
+                                //    else if (G.OT[senderIndex] == G.HORIZONTAL) OT_H[senderIndex].Checked = true;
+                                //    //else UNDEFINED 면 둘다 그대로 놔둠; 
+                                //    OutputMesssage("로봇 등록 : " + regRobotName + ", 주소 = " + senderAddr + ", 기존 설정값 사용");
+                                //}
+                                //else // 기존 설정값이 없으면, 
                                 {
                                     TBox_Status[senderIndex].Text = "신규 등록";
                                     TBox_Status[senderIndex].ForeColor = G.DefaultColor;
@@ -565,9 +585,9 @@ namespace RobotCC
                                 // 로봇 등록시 작업 진행률 관련 수치를 모두 0으로 초기화
                                 Progress[senderIndex].Value = 0;
                                 TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
-                                // 로봇 등록시 배터리 잔량 미확인 상태
-                                BatteryLevel[senderIndex].Value = 0;
-                                TBox_Battery[senderIndex].Text = "?"; // 미확인 상태
+                                // 로봇 등록시 배터리 잔량 제공 
+                                BatteryLevel[senderIndex].Value = batteryLevel;
+                                TBox_Battery[senderIndex].Text = ""+ batteryLevel; // 초기 배터리 레벨
 
                                 // 로봇 등록 사항을 DB에 기록
                                 DB.insertWorkLog(senderIndex, G.REGISTER, "");
@@ -703,8 +723,8 @@ namespace RobotCC
                         Btn_STOP[senderIndex].Enabled = false; Btn_HOME[senderIndex].Enabled = false;
                     }
                     // 수신 메시지가 명령어가 아닌 단순 CONFIRM 메시지인 경우, 
-                    else if (CmdCode.Equals(RUN_CNF) || CmdCode.Equals(STOP_CNF) || CmdCode.Equals(HOME_CNF)
-                        || CmdCode.Equals(OT_V_CNF) || CmdCode.Equals(OT_H_CNF)) // 그외 정보 처리 (CONFIRM 종류) 
+                    else if (CmdCode.Equals(RUN_CNF) || CmdCode.Equals(STOP_CNF) || CmdCode.Equals(HOME_CNF)) // 그외 정보 처리 (CONFIRM 종류) 
+                        //|| CmdCode.Equals(OT_V_CNF) || CmdCode.Equals(OT_H_CNF))
                     {
                         /// OSY : 좀더 신중한 처리가 필요 ////////
                         // CONFIRM 메시지 수신 모드이면, 메시지 그대로, 아닌 경우에만, 해당 메시지 삭제,
@@ -729,17 +749,19 @@ namespace RobotCC
         /*
          * 본 함수는 주어진 로봇 주소(robotAddress)로 명령 실행(버튼 동작) 메시지를 보내고, 응답을 기다린다.
          */
-        private async Task<bool> SendCommand(int robotAddress, string cmdCode)
+        private async Task<bool> SendCommand(int robotAddress, string cmdCode, string option)
         {
             try
             {
                 if (serialPort1.IsOpen)
                 {
-                    LoRaWrite(robotAddress, cmdCode);
+                    LoRaWrite(robotAddress, cmdCode, option);
 
                     ////////////////////////////////////////////////
-                    if (cmdCode.Equals(RUN_REQ) || cmdCode.Equals(STOP_REQ) || cmdCode.Equals(HOME_REQ)
-                        || cmdCode.Equals(OT_V_REQ) || cmdCode.Equals(OT_H_REQ))  // 해당 명령을 송신하고, 수신 여부를 확인함
+                    ///// 해당 명령을 송신하고, 수신 여부를 확인함 - 명령어 3가지로 단순화 : RUN+OT 하나로 통합
+                    ////////////////////////////////////////////////
+                    if (cmdCode.Equals(RUN_REQ) || cmdCode.Equals(STOP_REQ) || cmdCode.Equals(HOME_REQ))
+                        //|| cmdCode.Equals(OT_V_REQ) || cmdCode.Equals(OT_H_REQ))  
                     {
                         string respCode = getConfCode(cmdCode); // 각 명령 코드에 해당하는 CONF 코드 
                         G.CONF_WAIT_MODE = true;  ////// 중요
@@ -787,14 +809,15 @@ namespace RobotCC
             if (CmdCode.Equals(RUN_REQ)) return RUN_CNF;
             else if (CmdCode.Equals(STOP_REQ)) return STOP_CNF;
             else if (CmdCode.Equals(HOME_REQ)) return HOME_CNF;
-            else if (CmdCode.Equals(OT_V_REQ)) return OT_V_CNF;
-            else if (CmdCode.Equals(OT_H_REQ)) return OT_H_CNF;
+            //else if (CmdCode.Equals(OT_V_REQ)) return OT_V_CNF;
+            //else if (CmdCode.Equals(OT_H_REQ)) return OT_H_CNF;
             return ""; // 오류 발생
         }
 
-        private void LoRaWrite(int robotAddress, string cmdCode)
+        private void LoRaWrite(int robotAddress, string cmdCode, string option)
         {
             string sendMesg = MSG_HEADER + "," + cmdCode; // "LX"+ "," + 명령어 코드
+            if (!option.Equals("")) sendMesg += "," + option; // RUN_REQ의 경우에만, 방향 옵션 추가
             String sendPacket = "AT+SEND=" + robotAddress + "," + sendMesg.Length + "," + sendMesg;
 
             serialPort1.Write(sendPacket + Environment.NewLine);
@@ -857,7 +880,7 @@ namespace RobotCC
                 if (serialPort1.IsOpen)
                 {
                     // [1] 단순히 수신 명령에 대한 CONF 메시지(respCode)를 단순 발송한다. 추가적인 작업 불필요
-                    LoRaWrite(robotAddress, respCode);
+                    LoRaWrite(robotAddress, respCode, "");
 
                     return;
                 }
@@ -875,11 +898,11 @@ namespace RobotCC
         }
 
         // 버튼 명령 통합 처리 함수
-        private async Task<bool> SendCommandAndCheckCONF(int robotIndex, string cmdCode) // 특정 로봇에게 명령을 전송하고, CONF 신호를 기다림
+        private async Task<bool> SendCommandAndCheckCONF(int robotIndex, string cmdCode, string option) // 특정 로봇에게 명령을 전송하고, CONF 신호를 기다림
         {
             int Address = G.robotAddress[robotIndex];
 
-            bool result = await SendCommand(Address, cmdCode); // cmdCode 명령 전송
+            bool result = await SendCommand(Address, cmdCode, option); // cmdCode 명령 전송
 
             if (result)
             {
@@ -906,16 +929,25 @@ namespace RobotCC
         ///////////////////////////
         private async void runActionAsync(int robotIndex)
         {
-            //if (G.OT[robotIndex] == G.UNDEFINED)
-            //{
-            //    MessageBox.Show("로봇의 작업방향 설정을 먼저 선택하세요.", "사용법 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
+            if (G.OT[robotIndex] == G.UNDEFINED)
+            {
+                MessageBox.Show("로봇의 작업방향 설정을 먼저 선택하세요.", "사용법 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (G.LSize[robotIndex] == 0 || G.RSize[robotIndex] == 0)
+            {
+                MessageBox.Show("작업할 면적의 가로 및 세로 길이를 먼저 입력하세요.(세부설정)", "사용법 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             OutputMesssage("[작동 #" + (robotIndex + 1) + "] 버튼 실행");
 
-            // 해당 로봇에게 작동 개시 명령을 전송
-            bool result = await SendCommandAndCheckCONF(robotIndex, RUN_REQ);
+            // 해당 로봇에게 작동 개시 명령을 전송, 이 경우는 특별히 옵션으로 방향 정보를 제공
+            string option = "";
+            if (G.OT[robotIndex] == G.HORIZONTAL) option = "H";
+            else if (G.OT[robotIndex] == G.VERTICAL) option = "V"; 
+            
+            bool result = await SendCommandAndCheckCONF(robotIndex, RUN_REQ, option);
 
             if (result) // Toggle Image
             {
@@ -923,7 +955,8 @@ namespace RobotCC
                 Btn_STOP[robotIndex].Enabled = true; Btn_HOME[robotIndex].Enabled = true;
 
                 //Btn_RUN[robotIndex].BackColor = Color.Blue;
-                TBox_Status[robotIndex].Text = "작동중";
+                if (G.OT[robotIndex] == G.HORIZONTAL) TBox_Status[robotIndex].Text = "수평 작동중";
+                else if (G.OT[robotIndex] == G.VERTICAL) TBox_Status[robotIndex].Text = "상하 작동중";
                 TBox_Status[robotIndex].ForeColor = Color.Blue;
 
                 // [ ] 작업 상태를 DB에 저장한다. 
@@ -937,7 +970,7 @@ namespace RobotCC
             OutputMesssage("[중지 #" + (robotIndex + 1) + "] 버튼 실행");
 
             // 해당 로봇에게 작업 중단 명령을 전송
-            bool result = await SendCommandAndCheckCONF(robotIndex, STOP_REQ);
+            bool result = await SendCommandAndCheckCONF(robotIndex, STOP_REQ, "");
 
             if (result) // Toggle Image
             {
@@ -958,7 +991,7 @@ namespace RobotCC
             OutputMesssage("[홈 #" + (robotIndex + 1) + "] 버튼 실행");
 
             // 해당 로봇에게 홈 복귀 명령을 전송
-            bool result = await SendCommandAndCheckCONF(robotIndex, HOME_REQ);
+            bool result = await SendCommandAndCheckCONF(robotIndex, HOME_REQ, "");
 
             if (result) // Toggle Image
             {
@@ -975,14 +1008,14 @@ namespace RobotCC
 
         }
 
-        private async void OT_VActionAsync(int robotIndex)
+        private void OT_VActionAsync(int robotIndex)
         {
             OutputMesssage("[수직방향 #" + (robotIndex + 1) + "] 버튼 선택");
 
-            // 해당 로봇에게 방향 설정 명령을 전송
-            bool result = await SendCommandAndCheckCONF(robotIndex, OT_V_REQ);
+            //// 해당 로봇에게 방향 설정 명령을 전송
+            ////bool result = await SendCommandAndCheckCONF(robotIndex, OT_V_REQ);
 
-            if (result)
+            //if (result)
             {
                 OT_V[robotIndex].Checked = true;
                 G.OT[robotIndex] = G.VERTICAL;
@@ -990,26 +1023,26 @@ namespace RobotCC
                 TBox_Status[robotIndex].Text = "수직 방향 동작 설정 완료";
                 TBox_Status[robotIndex].ForeColor = Color.Blue;
 
-                DB.insertWorkLog(robotIndex, G.OT_V_BTN_PRESSED, "");
+                //DB.insertWorkLog(robotIndex, G.OT_V_BTN_PRESSED, "");
 
-                G.CNFSaveFile(); // 고칠 때 마다 설정 파일 저장  
+                //G.CNFSaveFile(); // 고칠 때 마다 설정 파일 저장  
 
             }
-            else
-            {
-                MessageBox.Show(@"수직 방향 설정 오류", @"로봇 무응답", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                OT_V[robotIndex].Checked = false; // 체크 무효화
-            }
+            //else
+            //{
+            //    MessageBox.Show(@"수직 방향 설정 오류", @"로봇 무응답", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    OT_V[robotIndex].Checked = false; // 체크 무효화
+            //}
         }
 
-        private async void OT_HActionAsync(int robotIndex)
+        private void OT_HActionAsync(int robotIndex)
         {
             OutputMesssage("[수평방향 #" + (robotIndex + 1) + "] 버튼 선택");
 
             // 해당 로봇에게 방향 설정 명령을 전송
-            bool result = await SendCommandAndCheckCONF(robotIndex, OT_H_REQ);
+            //bool result = await SendCommandAndCheckCONF(robotIndex, OT_H_REQ);
 
-            if (result)
+            //if (result)
             {
                 OT_H[robotIndex].Checked = true;
                 G.OT[robotIndex] = G.HORIZONTAL;
@@ -1017,16 +1050,16 @@ namespace RobotCC
                 TBox_Status[robotIndex].Text = "수평 방향 동작 설정 완료";
                 TBox_Status[robotIndex].ForeColor = Color.Blue;
 
-                DB.insertWorkLog(robotIndex, G.OT_H_BTN_PRESSED, "");
+                //DB.insertWorkLog(robotIndex, G.OT_H_BTN_PRESSED, "");
                 
-                G.CNFSaveFile(); // 고칠 때 마다 설정 파일 저장  
+                //G.CNFSaveFile(); // 고칠 때 마다 설정 파일 저장  
 
             }
-            else
-            {
-                MessageBox.Show(@"수평 방향 설정 오류", @"로봇 무응답", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                OT_H[robotIndex].Checked = false; // 체크 무효화
-            }
+            //else
+            //{
+            //    MessageBox.Show(@"수평 방향 설정 오류", @"로봇 무응답", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    OT_H[robotIndex].Checked = false; // 체크 무효화
+            //}
         }
 
         private void optionAction(int robotIndex)
@@ -1047,11 +1080,6 @@ namespace RobotCC
 
         private void 시스템종료ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            exitBtn_Click(sender, e);
-        }
-
-        private void exitBtn_Click(object sender, EventArgs e)
-        {
             if (serialPort1.IsOpen) serialPort1.Close();
 
             DialogResult result = MessageBox.Show(@"작업을 종료합니다.", @"작업 종료", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -1062,8 +1090,12 @@ namespace RobotCC
 
                 this.Close();
             }
-
         }
+
+        //private void exitBtn_Click(object sender, EventArgs e)
+        //{
+         
+        //}
 
         private void ChangeSerialPort()
         {
