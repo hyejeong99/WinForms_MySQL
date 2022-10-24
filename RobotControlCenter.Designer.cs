@@ -883,7 +883,7 @@ namespace RobotCC
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("나눔스퀘어OTF ExtraBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label11.ForeColor = System.Drawing.Color.Blue;
-            this.label11.Location = new System.Drawing.Point(326, 39);
+            this.label11.Location = new System.Drawing.Point(373, 36);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(699, 53);
             this.label11.TabIndex = 67;
@@ -1299,7 +1299,7 @@ namespace RobotCC
             this.보고서작성ToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1423, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1410, 25);
             this.menuStrip1.TabIndex = 81;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1445,7 +1445,7 @@ namespace RobotCC
             this.plantListManagementBtn.AutoSize = true;
             this.plantListManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.plantListManagementBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.plantListManagementBtn.Location = new System.Drawing.Point(505, 112);
+            this.plantListManagementBtn.Location = new System.Drawing.Point(499, 112);
             this.plantListManagementBtn.Name = "plantListManagementBtn";
             this.plantListManagementBtn.Size = new System.Drawing.Size(160, 31);
             this.plantListManagementBtn.TabIndex = 83;
@@ -2701,7 +2701,7 @@ namespace RobotCC
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(1423, 831);
+            this.ClientSize = new System.Drawing.Size(1410, 831);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel8);
             this.Controls.Add(this.tableLayoutPanel9);

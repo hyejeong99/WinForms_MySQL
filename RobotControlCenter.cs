@@ -513,9 +513,11 @@ namespace RobotCC
                             {
                                 //G.robotID[r] = regRobotName; 
                                 G.robotAddress[r] = senderAddr;
-                                TBox_RobotName[r].Text = regRobotName;
+                                //G.OT[r] = ; // 변화 없음
+                                //TBox_RobotName[r].Text = regRobotName;
                                 TBox_Status[r].Text = "재등록";
                                 TBox_Status[r].ForeColor = G.DefaultColor;
+
                                 // 로봇 등록시 배터리 잔량 
                                 BatteryLevel[r].Value = batteryLevel;
                                 TBox_Battery[r].Text = "" + batteryLevel; // 초기 배터리 레벨
@@ -556,6 +558,7 @@ namespace RobotCC
                                 // G 변수값 설정
                                 G.robotID[senderIndex] = regRobotName;
                                 G.robotAddress[senderIndex] = senderAddr;
+                                G.OT[senderIndex] = G.UNDEFINED; //미설정
                                 G.WORK_PERCENTAGE[senderIndex] = 0; //전체 진행률
                                 G.EDGE_CNT[senderIndex] = 0; //모서리 카운트 초기화
 
@@ -968,8 +971,8 @@ namespace RobotCC
                 Btn_STOP[robotIndex].Enabled = true; Btn_HOME[robotIndex].Enabled = true;
 
                 //Btn_RUN[robotIndex].BackColor = Color.Blue;
-                if (G.OT[robotIndex] == G.HORIZONTAL) TBox_Status[robotIndex].Text = "수평 작동중";
-                else if (G.OT[robotIndex] == G.VERTICAL) TBox_Status[robotIndex].Text = "상하 작동중";
+                if (G.OT[robotIndex] == G.HORIZONTAL) TBox_Status[robotIndex].Text = "수평 방향 작동중";
+                else if (G.OT[robotIndex] == G.VERTICAL) TBox_Status[robotIndex].Text = "수직 방향 작동중";
                 TBox_Status[robotIndex].ForeColor = Color.Blue;
 
                 // [ ] 작업 상태를 DB에 저장한다. 
