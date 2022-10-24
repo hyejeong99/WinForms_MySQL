@@ -519,6 +519,9 @@ namespace RobotCC
                                 // 로봇 등록시 배터리 잔량 
                                 BatteryLevel[r].Value = batteryLevel;
                                 TBox_Battery[r].Text = "" + batteryLevel; // 초기 배터리 레벨
+                              
+                                CheckBatteryLevel(r);
+
                                 OutputMesssage("재등록 : " + regRobotName + ", 주소 = " + senderAddr);
                                 senderIndex = r;
 
@@ -575,19 +578,22 @@ namespace RobotCC
                                 //    OutputMesssage("로봇 등록 : " + regRobotName + ", 주소 = " + senderAddr + ", 기존 설정값 사용");
                                 //}
                                 //else // 기존 설정값이 없으면, 
-                                {
+                                //{
                                     TBox_Status[senderIndex].Text = "신규 등록";
                                     TBox_Status[senderIndex].ForeColor = G.DefaultColor;
 
                                     OutputMesssage("신규 등록 : " + regRobotName + ", 주소 = " + senderAddr);
-                                }
+                                //}
 
                                 // 로봇 등록시 작업 진행률 관련 수치를 모두 0으로 초기화
                                 Progress[senderIndex].Value = 0;
                                 TBox_Progress[senderIndex].Text = Progress[senderIndex].Value.ToString();
+
                                 // 로봇 등록시 배터리 잔량 제공 
                                 BatteryLevel[senderIndex].Value = batteryLevel;
-                                TBox_Battery[senderIndex].Text = ""+ batteryLevel; // 초기 배터리 레벨
+                                TBox_Battery[senderIndex].Text = ""+ batteryLevel; // 초기 배터리 상태
+                                
+                                CheckBatteryLevel(senderIndex);
 
                                 // 로봇 등록 사항을 DB에 기록
                                 DB.insertWorkLog(senderIndex, G.REGISTER, "");
@@ -640,24 +646,8 @@ namespace RobotCC
                         TBox_Battery[senderIndex].Text = parts[4];
                         BatteryLevel[senderIndex].Value = int.Parse(parts[4]);
 
-                        if (BatteryLevel[senderIndex].Value <= 10)
-                        {
-                            TBox_Status[senderIndex].ForeColor = Color.Red;
-                            TBox_Status[senderIndex].Text = "배터리 충전 필요";
-
-                            BatteryLevel[senderIndex].ForeColor = Color.Red;
-                            TBox_Battery[senderIndex].ForeColor = Color.Red;
-                            Refresh();// 화면 출력 후 소리 재생
-
-                            SoundBeep(1, 100); SoundBeep(3, 500);
-                        }
-                        else
-                        {
-                            TBox_Status[senderIndex].ForeColor = G.DefaultColor;
-                            TBox_Status[senderIndex].Text = "배터리 정보 수집";
-                            BatteryLevel[senderIndex].ForeColor = ProgressBar.DefaultForeColor;
-                            TBox_Battery[senderIndex].ForeColor = G.DefaultColor;
-                        }
+                        CheckBatteryLevel(senderIndex);
+                       
                     }
                     else if (CmdCode.Equals(CLEAN_COUNT)) // NO CONFIRM
                     {
@@ -743,6 +733,29 @@ namespace RobotCC
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+
+        private void CheckBatteryLevel(int robotIndex)
+        {
+            if (BatteryLevel[robotIndex].Value <= 10)
+            {
+                TBox_Status[robotIndex].ForeColor = Color.Red;
+                TBox_Status[robotIndex].Text = "배터리 충전 필요";
+
+                BatteryLevel[robotIndex].ForeColor = Color.Red;
+                TBox_Battery[robotIndex].ForeColor = Color.Red;
+                Refresh();// 화면 출력 후 소리 재생
+
+                SoundBeep(1, 100); SoundBeep(3, 500);
+            }
+            else
+            {
+                TBox_Status[robotIndex].ForeColor = G.DefaultColor;
+                TBox_Status[robotIndex].Text = "배터리 상태 업데이트";
+                BatteryLevel[robotIndex].ForeColor = ProgressBar.DefaultForeColor;
+                TBox_Battery[robotIndex].ForeColor = G.DefaultColor;
             }
         }
 
@@ -1020,7 +1033,7 @@ namespace RobotCC
                 OT_V[robotIndex].Checked = true;
                 G.OT[robotIndex] = G.VERTICAL;
                 //OutputMesssage("OT 명령 : 수직 설정 완료");
-                TBox_Status[robotIndex].Text = "수직 방향 동작 설정 완료";
+                TBox_Status[robotIndex].Text = "수직 방향 설정";
                 TBox_Status[robotIndex].ForeColor = Color.Blue;
 
                 //DB.insertWorkLog(robotIndex, G.OT_V_BTN_PRESSED, "");
@@ -1047,7 +1060,7 @@ namespace RobotCC
                 OT_H[robotIndex].Checked = true;
                 G.OT[robotIndex] = G.HORIZONTAL;
                 //OutputMesssage("OT 명령 : 수평 설정 완료");
-                TBox_Status[robotIndex].Text = "수평 방향 동작 설정 완료";
+                TBox_Status[robotIndex].Text = "수평 방향 설정";
                 TBox_Status[robotIndex].ForeColor = Color.Blue;
 
                 //DB.insertWorkLog(robotIndex, G.OT_H_BTN_PRESSED, "");
