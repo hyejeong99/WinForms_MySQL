@@ -127,8 +127,8 @@ namespace RobotCC
             //여러개의 동일 컴포넌트를 한번에 처리하기 위한 연결 작업
             LinkArrayComponent();
 
-            // 읽은 로봇 정보 및 설정을 화면에 표시
-            DisplayRobotInformation();
+            // 화면 초기화 
+            DisableAllRows();
 
             //////////////////// JUST FOR SAMPLE TEST : RICHTEXTBOX, COLOR
             if (G.DEBUG)
@@ -177,34 +177,13 @@ namespace RobotCC
 
             Progress[i].Visible = true; TBox_Progress[i].Enabled = true;
             BatteryLevel[i].Visible = true; TBox_Battery[i].Enabled = true;
-
         }
 
-        private void DisplayRobotInformation()
+        private void DisableAllRows()
         {
-            // [1] 저장된 로봇명, 동작 방향 등을 보여줌
-            // LSize, RSize는 읽어 오되, 화면에 따로 보여주지는 않음 (세부설정시 보여줌)
-            for (int i = 0; i < G.ROBOT_REG_CNT; i++)
-            {
-                EnableRow(i); // 활성화
-
-                TBox_RobotName[i].Text = G.robotID[i];
-
-                if (G.OT[i] == G.VERTICAL) OT_V[i].Checked = true;
-                else if (G.OT[i] == G.HORIZONTAL) OT_H[i].Checked = true;
-                // else if (G.OT[i] == G.UNDEFINED) .....Do Nothing
-
-                //TBox_Status[i].Text = "로봇 전원 OFF, 주소 = " + G.robotAddress[i];
-                BatteryLevel[i].Value = 0; TBox_Battery[i].Text = "" + BatteryLevel[i].Value;
-                Progress[i].Value = 0; TBox_Progress[i].Text = "" + Progress[i].Value;
-
-            }
-
-            //// [2] 미사용 기기에 대한 버튼 비활성화
-            for (int i = G.ROBOT_REG_CNT; i < G.ROBOT_MAX_CNT; i++)
-            {
+            // 모든 정보 초기화 - 로봇 등록시 한줄씩 활성화됨
+            for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
                 DisableRow(i); // 각종 컴포넌트 비활성화
-            }
         }
 
         private void CheckSerialPortAtStart()
@@ -456,7 +435,6 @@ namespace RobotCC
         private void ManageRecvMessages(object o, EventArgs e) // CMD 종류에 따라 처리 - WorkLog 업데이트 작업도 해야 함
         {
             ////////////////////////  수신 메시지 처리 ///////////////////////////
-
             for (int i = 0; i < recvMsgs.Count; i++)
             {
                 try
@@ -491,7 +469,7 @@ namespace RobotCC
                     //// [4] 명령어에 따른 작업
                     string CmdCode = parts[3]; // 명령어 종류 파악
 
-                    // senderIndex는 명령어 처리부분에서 필요에 따라 각자 추출
+                    // senderIndex는 아래 명령어 처리부에서 경우에 맞게 각각 추출
                     int senderIndex;
 
                     // 명령어 종류에 따라 해당 작업 수행
@@ -500,7 +478,7 @@ namespace RobotCC
                         // [1] 받는 로봇 등록 메시지에 대한 CONFIRM 메시지를 먼저 보내고
                         SendConfMsgToRobot(senderAddr, REGISTER_CNF);
 
-                        // [2] 로봇명을 추출한다.
+                        // [2] 등록요청 신호를 보낸 로봇의 로봇명을 추출한다.
                         string regRobotName = parts[4]; // 로봇 등록명 추출
 
                         // [3] 로봇 등록과 관련된 작업 수행
@@ -516,14 +494,12 @@ namespace RobotCC
                             // 동일 로봇명이 목록에 있으면, 로봇 재등록
                             if (G.robotID[r].Equals(regRobotName))  
                             {
-                                //EnableRow(r); 이미 활성화되어 있으므로 재작업 불필요
-
                                 //G.robotID[r] = regRobotName; 
                                 G.robotAddress[r] = senderAddr;
                                 TBox_RobotName[r].Text = regRobotName;
-                                TBox_Status[r].Text = "로봇 재등록";
+                                TBox_Status[r].Text = "재등록";
                                 TBox_Status[r].ForeColor = G.DefaultColor;
-                                OutputMesssage("로봇 재등록 : " + regRobotName + ", 주소 = " + senderAddr);
+                                OutputMesssage("재등록 : " + regRobotName + ", 주소 = " + senderAddr);
                                 senderIndex = r;
 
                                 DB.insertWorkLog(senderIndex, G.REGISTER, "");
@@ -580,10 +556,10 @@ namespace RobotCC
                                 }
                                 else // 기존 설정값이 없으면, 
                                 {
-                                    TBox_Status[senderIndex].Text = "신규 로봇 등록";
+                                    TBox_Status[senderIndex].Text = "신규 등록";
                                     TBox_Status[senderIndex].ForeColor = G.DefaultColor;
 
-                                    OutputMesssage("신규 로봇 등록 : " + regRobotName + ", 주소 = " + senderAddr + ", 설정값 초기화");
+                                    OutputMesssage("신규 등록 : " + regRobotName + ", 주소 = " + senderAddr);
                                 }
 
                                 // 로봇 등록시 작업 진행률 관련 수치를 모두 0으로 초기화
@@ -722,7 +698,7 @@ namespace RobotCC
                         // [4] 작업 상태를 DB에 저장한다. 카운트는 최신 값으로 
                         DB.insertWorkLog(senderIndex, G.FINISHED, "");
 
-                        // [5] 작업 버튼을 다시 활성화시킨다.
+                        // [5] 작업 시작 버튼을 다시 활성화시킨다.
                         Btn_RUN[senderIndex].Enabled = true; 
                         Btn_STOP[senderIndex].Enabled = false; Btn_HOME[senderIndex].Enabled = false;
                     }

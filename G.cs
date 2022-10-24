@@ -24,12 +24,12 @@ namespace RobotCC
 
 
         // 상수 정의 
-        public const int ROBOT_MAX_CNT = 5; // 5 Robots maximum
+        public const int ROBOT_MAX_CNT = 10; // 10 Robots maximum
         public const int CONF_WAIT_DURATION_1 = 1000; // 1초 응답 대기 1차
         public const int CONF_WAIT_DURATION_2 = 2000; // 2초 응답 대기 2차
         public const int LORA_TEST_DELAY = 2000; // 2초 응답 대기 
-        public const double DEFAULT_L_SIZE = 4.0; // LoRA 가로
-        public const double DEFAULT_R_SIZE = 2.5; // 1m 세로
+        public const double DEFAULT_L_SIZE = 0; // 가로 길이 m
+        public const double DEFAULT_R_SIZE = 0; // 세로 길이 m
         public const double DEFAULT_WIDTH = 0.5;  // 로봇 청소 작업 기본 폭(너비)
 
         public const int UNDEFINED = -1;
@@ -81,10 +81,10 @@ namespace RobotCC
         public static int[] WORK_PERCENTAGE = new int[ROBOT_MAX_CNT]; // 로봇별 작업 진행률 
 
 
-        // 설정 파일에 정보가 있는 목록 구성
-        //public static Dictionary<string, int> ExistingRobotNameAndAddress = new Dictionary<string, int>();
-        public static Dictionary<string, int> ExistingRobotNameAndOT = new Dictionary<string, int>();
-        //public static Dictionary<string, int> ExistingRobotNameAndAutoStart = new Dictionary<string, int>();
+        //// 설정 파일에 정보가 있는 목록 구성
+        ////public static Dictionary<string, int> ExistingRobotNameAndAddress = new Dictionary<string, int>();
+        ////public static Dictionary<string, int> ExistingRobotNameAndOT = new Dictionary<string, int>();
+        ////public static Dictionary<string, int> ExistingRobotNameAndAutoStart = new Dictionary<string, int>();
 
         // Control 센터의 LoRa Address 정보
         public static string MyLoRaAddress; // 1000?
@@ -112,22 +112,22 @@ namespace RobotCC
             G.SelectedSerialPortName = G.DEFAULT_SERIALPORT_NAME;
 
             // 로봇 개수가 가변이므로 일단, 모든 배열값의 기본은 초기화하고 시작
-            for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
-            {
-                G.robotID[i] = "";
-                G.LSize[i] = G.DEFAULT_L_SIZE;
-                G.RSize[i] = G.DEFAULT_R_SIZE;
-                G.OT[i] = G.DEFAULT_OT;
-                //G.AUTOSTART[i] = G.DEFAULT_AUTO;
-                G.robotAddress[i] = 0; // 초기값, 0
+            //for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
+            //{
+            //    G.robotID[i] = "";
+            //    G.LSize[i] = G.DEFAULT_L_SIZE;
+            //    G.RSize[i] = G.DEFAULT_R_SIZE;
+            //    G.OT[i] = G.DEFAULT_OT;
+            //    //G.AUTOSTART[i] = G.DEFAULT_AUTO;
+            //    G.robotAddress[i] = 0; // 초기값, 0
 
-                //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
-                if (G.DEBUG) Console.WriteLine("설정 정보 #" + i + " " + G.robotID[i] + G.OT[i]);
-            }
+            //    //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
+            //    if (G.DEBUG) Console.WriteLine("설정 정보 #" + i + " " + G.robotID[i] + G.OT[i]);
+            //}
 
             // 설정 추출 로봇 정보 초기화
             //ExistingRobotNameAndAddress.Clear();
-            ExistingRobotNameAndOT.Clear();
+            //ExistingRobotNameAndOT.Clear();
             //ExistingRobotNameAndAutoStart.Clear();
 
             if (fi.Exists) // rcc 설정파일 존재시
@@ -138,35 +138,35 @@ namespace RobotCC
                 G.SelectedSerialPortName = lines[0];
 
                 // 로봇별 정보 추출 - 라인수만큼만 추출 - 사용자 편의상 일부 값은 기존 세팅 활용
-                for (int i = 0; i < lines.Length - 1; i++)
-                {
-                    if (!lines[i + 1].Contains(",")) continue; // 내용이 빈 라인의 경우, 무시
+                //for (int i = 0; i < lines.Length - 1; i++)
+                //{
+                //    if (!lines[i + 1].Contains(",")) continue; // 내용이 빈 라인의 경우, 무시
 
-                    string[] parts = lines[i + 1].Split(',');
-                    //if (parts.Length != 6) continue; // 잘못된 경우
+                //    string[] parts = lines[i + 1].Split(',');
+                //    //if (parts.Length != 6) continue; // 잘못된 경우
 
-                    //G.robotID[i] = parts[0];
-                    //G.LSize[i] = double.Parse(parts[1]);
-                    //G.RSize[i] = double.Parse(parts[2]);
-                    //G.OT[i] = int.Parse(parts[3]);
-                    //G.AUTOSTART[i] = int.Parse(parts[4]);
-                    //G.robotAddress[i] = int.Parse(parts[5]);
-                    G.robotID[i] = parts[0];
-                    G.OT[i] = int.Parse(parts[1]);
+                //    //G.robotID[i] = parts[0];
+                //    //G.LSize[i] = double.Parse(parts[1]);
+                //    //G.RSize[i] = double.Parse(parts[2]);
+                //    //G.OT[i] = int.Parse(parts[3]);
+                //    //G.AUTOSTART[i] = int.Parse(parts[4]);
+                //    //G.robotAddress[i] = int.Parse(parts[5]);
+                //    G.robotID[i] = parts[0];
+                //    G.OT[i] = int.Parse(parts[1]);
 
-                    // 설정 정보 목록을 일단 저장하여 default 값으로 활용
-                    //ExistingRobotNameAndAddress.Add(G.robotID[i], G.robotAddress[i]);
-                    ExistingRobotNameAndOT.Add(G.robotID[i], G.OT[i]);
-                    //ExistingRobotNameAndAutoStart.Add(G.robotID[i], G.AUTOSTART[i]);
+                //    // 설정 정보 목록을 일단 저장하여 default 값으로 활용
+                //    //ExistingRobotNameAndAddress.Add(G.robotID[i], G.robotAddress[i]);
+                //    //ExistingRobotNameAndOT.Add(G.robotID[i], G.OT[i]);
+                //    //ExistingRobotNameAndAutoStart.Add(G.robotID[i], G.AUTOSTART[i]);
 
-                    //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
-                    if (G.DEBUG) Console.WriteLine("설정 정보 #" + i + " " + G.robotID[i] + "," + G.OT[i]);
-                }
+                //    //if (G.DEBUG) Console.WriteLine("R#" + i + " " + G.robotID[i] + ":" + G.LSize[i] + "/" + G.RSize[i] + "/" + G.OT[i] + "/" + G.AUTOSTART[i] + "/" + G.robotAddress[i]);
+                //    if (G.DEBUG) Console.WriteLine("설정 정보 #" + i + " " + G.robotID[i] + "," + G.OT[i]);
+                //}
             }
 
             G.ROBOT_REG_CNT = 0; // 일단 항상 0으로 초기화 
             //G.SAVED_ROBOT_CNT = G.ExistingRobotNameAndAddress.Count; // 기존 설정값을 가진 로봇의 수
-            G.SAVED_ROBOT_CNT = G.ExistingRobotNameAndOT.Count; // 기존 설정값을 가진 로봇의 수
+            //G.SAVED_ROBOT_CNT = G.ExistingRobotNameAndOT.Count; // 기존 설정값을 가진 로봇의 수
 
         }
 
@@ -176,12 +176,12 @@ namespace RobotCC
 
             lines += G.SelectedSerialPortName + Environment.NewLine;
 
-            for (int i = 0; i < G.ROBOT_REG_CNT; i++)
-            {
-                //lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," +
-                //         G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;
-                lines += G.robotID[i] + "," + G.OT[i] + Environment.NewLine;
-            }
+            //for (int i = 0; i < G.ROBOT_REG_CNT; i++)
+            //{
+            //    //lines += G.robotID[i] + "," + G.LSize[i] + "," + G.RSize[i] + "," + G.OT[i] + "," +
+            //    //         G.AUTOSTART[i] + "," + G.robotAddress[i] + Environment.NewLine;
+            //    lines += G.robotID[i] + "," + G.OT[i] + Environment.NewLine;
+            //}
             File.WriteAllText(G.CNFFileName, lines);
 
             Console.WriteLine(@"설정 파일 저장 완료");
