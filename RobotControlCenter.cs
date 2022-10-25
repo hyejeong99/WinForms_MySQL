@@ -1237,5 +1237,18 @@ namespace RobotCC
             else Console.Beep(523, time); //도
         }
 
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen) serialPort1.Close();
+
+            DialogResult result = MessageBox.Show(@"작업을 정상적으로 종료합니다.", @"작업 종료", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.OK)
+            {
+                G.CNFSaveFile(); // 현재 설정을 자동 저장한다.
+                G.SaveLogFile(output.Text.Trim()); // 로그 정보 파일 저장
+
+                this.Close();
+            }
+        }
     }
 }
