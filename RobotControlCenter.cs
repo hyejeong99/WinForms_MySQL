@@ -79,6 +79,8 @@ namespace RobotCC
         RadioButton[] OT_H = new RadioButton[G.ROBOT_MAX_CNT];
         RadioButton[] OT_V = new RadioButton[G.ROBOT_MAX_CNT];
 
+        // Check Boxes
+        CheckBox[] ListCheckBox = new CheckBox[G.ROBOT_MAX_CNT];
 
         public RobotControlCenter()
         {
@@ -164,6 +166,8 @@ namespace RobotCC
 
             Progress[i].Visible = false; TBox_Progress[i].Enabled = false;
             BatteryLevel[i].Visible = false; TBox_Battery[i].Enabled = false;
+
+            ListCheckBox[i].Enabled = false;
         }
 
         private void EnableRow(int i)
@@ -177,6 +181,9 @@ namespace RobotCC
 
             Progress[i].Visible = true; TBox_Progress[i].Enabled = true;
             BatteryLevel[i].Visible = true; TBox_Battery[i].Enabled = true;
+
+            ListCheckBox[i].Enabled = true; ListCheckBox[i].Checked = false;
+
         }
 
         private void DisableAllRows()
@@ -395,6 +402,13 @@ namespace RobotCC
             Btn_OPTION[5] = optionBtn6; Btn_OPTION[6] = optionBtn7; Btn_OPTION[7] = optionBtn8;
             Btn_OPTION[8] = optionBtn9; Btn_OPTION[9] = optionBtn10;
 
+            //// [12] LIST CHECK BOX 연결
+            ListCheckBox[0] = checkBox1; ListCheckBox[1] = checkBox2; ListCheckBox[2] = checkBox3;
+            ListCheckBox[3] = checkBox4; ListCheckBox[4] = checkBox5;
+            ListCheckBox[5] = checkBox6; ListCheckBox[6] = checkBox7; ListCheckBox[7] = checkBox8;
+            ListCheckBox[8] = checkBox9; ListCheckBox[9] = checkBox10;
+
+
             //// [12] 각 버튼 클릭 이벤트 공동 연결
             //// 디자인 파일에 직접 설정변경하면 디자인 화면 (경고) 오류 발생 ==> 여기서 연결
             for (int i = 0; i < G.ROBOT_MAX_CNT; i++)
@@ -408,6 +422,7 @@ namespace RobotCC
                 this.OT_V[i].Click += (sender, ex) => this.OT_VActionAsync(index);
 
                 this.Btn_OPTION[i].Click += (sender, ex) => this.optionAction(index);
+                this.ListCheckBox[i].CheckedChanged += (sender, ex) => this.checkBoxSelectionAction(index);
             }
         }
 
@@ -517,6 +532,9 @@ namespace RobotCC
                                 //TBox_RobotName[r].Text = regRobotName;
                                 TBox_Status[r].Text = "재등록";
                                 TBox_Status[r].ForeColor = G.DefaultColor;
+
+                                // 로봇 등록시 설정  갱신
+                                EnableRow(r); 
 
                                 // 로봇 등록시 배터리 잔량 
                                 BatteryLevel[r].Value = batteryLevel;
@@ -1088,6 +1106,21 @@ namespace RobotCC
             form.ShowDialog();
         }
 
+
+        private void checkBoxSelectionAction(int robotIndex)
+        {
+            OutputMesssage("[체크박스 #" + (robotIndex + 1) + "] 선택");
+
+            if (ListCheckBox[robotIndex].Checked == true){
+                TBox_Status[robotIndex].Text = "작업 종료(목록 삭제)";
+                DisableRow(robotIndex);
+            }
+            //else
+            //{
+            //    EnableRow(robotIndex);
+            //}
+        }
+
         private void 로그파일저장ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             G.SaveLogFile(output.Text.Trim()); // 로그 정보 파일 저장
@@ -1250,5 +1283,6 @@ namespace RobotCC
                 this.Close();
             }
         }
+
     }
 }
