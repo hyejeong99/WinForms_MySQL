@@ -197,6 +197,7 @@ namespace RobotCC
             this.progressBar7 = new System.Windows.Forms.ProgressBar();
             this.optionBtn7 = new System.Windows.Forms.Button();
             this.progressText7 = new System.Windows.Forms.RichTextBox();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -353,7 +354,7 @@ namespace RobotCC
             this.optionBtn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn2.AutoSize = true;
             this.optionBtn2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn2.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn2.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn2.Name = "optionBtn2";
             this.optionBtn2.Size = new System.Drawing.Size(100, 28);
@@ -365,7 +366,7 @@ namespace RobotCC
             this.optionBtn3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn3.AutoSize = true;
             this.optionBtn3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn3.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn3.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn3.Name = "optionBtn3";
             this.optionBtn3.Size = new System.Drawing.Size(100, 28);
@@ -377,7 +378,7 @@ namespace RobotCC
             this.optionBtn4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn4.AutoSize = true;
             this.optionBtn4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn4.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn4.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn4.Name = "optionBtn4";
             this.optionBtn4.Size = new System.Drawing.Size(100, 28);
@@ -389,7 +390,7 @@ namespace RobotCC
             this.optionBtn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn5.AutoSize = true;
             this.optionBtn5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn5.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn5.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn5.Name = "optionBtn5";
             this.optionBtn5.Size = new System.Drawing.Size(100, 28);
@@ -895,7 +896,7 @@ namespace RobotCC
             this.optionBtn1.AutoSize = true;
             this.optionBtn1.BackColor = System.Drawing.Color.Transparent;
             this.optionBtn1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn1.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn1.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn1.Name = "optionBtn1";
             this.optionBtn1.Size = new System.Drawing.Size(100, 28);
@@ -1000,7 +1001,7 @@ namespace RobotCC
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel4.Controls.Add(this.radioV2, 11, 0);
             this.tableLayoutPanel4.Controls.Add(this.batteryBar2, 6, 0);
             this.tableLayoutPanel4.Controls.Add(this.radioH2, 10, 0);
@@ -1076,7 +1077,7 @@ namespace RobotCC
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel5.Controls.Add(this.radioV3, 11, 0);
             this.tableLayoutPanel5.Controls.Add(this.radioH3, 10, 0);
             this.tableLayoutPanel5.Controls.Add(this.batteryBar3, 6, 0);
@@ -1152,7 +1153,7 @@ namespace RobotCC
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel6.Controls.Add(this.radioV4, 11, 0);
             this.tableLayoutPanel6.Controls.Add(this.radioH4, 10, 0);
             this.tableLayoutPanel6.Controls.Add(this.batteryBar4, 6, 0);
@@ -1228,7 +1229,7 @@ namespace RobotCC
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel7.Controls.Add(this.radioV5, 11, 0);
             this.tableLayoutPanel7.Controls.Add(this.radioH5, 10, 0);
             this.tableLayoutPanel7.Controls.Add(this.batteryBar5, 6, 0);
@@ -1380,7 +1381,7 @@ namespace RobotCC
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel2.Controls.Add(this.radioV1, 11, 0);
             this.tableLayoutPanel2.Controls.Add(this.batteryBar1, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.optionBtn1, 12, 0);
@@ -1478,7 +1479,7 @@ namespace RobotCC
             this.label8.Location = new System.Drawing.Point(1161, 2);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(159, 32);
+            this.label8.Size = new System.Drawing.Size(163, 32);
             this.label8.TabIndex = 12;
             this.label8.Text = "세부설정";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1563,7 +1564,7 @@ namespace RobotCC
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
-            this.tableLayoutPanel1.ColumnCount = 8;
+            this.tableLayoutPanel1.ColumnCount = 9;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 268F));
@@ -1571,7 +1572,8 @@ namespace RobotCC
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel1.Controls.Add(this.label16, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
@@ -1619,7 +1621,7 @@ namespace RobotCC
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel3.Controls.Add(this.radioV6, 11, 0);
             this.tableLayoutPanel3.Controls.Add(this.batteryBar6, 6, 0);
             this.tableLayoutPanel3.Controls.Add(this.optionBtn6, 12, 0);
@@ -1670,7 +1672,7 @@ namespace RobotCC
             this.optionBtn6.AutoSize = true;
             this.optionBtn6.BackColor = System.Drawing.Color.Transparent;
             this.optionBtn6.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn6.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn6.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn6.Name = "optionBtn6";
             this.optionBtn6.Size = new System.Drawing.Size(100, 28);
@@ -1842,7 +1844,7 @@ namespace RobotCC
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel8.Controls.Add(this.radioV10, 11, 0);
             this.tableLayoutPanel8.Controls.Add(this.radioH10, 10, 0);
             this.tableLayoutPanel8.Controls.Add(this.batteryBar10, 6, 0);
@@ -1906,7 +1908,7 @@ namespace RobotCC
             this.optionBtn10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn10.AutoSize = true;
             this.optionBtn10.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn10.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn10.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn10.Name = "optionBtn10";
             this.optionBtn10.Size = new System.Drawing.Size(100, 28);
@@ -2062,7 +2064,7 @@ namespace RobotCC
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel9.Controls.Add(this.radioV9, 11, 0);
             this.tableLayoutPanel9.Controls.Add(this.radioH9, 10, 0);
             this.tableLayoutPanel9.Controls.Add(this.batteryBar9, 6, 0);
@@ -2255,7 +2257,7 @@ namespace RobotCC
             this.optionBtn9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn9.AutoSize = true;
             this.optionBtn9.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn9.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn9.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn9.Name = "optionBtn9";
             this.optionBtn9.Size = new System.Drawing.Size(100, 28);
@@ -2279,7 +2281,7 @@ namespace RobotCC
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel10.Controls.Add(this.radioV8, 11, 0);
             this.tableLayoutPanel10.Controls.Add(this.radioH8, 10, 0);
             this.tableLayoutPanel10.Controls.Add(this.batteryBar8, 6, 0);
@@ -2449,7 +2451,7 @@ namespace RobotCC
             this.optionBtn8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn8.AutoSize = true;
             this.optionBtn8.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn8.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn8.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn8.Name = "optionBtn8";
             this.optionBtn8.Size = new System.Drawing.Size(100, 28);
@@ -2496,7 +2498,7 @@ namespace RobotCC
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.tableLayoutPanel11.Controls.Add(this.radioV7, 11, 0);
             this.tableLayoutPanel11.Controls.Add(this.batteryBar7, 6, 0);
             this.tableLayoutPanel11.Controls.Add(this.radioH7, 10, 0);
@@ -2675,7 +2677,7 @@ namespace RobotCC
             this.optionBtn7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.optionBtn7.AutoSize = true;
             this.optionBtn7.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionBtn7.Location = new System.Drawing.Point(1192, 8);
+            this.optionBtn7.Location = new System.Drawing.Point(1195, 8);
             this.optionBtn7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.optionBtn7.Name = "optionBtn7";
             this.optionBtn7.Size = new System.Drawing.Size(100, 28);
@@ -2696,12 +2698,24 @@ namespace RobotCC
             this.progressText7.TabIndex = 63;
             this.progressText7.Text = "";
             // 
+            // exitBtn
+            // 
+            this.exitBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.exitBtn.Location = new System.Drawing.Point(1316, 54);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(82, 33);
+            this.exitBtn.TabIndex = 89;
+            this.exitBtn.Text = "종료";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
             // RobotControlCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1410, 831);
+            this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel8);
             this.Controls.Add(this.tableLayoutPanel9);
@@ -2757,73 +2771,175 @@ namespace RobotCC
 
         #endregion
         private System.Windows.Forms.ComboBox comboBox1;
+
+        private System.Windows.Forms.Label comInfo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
 
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.ProgressBar progressBar3;
         private System.Windows.Forms.ProgressBar progressBar4;
         private System.Windows.Forms.ProgressBar progressBar5;
+        private System.Windows.Forms.ProgressBar progressBar6;
+        private System.Windows.Forms.ProgressBar progressBar7;
+        private System.Windows.Forms.ProgressBar progressBar8;
+        private System.Windows.Forms.ProgressBar progressBar9;
+        private System.Windows.Forms.ProgressBar progressBar10;
 
         private System.Windows.Forms.Button optionBtn1;
         private System.Windows.Forms.Button optionBtn2;
         private System.Windows.Forms.Button optionBtn3;
         private System.Windows.Forms.Button optionBtn4;
         private System.Windows.Forms.Button optionBtn5;
+        private System.Windows.Forms.Button optionBtn6;
+        private System.Windows.Forms.Button optionBtn7;
+        private System.Windows.Forms.Button optionBtn8;
+        private System.Windows.Forms.Button optionBtn9;
+        private System.Windows.Forms.Button optionBtn10;
 
         private System.Windows.Forms.TextBox robotName1;
         private System.Windows.Forms.TextBox robotName2;
         private System.Windows.Forms.TextBox robotName3;
         private System.Windows.Forms.TextBox robotName4;
         private System.Windows.Forms.TextBox robotName5;
+        private System.Windows.Forms.TextBox robotName6;
+        private System.Windows.Forms.TextBox robotName7;
+        private System.Windows.Forms.TextBox robotName8;
+        private System.Windows.Forms.TextBox robotName9;
+        private System.Windows.Forms.TextBox robotName10;
+
         private System.Windows.Forms.RichTextBox batteryText1;
         private System.Windows.Forms.RichTextBox batteryText2;
         private System.Windows.Forms.RichTextBox batteryText3;
         private System.Windows.Forms.RichTextBox batteryText4;
         private System.Windows.Forms.RichTextBox batteryText5;
+        private System.Windows.Forms.RichTextBox batteryText6;
+        private System.Windows.Forms.RichTextBox batteryText7;
+        private System.Windows.Forms.RichTextBox batteryText8;
+        private System.Windows.Forms.RichTextBox batteryText9;
+        private System.Windows.Forms.RichTextBox batteryText10;
 
         private System.Windows.Forms.Button runBtn1;
         private System.Windows.Forms.Button runBtn2;
         private System.Windows.Forms.Button runBtn3;
         private System.Windows.Forms.Button runBtn4;
         private System.Windows.Forms.Button runBtn5;
+        private System.Windows.Forms.Button runBtn6;
+        private System.Windows.Forms.Button runBtn7;
+        private System.Windows.Forms.Button runBtn8;
+        private System.Windows.Forms.Button runBtn9;
+        private System.Windows.Forms.Button runBtn10;
 
         private System.Windows.Forms.Button stopBtn1;
         private System.Windows.Forms.Button stopBtn2;
         private System.Windows.Forms.Button stopBtn3;
         private System.Windows.Forms.Button stopBtn4;
         private System.Windows.Forms.Button stopBtn5;
+        private System.Windows.Forms.Button stopBtn6;
+        private System.Windows.Forms.Button stopBtn7;
+        private System.Windows.Forms.Button stopBtn8;
+        private System.Windows.Forms.Button stopBtn9;
+        private System.Windows.Forms.Button stopBtn10;
 
         private System.Windows.Forms.RichTextBox status1;
         private System.Windows.Forms.RichTextBox status2;
         private System.Windows.Forms.RichTextBox status3;
         private System.Windows.Forms.RichTextBox status4;
         private System.Windows.Forms.RichTextBox status5;
+        private System.Windows.Forms.RichTextBox status6;
+        private System.Windows.Forms.RichTextBox status7;
+        private System.Windows.Forms.RichTextBox status8;
+        private System.Windows.Forms.RichTextBox status9;
+        private System.Windows.Forms.RichTextBox status10;
 
         private System.Windows.Forms.Button homeBtn1;
         private System.Windows.Forms.Button homeBtn2;
         private System.Windows.Forms.Button homeBtn3;
         private System.Windows.Forms.Button homeBtn4;
         private System.Windows.Forms.Button homeBtn5;
+        private System.Windows.Forms.Button homeBtn6;
+        private System.Windows.Forms.Button homeBtn7;
+        private System.Windows.Forms.Button homeBtn8;
+        private System.Windows.Forms.Button homeBtn9;
+        private System.Windows.Forms.Button homeBtn10;
 
-        private System.Windows.Forms.RichTextBox progressText5;
-        private System.Windows.Forms.RichTextBox progressText4;
-        private System.Windows.Forms.RichTextBox progressText3;
-        private System.Windows.Forms.RichTextBox progressText2;
         private System.Windows.Forms.RichTextBox progressText1;
-        private System.Windows.Forms.Label comInfo;
+        private System.Windows.Forms.RichTextBox progressText2;
+        private System.Windows.Forms.RichTextBox progressText3;
+        private System.Windows.Forms.RichTextBox progressText4;
+        private System.Windows.Forms.RichTextBox progressText5;
+        private System.Windows.Forms.RichTextBox progressText6;
+        private System.Windows.Forms.RichTextBox progressText7;
+        private System.Windows.Forms.RichTextBox progressText8;
+        private System.Windows.Forms.RichTextBox progressText9;
+        private System.Windows.Forms.RichTextBox progressText10;
+
+        private System.Windows.Forms.ProgressBar batteryBar1;
+        private System.Windows.Forms.ProgressBar batteryBar2;
+        private System.Windows.Forms.ProgressBar batteryBar3;
+        private System.Windows.Forms.ProgressBar batteryBar4;
+        private System.Windows.Forms.ProgressBar batteryBar5;
+        private System.Windows.Forms.ProgressBar batteryBar6;
+        private System.Windows.Forms.ProgressBar batteryBar7;
+        private System.Windows.Forms.ProgressBar batteryBar8;
+        private System.Windows.Forms.ProgressBar batteryBar9;
+        private System.Windows.Forms.ProgressBar batteryBar10;
+
+        private System.Windows.Forms.RadioButton radioV1;
+        private System.Windows.Forms.RadioButton radioV2;
+        private System.Windows.Forms.RadioButton radioV3;
+        private System.Windows.Forms.RadioButton radioV4;
+        private System.Windows.Forms.RadioButton radioV5;
+        private System.Windows.Forms.RadioButton radioV6;
+        private System.Windows.Forms.RadioButton radioV7;
+        private System.Windows.Forms.RadioButton radioV8;
+        private System.Windows.Forms.RadioButton radioV9;
+        private System.Windows.Forms.RadioButton radioV10;
+
+        private System.Windows.Forms.RadioButton radioH1;
+        private System.Windows.Forms.RadioButton radioH2;
+        private System.Windows.Forms.RadioButton radioH3;
+        private System.Windows.Forms.RadioButton radioH4;
+        private System.Windows.Forms.RadioButton radioH5;
+        private System.Windows.Forms.RadioButton radioH6;
+        private System.Windows.Forms.RadioButton radioH7;
+        private System.Windows.Forms.RadioButton radioH8;
+        private System.Windows.Forms.RadioButton radioH9;
+        private System.Windows.Forms.RadioButton radioH10;
+
+
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.RichTextBox output;
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 파일ToolStripMenuItem;
@@ -2836,100 +2952,6 @@ namespace RobotCC
         private System.Windows.Forms.ToolStripMenuItem 시스템종료ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 보고서작성ToolStripMenuItem1;
         private System.Windows.Forms.Button plantListManagementBtn;
-
-        private System.Windows.Forms.ProgressBar batteryBar1;
-        private System.Windows.Forms.ProgressBar batteryBar2;
-        private System.Windows.Forms.ProgressBar batteryBar3;
-        private System.Windows.Forms.ProgressBar batteryBar4;
-        private System.Windows.Forms.ProgressBar batteryBar5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RadioButton radioV2;
-        private System.Windows.Forms.RadioButton radioH2;
-        private System.Windows.Forms.RadioButton radioV3;
-        private System.Windows.Forms.RadioButton radioH3;
-        private System.Windows.Forms.RadioButton radioV4;
-        private System.Windows.Forms.RadioButton radioH4;
-        private System.Windows.Forms.RadioButton radioV5;
-        private System.Windows.Forms.RadioButton radioH5;
-        private System.Windows.Forms.RadioButton radioV1;
-        private System.Windows.Forms.RadioButton radioH1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.RadioButton radioV6;
-        private System.Windows.Forms.ProgressBar batteryBar6;
-        private System.Windows.Forms.Button optionBtn6;
-        private System.Windows.Forms.RichTextBox progressText6;
-        private System.Windows.Forms.ProgressBar progressBar6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox robotName6;
-        private System.Windows.Forms.RichTextBox batteryText6;
-        private System.Windows.Forms.RichTextBox status6;
-        private System.Windows.Forms.Button homeBtn6;
-        private System.Windows.Forms.Button stopBtn6;
-        private System.Windows.Forms.Button runBtn6;
-        private System.Windows.Forms.RadioButton radioH6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.RadioButton radioV10;
-        private System.Windows.Forms.RadioButton radioH10;
-        private System.Windows.Forms.ProgressBar batteryBar10;
-        private System.Windows.Forms.Button optionBtn10;
-        private System.Windows.Forms.RichTextBox progressText10;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ProgressBar progressBar10;
-        private System.Windows.Forms.RichTextBox batteryText10;
-        private System.Windows.Forms.RichTextBox status10;
-        private System.Windows.Forms.Button homeBtn10;
-        private System.Windows.Forms.Button stopBtn10;
-        private System.Windows.Forms.Button runBtn10;
-        private System.Windows.Forms.TextBox robotName10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.RadioButton radioV9;
-        private System.Windows.Forms.RadioButton radioH9;
-        private System.Windows.Forms.ProgressBar batteryBar9;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.RichTextBox progressText9;
-        private System.Windows.Forms.TextBox robotName9;
-        private System.Windows.Forms.Button runBtn9;
-        private System.Windows.Forms.Button stopBtn9;
-        private System.Windows.Forms.Button homeBtn9;
-        private System.Windows.Forms.RichTextBox status9;
-        private System.Windows.Forms.RichTextBox batteryText9;
-        private System.Windows.Forms.ProgressBar progressBar9;
-        private System.Windows.Forms.Button optionBtn9;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.RadioButton radioV8;
-        private System.Windows.Forms.RadioButton radioH8;
-        private System.Windows.Forms.ProgressBar batteryBar8;
-        private System.Windows.Forms.TextBox robotName8;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.RichTextBox progressText8;
-        private System.Windows.Forms.Button runBtn8;
-        private System.Windows.Forms.Button stopBtn8;
-        private System.Windows.Forms.Button homeBtn8;
-        private System.Windows.Forms.RichTextBox status8;
-        private System.Windows.Forms.Button optionBtn8;
-        private System.Windows.Forms.ProgressBar progressBar8;
-        private System.Windows.Forms.RichTextBox batteryText8;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.RadioButton radioV7;
-        private System.Windows.Forms.ProgressBar batteryBar7;
-        private System.Windows.Forms.RadioButton radioH7;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox robotName7;
-        private System.Windows.Forms.Button runBtn7;
-        private System.Windows.Forms.Button stopBtn7;
-        private System.Windows.Forms.Button homeBtn7;
-        private System.Windows.Forms.RichTextBox status7;
-        private System.Windows.Forms.RichTextBox batteryText7;
-        private System.Windows.Forms.ProgressBar progressBar7;
-        private System.Windows.Forms.Button optionBtn7;
-        private System.Windows.Forms.RichTextBox progressText7;
+        private System.Windows.Forms.Button exitBtn;
     }
 }
