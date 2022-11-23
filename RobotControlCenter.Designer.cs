@@ -89,35 +89,34 @@ namespace RobotCC
             this.progressText1 = new System.Windows.Forms.RichTextBox();
             this.comInfo = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.radioV2 = new System.Windows.Forms.RadioButton();
             this.batteryBar2 = new System.Windows.Forms.ProgressBar();
             this.radioH2 = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.radioV3 = new System.Windows.Forms.RadioButton();
             this.radioH3 = new System.Windows.Forms.RadioButton();
             this.batteryBar3 = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.radioV4 = new System.Windows.Forms.RadioButton();
             this.radioH4 = new System.Windows.Forms.RadioButton();
             this.batteryBar4 = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.radioV5 = new System.Windows.Forms.RadioButton();
             this.radioH5 = new System.Windows.Forms.RadioButton();
             this.batteryBar5 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.로그파일저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.시스템종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.통신포트ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.통신포트변경ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loRa연결확인ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.보고서작성ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.보고서작성ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.radioV1 = new System.Windows.Forms.RadioButton();
             this.batteryBar1 = new System.Windows.Forms.ProgressBar();
             this.radioH1 = new System.Windows.Forms.RadioButton();
-            this.plantListManagementBtn = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -126,8 +125,10 @@ namespace RobotCC
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label21 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.radioV6 = new System.Windows.Forms.RadioButton();
             this.batteryBar6 = new System.Windows.Forms.ProgressBar();
             this.optionBtn6 = new System.Windows.Forms.Button();
@@ -142,6 +143,7 @@ namespace RobotCC
             this.runBtn6 = new System.Windows.Forms.Button();
             this.radioH6 = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.radioV10 = new System.Windows.Forms.RadioButton();
             this.radioH10 = new System.Windows.Forms.RadioButton();
             this.batteryBar10 = new System.Windows.Forms.ProgressBar();
@@ -156,6 +158,7 @@ namespace RobotCC
             this.runBtn10 = new System.Windows.Forms.Button();
             this.robotName10 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.radioV9 = new System.Windows.Forms.RadioButton();
             this.radioH9 = new System.Windows.Forms.RadioButton();
             this.batteryBar9 = new System.Windows.Forms.ProgressBar();
@@ -170,6 +173,7 @@ namespace RobotCC
             this.progressBar9 = new System.Windows.Forms.ProgressBar();
             this.optionBtn9 = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.radioV8 = new System.Windows.Forms.RadioButton();
             this.radioH8 = new System.Windows.Forms.RadioButton();
             this.batteryBar8 = new System.Windows.Forms.ProgressBar();
@@ -184,6 +188,7 @@ namespace RobotCC
             this.progressBar8 = new System.Windows.Forms.ProgressBar();
             this.batteryText8 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.radioV7 = new System.Windows.Forms.RadioButton();
             this.batteryBar7 = new System.Windows.Forms.ProgressBar();
             this.radioH7 = new System.Windows.Forms.RadioButton();
@@ -197,18 +202,6 @@ namespace RobotCC
             this.progressBar7 = new System.Windows.Forms.ProgressBar();
             this.optionBtn7 = new System.Windows.Forms.Button();
             this.progressText7 = new System.Windows.Forms.RichTextBox();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -883,10 +876,10 @@ namespace RobotCC
             // output
             // 
             this.output.BackColor = System.Drawing.SystemColors.Info;
-            this.output.Location = new System.Drawing.Point(33, 719);
+            this.output.Location = new System.Drawing.Point(33, 679);
             this.output.Name = "output";
             this.output.ReadOnly = true;
-            this.output.Size = new System.Drawing.Size(1373, 100);
+            this.output.Size = new System.Drawing.Size(1373, 78);
             this.output.TabIndex = 66;
             this.output.Text = "";
             // 
@@ -1013,7 +1006,7 @@ namespace RobotCC
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel4.Controls.Add(this.checkBox2, 13, 0);
             this.tableLayoutPanel4.Controls.Add(this.radioV2, 11, 0);
             this.tableLayoutPanel4.Controls.Add(this.batteryBar2, 6, 0);
@@ -1029,12 +1022,24 @@ namespace RobotCC
             this.tableLayoutPanel4.Controls.Add(this.optionBtn2, 12, 0);
             this.tableLayoutPanel4.Controls.Add(this.progressText2, 9, 0);
             this.tableLayoutPanel4.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(36, 258);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(36, 243);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel4.TabIndex = 76;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox2.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(57, 22);
+            this.checkBox2.TabIndex = 90;
+            this.checkBox2.Text = "완료";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // radioV2
             // 
@@ -1091,7 +1096,7 @@ namespace RobotCC
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel5.Controls.Add(this.checkBox3, 13, 0);
             this.tableLayoutPanel5.Controls.Add(this.radioV3, 11, 0);
             this.tableLayoutPanel5.Controls.Add(this.radioH3, 10, 0);
@@ -1107,12 +1112,24 @@ namespace RobotCC
             this.tableLayoutPanel5.Controls.Add(this.progressBar3, 8, 0);
             this.tableLayoutPanel5.Controls.Add(this.batteryText3, 7, 0);
             this.tableLayoutPanel5.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(36, 308);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(36, 290);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel5.TabIndex = 77;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox3.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(57, 22);
+            this.checkBox3.TabIndex = 91;
+            this.checkBox3.Text = "완료";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // radioV3
             // 
@@ -1169,7 +1186,7 @@ namespace RobotCC
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel6.Controls.Add(this.checkBox4, 13, 0);
             this.tableLayoutPanel6.Controls.Add(this.radioV4, 11, 0);
             this.tableLayoutPanel6.Controls.Add(this.radioH4, 10, 0);
@@ -1185,12 +1202,24 @@ namespace RobotCC
             this.tableLayoutPanel6.Controls.Add(this.progressBar4, 8, 0);
             this.tableLayoutPanel6.Controls.Add(this.optionBtn4, 12, 0);
             this.tableLayoutPanel6.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(36, 358);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(36, 337);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel6.TabIndex = 78;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox4.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(57, 22);
+            this.checkBox4.TabIndex = 92;
+            this.checkBox4.Text = "완료";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // radioV4
             // 
@@ -1247,7 +1276,7 @@ namespace RobotCC
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel7.Controls.Add(this.checkBox5, 13, 0);
             this.tableLayoutPanel7.Controls.Add(this.radioV5, 11, 0);
             this.tableLayoutPanel7.Controls.Add(this.radioH5, 10, 0);
@@ -1263,12 +1292,24 @@ namespace RobotCC
             this.tableLayoutPanel7.Controls.Add(this.runBtn5, 2, 0);
             this.tableLayoutPanel7.Controls.Add(this.robotName5, 1, 0);
             this.tableLayoutPanel7.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(36, 408);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(36, 384);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel7.TabIndex = 79;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox5.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(57, 22);
+            this.checkBox5.TabIndex = 93;
+            this.checkBox5.Text = "완료";
+            this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // radioV5
             // 
@@ -1313,9 +1354,7 @@ namespace RobotCC
             this.menuStrip1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.파일ToolStripMenuItem,
             this.통신포트ToolStripMenuItem,
-            this.보고서작성ToolStripMenuItem,
             this.보고서작성ToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -1323,44 +1362,13 @@ namespace RobotCC
             this.menuStrip1.TabIndex = 81;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 파일ToolStripMenuItem
-            // 
-            this.파일ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.로그파일저장ToolStripMenuItem,
-            this.시스템종료ToolStripMenuItem});
-            this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
-            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(46, 21);
-            this.파일ToolStripMenuItem.Text = "파일";
-            // 
-            // 로그파일저장ToolStripMenuItem
-            // 
-            this.로그파일저장ToolStripMenuItem.Name = "로그파일저장ToolStripMenuItem";
-            this.로그파일저장ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.로그파일저장ToolStripMenuItem.Text = "출력창 내용 저장";
-            this.로그파일저장ToolStripMenuItem.Click += new System.EventHandler(this.로그파일저장ToolStripMenuItem_Click);
-            // 
-            // 시스템종료ToolStripMenuItem
-            // 
-            this.시스템종료ToolStripMenuItem.Name = "시스템종료ToolStripMenuItem";
-            this.시스템종료ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.시스템종료ToolStripMenuItem.Text = "시스템 종료";
-            this.시스템종료ToolStripMenuItem.Click += new System.EventHandler(this.시스템종료ToolStripMenuItem_Click);
-            // 
             // 통신포트ToolStripMenuItem
             // 
             this.통신포트ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.통신포트변경ToolStripMenuItem,
             this.loRa연결확인ToolStripMenuItem});
             this.통신포트ToolStripMenuItem.Name = "통신포트ToolStripMenuItem";
             this.통신포트ToolStripMenuItem.Size = new System.Drawing.Size(98, 21);
             this.통신포트ToolStripMenuItem.Text = "통신포트설정";
-            // 
-            // 통신포트변경ToolStripMenuItem
-            // 
-            this.통신포트변경ToolStripMenuItem.Name = "통신포트변경ToolStripMenuItem";
-            this.통신포트변경ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.통신포트변경ToolStripMenuItem.Text = "통신포트 변경";
-            this.통신포트변경ToolStripMenuItem.Click += new System.EventHandler(this.통신포트변경ToolStripMenuItem_Click);
             // 
             // loRa연결확인ToolStripMenuItem
             // 
@@ -1368,13 +1376,6 @@ namespace RobotCC
             this.loRa연결확인ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.loRa연결확인ToolStripMenuItem.Text = "LoRa 연결 확인";
             this.loRa연결확인ToolStripMenuItem.Click += new System.EventHandler(this.loRa연결확인ToolStripMenuItem_Click);
-            // 
-            // 보고서작성ToolStripMenuItem
-            // 
-            this.보고서작성ToolStripMenuItem.Name = "보고서작성ToolStripMenuItem";
-            this.보고서작성ToolStripMenuItem.Size = new System.Drawing.Size(111, 21);
-            this.보고서작성ToolStripMenuItem.Text = "발전소목록관리";
-            this.보고서작성ToolStripMenuItem.Click += new System.EventHandler(this.발전소목록관리ToolStripMenuItem_Click);
             // 
             // 보고서작성ToolStripMenuItem1
             // 
@@ -1401,7 +1402,7 @@ namespace RobotCC
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel2.Controls.Add(this.radioV1, 11, 0);
             this.tableLayoutPanel2.Controls.Add(this.batteryBar1, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.optionBtn1, 12, 0);
@@ -1417,7 +1418,7 @@ namespace RobotCC
             this.tableLayoutPanel2.Controls.Add(this.radioH1, 10, 0);
             this.tableLayoutPanel2.Controls.Add(this.checkBox1, 13, 0);
             this.tableLayoutPanel2.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(36, 208);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(36, 196);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1461,19 +1462,17 @@ namespace RobotCC
             this.radioH1.Text = "수평";
             this.radioH1.UseVisualStyleBackColor = true;
             // 
-            // plantListManagementBtn
+            // checkBox1
             // 
-            this.plantListManagementBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.plantListManagementBtn.AutoSize = true;
-            this.plantListManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.plantListManagementBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.plantListManagementBtn.Location = new System.Drawing.Point(530, 112);
-            this.plantListManagementBtn.Name = "plantListManagementBtn";
-            this.plantListManagementBtn.Size = new System.Drawing.Size(160, 31);
-            this.plantListManagementBtn.TabIndex = 83;
-            this.plantListManagementBtn.Text = "발전소 목록 관리";
-            this.plantListManagementBtn.UseVisualStyleBackColor = true;
-            this.plantListManagementBtn.Click += new System.EventHandler(this.plantListManagementBtn_Click);
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox1.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(57, 22);
+            this.checkBox1.TabIndex = 87;
+            this.checkBox1.Text = "완료";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -1594,7 +1593,7 @@ namespace RobotCC
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel1.Controls.Add(this.label21, 8, 0);
             this.tableLayoutPanel1.Controls.Add(this.label16, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
@@ -1604,12 +1603,27 @@ namespace RobotCC
             this.tableLayoutPanel1.Controls.Add(this.label7, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 7, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(36, 164);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(36, 158);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1370, 36);
             this.tableLayoutPanel1.TabIndex = 70;
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label21.Location = new System.Drawing.Point(1303, 2);
+            this.label21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(66, 32);
+            this.label21.TabIndex = 90;
+            this.label21.Text = "완료";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
@@ -1644,7 +1658,7 @@ namespace RobotCC
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel3.Controls.Add(this.checkBox6, 13, 0);
             this.tableLayoutPanel3.Controls.Add(this.radioV6, 11, 0);
             this.tableLayoutPanel3.Controls.Add(this.batteryBar6, 6, 0);
@@ -1660,12 +1674,24 @@ namespace RobotCC
             this.tableLayoutPanel3.Controls.Add(this.runBtn6, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.radioH6, 10, 0);
             this.tableLayoutPanel3.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(36, 458);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(36, 431);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel3.TabIndex = 88;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox6.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(57, 22);
+            this.checkBox6.TabIndex = 94;
+            this.checkBox6.Text = "완료";
+            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // radioV6
             // 
@@ -1869,7 +1895,7 @@ namespace RobotCC
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel8.Controls.Add(this.checkBox10, 13, 0);
             this.tableLayoutPanel8.Controls.Add(this.radioV10, 11, 0);
             this.tableLayoutPanel8.Controls.Add(this.radioH10, 10, 0);
@@ -1885,12 +1911,24 @@ namespace RobotCC
             this.tableLayoutPanel8.Controls.Add(this.runBtn10, 2, 0);
             this.tableLayoutPanel8.Controls.Add(this.robotName10, 1, 0);
             this.tableLayoutPanel8.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(36, 658);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(36, 619);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel8.TabIndex = 87;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox10.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(57, 22);
+            this.checkBox10.TabIndex = 98;
+            this.checkBox10.Text = "완료";
+            this.checkBox10.UseVisualStyleBackColor = true;
             // 
             // radioV10
             // 
@@ -2091,7 +2129,7 @@ namespace RobotCC
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel9.Controls.Add(this.checkBox9, 13, 0);
             this.tableLayoutPanel9.Controls.Add(this.radioV9, 11, 0);
             this.tableLayoutPanel9.Controls.Add(this.radioH9, 10, 0);
@@ -2107,12 +2145,24 @@ namespace RobotCC
             this.tableLayoutPanel9.Controls.Add(this.progressBar9, 8, 0);
             this.tableLayoutPanel9.Controls.Add(this.optionBtn9, 12, 0);
             this.tableLayoutPanel9.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(36, 608);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(36, 572);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel9.TabIndex = 86;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox9.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(57, 22);
+            this.checkBox9.TabIndex = 97;
+            this.checkBox9.Text = "완료";
+            this.checkBox9.UseVisualStyleBackColor = true;
             // 
             // radioV9
             // 
@@ -2310,7 +2360,7 @@ namespace RobotCC
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel10.Controls.Add(this.checkBox8, 13, 0);
             this.tableLayoutPanel10.Controls.Add(this.radioV8, 11, 0);
             this.tableLayoutPanel10.Controls.Add(this.radioH8, 10, 0);
@@ -2326,12 +2376,24 @@ namespace RobotCC
             this.tableLayoutPanel10.Controls.Add(this.progressBar8, 8, 0);
             this.tableLayoutPanel10.Controls.Add(this.batteryText8, 7, 0);
             this.tableLayoutPanel10.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(36, 558);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(36, 525);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel10.TabIndex = 85;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox8.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(57, 22);
+            this.checkBox8.TabIndex = 96;
+            this.checkBox8.Text = "완료";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // radioV8
             // 
@@ -2529,7 +2591,7 @@ namespace RobotCC
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel11.Controls.Add(this.checkBox7, 13, 0);
             this.tableLayoutPanel11.Controls.Add(this.radioV7, 11, 0);
             this.tableLayoutPanel11.Controls.Add(this.batteryBar7, 6, 0);
@@ -2545,12 +2607,24 @@ namespace RobotCC
             this.tableLayoutPanel11.Controls.Add(this.optionBtn7, 12, 0);
             this.tableLayoutPanel11.Controls.Add(this.progressText7, 9, 0);
             this.tableLayoutPanel11.Font = new System.Drawing.Font("나눔스퀘어OTF", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(36, 508);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(36, 478);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(1370, 44);
             this.tableLayoutPanel11.TabIndex = 84;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox7.Location = new System.Drawing.Point(1307, 11);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(57, 22);
+            this.checkBox7.TabIndex = 95;
+            this.checkBox7.Text = "완료";
+            this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // radioV7
             // 
@@ -2730,165 +2804,17 @@ namespace RobotCC
             this.progressText7.TabIndex = 63;
             this.progressText7.Text = "";
             // 
-            // exitBtn
-            // 
-            this.exitBtn.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.exitBtn.Location = new System.Drawing.Point(1331, 36);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(75, 33);
-            this.exitBtn.TabIndex = 89;
-            this.exitBtn.Text = "종료";
-            this.exitBtn.UseVisualStyleBackColor = true;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label21.Location = new System.Drawing.Point(1303, 2);
-            this.label21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(60, 32);
-            this.label21.TabIndex = 90;
-            this.label21.Text = "완료";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox1.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(57, 22);
-            this.checkBox1.TabIndex = 87;
-            this.checkBox1.Text = "완료";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox2.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(57, 22);
-            this.checkBox2.TabIndex = 90;
-            this.checkBox2.Text = "완료";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox3.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(57, 22);
-            this.checkBox3.TabIndex = 91;
-            this.checkBox3.Text = "완료";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox4.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(57, 22);
-            this.checkBox4.TabIndex = 92;
-            this.checkBox4.Text = "완료";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox5.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(57, 22);
-            this.checkBox5.TabIndex = 93;
-            this.checkBox5.Text = "완료";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox6.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(57, 22);
-            this.checkBox6.TabIndex = 94;
-            this.checkBox6.Text = "완료";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox7.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(57, 22);
-            this.checkBox7.TabIndex = 95;
-            this.checkBox7.Text = "완료";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox8.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(57, 22);
-            this.checkBox8.TabIndex = 96;
-            this.checkBox8.Text = "완료";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox9.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(57, 22);
-            this.checkBox9.TabIndex = 97;
-            this.checkBox9.Text = "완료";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox10.Location = new System.Drawing.Point(1304, 11);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(57, 22);
-            this.checkBox10.TabIndex = 98;
-            this.checkBox10.Text = "완료";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
             // RobotControlCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(1472, 831);
-            this.Controls.Add(this.exitBtn);
+            this.ClientSize = new System.Drawing.Size(1472, 822);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel8);
             this.Controls.Add(this.tableLayoutPanel9);
             this.Controls.Add(this.tableLayoutPanel10);
             this.Controls.Add(this.tableLayoutPanel11);
-            this.Controls.Add(this.plantListManagementBtn);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.tableLayoutPanel6);
@@ -3108,17 +3034,10 @@ namespace RobotCC
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 파일ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 통신포트ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 보고서작성ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ToolStripMenuItem 통신포트변경ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loRa연결확인ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 로그파일저장ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 시스템종료ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 보고서작성ToolStripMenuItem1;
-        private System.Windows.Forms.Button plantListManagementBtn;
-        private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;

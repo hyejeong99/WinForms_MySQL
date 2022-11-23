@@ -3,15 +3,31 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
+using System.IO;
+using System.Net.Mail;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.Net.Mail;
+using System.Collections;
+using System.Drawing.Printing;
+using Font = System.Drawing.Font;
+using Rectangle = System.Drawing.Rectangle;
 
 namespace RobotCC
 {
+
+
 
     // Report 부분은 메인화면과 달리 추후 실행 가능하도록 G. 변수 사용을 최소화 하는 것이 필요
     // Current 변수 역시 리포트할 대상을 위해서 임시 사용해야 한다.
     public partial class ReportForm : Form
     {
+        //pdf 파일 이름 위한 변수
+        public int pdfNum = 0;
+
         private string CurrentPlantNumber = null;
         private string CurrentPlantName = null;
         private string CurrentContactEmail = "없음";
@@ -29,11 +45,124 @@ namespace RobotCC
         public ReportForm()
         {
             InitializeComponent();
+            //크리스탈뷰 안보이도록하기
+            crystalReportViewer1.Visible = false;
         }
 
         private void Form_Load(object sender, EventArgs e)
         {
             LinkComboBoxPlantList();
+        }
+
+        private void savePDF()//PDF로 저장
+        {
+            pdfNum++;
+            //PDF로 저장
+            if (dataGridView1.Rows.Count > 0)
+            {
+                String pdfName = "Output"+ pdfNum + ".pdf";
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                //sfd.FileName = "Output.pdf";
+                sfd.FileName = pdfName;
+                bool fileError = false;
+                /*if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(dataGridView1.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            foreach (DataGridViewColumn column in dataGridView1.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in dataGridView1.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("PDF로 저장에 성공했습니다.", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }*/
+                try
+                {
+                    PdfPTable pdfTable = new PdfPTable(dataGridView1.Columns.Count);
+                    pdfTable.DefaultCell.Padding = 3;
+                    pdfTable.WidthPercentage = 100;
+                    pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                    foreach (DataGridViewColumn column in dataGridView1.Columns)
+                    {
+                        PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                        pdfTable.AddCell(cell);
+                    }
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            pdfTable.AddCell(cell.Value.ToString());
+                        }
+                    }
+
+                    using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                        PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        pdfDoc.Add(pdfTable);
+                        pdfDoc.Close();
+                        stream.Close();
+                    }
+
+                    MessageBox.Show("PDF로 저장에 성공했습니다.", "Info");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error :" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("PDF로 저장할 레코드가 없습니다.", "Info");
+            }
         }
 
         private void LinkComboBoxPlantList()
@@ -68,11 +197,127 @@ namespace RobotCC
         private void printBtn_Click(object sender, EventArgs e)  // 보고서 인쇄
         {
             MessageBox.Show("보고서를 인쇄합니다.", "인쇄", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+
+            //크리스탈 리포트 보이기
+            crystalReportViewer1.Visible = true;
+
+            //크리스탈 리포트 보고서 출력
+            CrystalReport3 report = new CrystalReport3();
+
+            //이름 상관없이 순서대로
+            DataTable table = new DataSet2.DataTable1DataTable();
+            //DataTable sumTable = new DataSet2.DataTableSummaryDataTable();
+
+            //날짜 받아오기(년-월-일)
+            string dt1 = dateTimeFrom.Value.ToString("yyyy-MM-dd");
+            string dt2 = dateTimeTo.Value.ToString("yyyy-MM-dd");
+
+            //총 면적&시간 
+            int totalArea = 0;
+            int totalPeriod = 0;
+
+            //크리스탈 레포트에 해당 정보 저장
+            //데이터그리드뷰 데이터 입력
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                DataRow row = table.NewRow();
+
+                row["DateFrom"] = dt1;
+                row["DateTo"] = dt2;
+                row["RobotID"] = dataGridView1.Rows[i].Cells[1].Value;
+                row["CleanPeriod"] = dataGridView1.Rows[i].Cells[2].Value;
+                row["CleanArea"] = dataGridView1.Rows[i].Cells[3].Value;
+                totalArea+= Int32.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                totalPeriod+= Int32.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                table.Rows.Add(row);
+            }
+            //추가 기록사항 입력
+            DataRow sumRow = table.NewRow();
+            sumRow["Summury"] = remarkTextBox.Text.ToString();
+
+            //총 면적&시간
+            sumRow["TotalArea"] = totalArea;
+            sumRow["TotalPeriod"] = totalPeriod;
+
+            //발전소 이름 가져오기
+            string comboS = comboBox1.Text.ToString();
+            string plantName = comboS.Substring(7,6);
+            string[] plantinfo = comboBox1.Text.ToString().Split(new string[] { " : " }, StringSplitOptions.None);
+            //CurrentPlantName = plantinfo[1];
+            sumRow["PlantInfo"] = plantName.ToString();
+
+            table.Rows.Add(sumRow);
+            //table.Rows.Add(nameRow);
+
+            //레포트에 정보 추가 끝
+
+            report.SetDataSource(table);
+            //report.SetDataSource(sumTable);
+
+            crystalReportViewer1.ReportSource = report;
+
+            /*FormPrint form = new FormPrint();
+            form.setReportSource(report);
+            form.ShowDialog();
+            form.Dispose();*/
         }
 
         private void emailBtn_Click(object sender, EventArgs e) //  보고서 이메일 발송
         {
+            //crystalReportViewer1.Visible = false;
             MessageBox.Show("보고서 내용을 이메일 주소 " + CurrentContactEmail + "로 발송합니다.", "이메일 발송", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+            //이메일 전송에 사용할 pdf파일 저장
+            savePDF();
+            //이메일 전송
+            MailMessage mail = new MailMessage();
+            string emailS = emailTBox.Text.ToString();
+            try
+            {   // 보내는 사람 메일, 이름, 인코딩(UTF-8)      
+                mail.From = new MailAddress(emailS, "에스와이테크", System.Text.Encoding.UTF8);
+                // 받는 사람 메일      
+                mail.To.Add(emailS);
+                // 참조 사람 메일      
+                mail.CC.Add(emailS);
+                // 비공개 참조 사람 메일      
+                mail.Bcc.Add(emailS);
+                // 메일 제목      
+                mail.Subject = dateTimeFrom.Value.ToString("yyyy-MM-dd") + "부터 "+dateTimeTo.Value.ToString("yyyy-MM-dd") + " 작업상황";
+                // 본문 내용      
+                mail.Body = "<html><body>"+ remarkTextBox+ "</body></html>";
+                // 본문 내용 포멧의 타입 (true의 경우 Html 포멧으로)      
+                mail.IsBodyHtml = true;
+
+                // 메일 제목과 본문의 인코딩 타입(UTF-8)      
+                mail.SubjectEncoding = System.Text.Encoding.UTF8;
+                mail.BodyEncoding = System.Text.Encoding.UTF8;
+                // 첨부 파일 (Stream과 파일 이름)      
+                //String fileStream = "C:\Users\82104\source\repos\RobotControlCenter_PUBLISH\Output" + pdfNum + ".pdf";
+                if (dataGridView1.Columns.Count != 0)
+                {
+                    mail.Attachments.Add(new Attachment(new FileStream(@"C:\Users\82104\source\repos\RobotControlCenter_PUBLISH\RobotControlCenter_PUBLISH\bin\Debug\Output" + pdfNum + ".pdf", FileMode.Open, FileAccess.Read), "작업상황.pdf"));
+                }
+                //mail.Attachments.Add(new Attachment(new FileStream(@"D:\test2.zip", FileMode.Open, FileAccess.Read), "test2.zip"));
+
+                // smtp 서버 주소      
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                // smtp 포트      
+                SmtpServer.Port = 587;
+                // smtp 인증      
+                SmtpServer.Credentials = new System.Net.NetworkCredential("gg2060gg", "vwsfdgymtyfqqeuu");
+                // SSL 사용 여부      
+                SmtpServer.EnableSsl = true;
+                // 발송      
+                SmtpServer.Send(mail);
+                MessageBox.Show("이메일 전송에 성공했습니다.", "Info");
+            }
+            finally
+            {
+                // 첨부 파일 Stream 닫기      
+                foreach (var attach in mail.Attachments)
+                {
+                    attach.ContentStream.Close();
+                }
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,6 +335,8 @@ namespace RobotCC
         {
             SqlConnection con = new SqlConnection(G.connectionString);
             con.Open();
+
+            //crystalReportViewer1.Visible = false;
 
             // [1] ReportData 테이블 내용 초기화
             string REPORT_TBL_NAME = "ReportData";
@@ -274,4 +521,5 @@ namespace RobotCC
             dataGridView1.Columns["WorkingArea"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
     }
+
 }

@@ -46,17 +46,18 @@
             this.remarkTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("나눔스퀘어OTF ExtraBold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label1.Location = new System.Drawing.Point(202, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(433, 33);
+            this.label1.Size = new System.Drawing.Size(481, 44);
             this.label1.TabIndex = 70;
             this.label1.Text = "보고서 작성 및 이메일 발송 시스템";
             // 
@@ -65,11 +66,11 @@
             this.comboBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.comboBox1.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 16;
+            this.comboBox1.ItemHeight = 20;
             this.comboBox1.Location = new System.Drawing.Point(134, 127);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(310, 24);
+            this.comboBox1.Size = new System.Drawing.Size(310, 28);
             this.comboBox1.TabIndex = 72;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -79,7 +80,7 @@
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(41, 127);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.Size = new System.Drawing.Size(92, 28);
             this.label2.TabIndex = 71;
             this.label2.Text = "발전소명";
             // 
@@ -89,7 +90,7 @@
             this.printBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("printBtn.BackgroundImage")));
             this.printBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.printBtn.FlatAppearance.BorderSize = 13;
-            this.printBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.printBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.printBtn.ForeColor = System.Drawing.SystemColors.MenuText;
             this.printBtn.Location = new System.Drawing.Point(761, 166);
             this.printBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -106,7 +107,7 @@
             this.emailBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("emailBtn.BackgroundImage")));
             this.emailBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.emailBtn.FlatAppearance.BorderSize = 13;
-            this.emailBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.emailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.emailBtn.ForeColor = System.Drawing.SystemColors.MenuText;
             this.emailBtn.Location = new System.Drawing.Point(626, 167);
             this.emailBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -123,10 +124,10 @@
             this.dateTimeFrom.CustomFormat = "yyyy-MM-dd";
             this.dateTimeFrom.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeFrom.Location = new System.Drawing.Point(138, 172);
+            this.dateTimeFrom.Location = new System.Drawing.Point(134, 172);
             this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimeFrom.Name = "dateTimeFrom";
-            this.dateTimeFrom.Size = new System.Drawing.Size(140, 26);
+            this.dateTimeFrom.Size = new System.Drawing.Size(140, 30);
             this.dateTimeFrom.TabIndex = 76;
             // 
             // dateTimeTo
@@ -137,7 +138,7 @@
             this.dateTimeTo.Location = new System.Drawing.Point(304, 172);
             this.dateTimeTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimeTo.Name = "dateTimeTo";
-            this.dateTimeTo.Size = new System.Drawing.Size(140, 26);
+            this.dateTimeTo.Size = new System.Drawing.Size(140, 30);
             this.dateTimeTo.TabIndex = 77;
             // 
             // label3
@@ -146,7 +147,7 @@
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(467, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 21);
+            this.label3.Size = new System.Drawing.Size(119, 28);
             this.label3.TabIndex = 78;
             this.label3.Text = "이메일 주소";
             // 
@@ -156,7 +157,7 @@
             this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(279, 177);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 16);
+            this.label4.Size = new System.Drawing.Size(26, 20);
             this.label4.TabIndex = 80;
             this.label4.Text = "~";
             // 
@@ -178,7 +179,7 @@
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(41, 172);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 21);
+            this.label5.Size = new System.Drawing.Size(99, 28);
             this.label5.TabIndex = 82;
             this.label5.Text = "작업 기간";
             // 
@@ -195,6 +196,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeight = 29;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -226,10 +228,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(42, 620);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 18);
+            this.label6.Size = new System.Drawing.Size(130, 25);
             this.label6.TabIndex = 85;
             this.label6.Text = "(추가 기록 사항)";
             // 
@@ -239,7 +241,7 @@
             this.searchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchBtn.BackgroundImage")));
             this.searchBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.searchBtn.FlatAppearance.BorderSize = 13;
-            this.searchBtn.Font = new System.Drawing.Font("나눔스퀘어OTF Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.searchBtn.ForeColor = System.Drawing.SystemColors.MenuText;
             this.searchBtn.Location = new System.Drawing.Point(530, 168);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -250,11 +252,23 @@
             this.searchBtn.UseVisualStyleBackColor = false;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(45, 217);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(807, 392);
+            this.crystalReportViewer1.TabIndex = 87;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
             // ReportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 941);
+            this.ClientSize = new System.Drawing.Size(901, 845);
+            this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.remarkTextBox);
@@ -300,5 +314,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.DateTimePicker dateTimeFrom;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
     }
 }
