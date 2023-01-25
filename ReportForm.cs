@@ -16,6 +16,8 @@ using System.Drawing.Printing;
 using Font = System.Drawing.Font;
 using Rectangle = System.Drawing.Rectangle;
 
+using MySql.Data.MySqlClient;
+
 namespace RobotCC
 {
 
@@ -46,12 +48,26 @@ namespace RobotCC
         {
             InitializeComponent();
             //크리스탈뷰 안보이도록하기
-            crystalReportViewer1.Visible = false;
+            //crystalReportViewer1.Visible = false;
         }
 
         private void Form_Load(object sender, EventArgs e)
         {
             LinkComboBoxPlantList();
+
+            //sql 연결 됐는지 확인
+            MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=tkfkdgo09013;");
+            connection.Open();
+            if (connection.State == ConnectionState.Open)
+            {
+                label7.Text = "Connected";
+                //label7.ForeColor = Color.ControlText;
+            }
+            else
+            {
+                label7.Text = "DisConnected";
+                //label6.ForeColor = Control.ForeColor.Red;
+            }
         }
 
         private void savePDF()//PDF로 저장
@@ -408,9 +424,58 @@ namespace RobotCC
                     DB.insertReportTable(CurrentPlantNumber, robotID, DateTime.Parse(rdate).Date, workingTimeStr, workingAreaStr);
                 }
             }
-
+            
             // [3] 생성된 테이블 내용을 보여준다. <로봇명, 날짜> 별로 작업시간, 작업면적을 계산하여 리스트로 구성
             DisplayReportTable();
+            MessageBox.Show("조회되었습니다.");
+
+            //DB연결 후 데이터 전송//혜정 추가
+            using (MySqlConnection conn = new MySqlConnection("Server=localhost;Port=3306;Database=login_dataset;Uid=root;Pwd=tkfkdgo09013"))
+            {
+                conn.Open();
+                //mysql에 원래 있던 데이터는 전부 지워주기
+                string sqlD = string.Format("DELETE FROM infotable");
+                try
+                {
+                    MySqlCommand commandD = new MySqlCommand(sqlD, conn);
+                    commandD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //발전소 이름 받아오기
+                String comboS = comboBox1.Text.ToString();
+                String plantId = comboS.Substring(7, 6);
+                //각 행의 정보를 반복문으로 불러온다
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    String date = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                    String Rid = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    String period = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                    String area = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                    //데이터 열람 기한 
+                    String startT = dateTimeFrom.Value.ToString("yyyy-MM-dd");
+                    String endT = dateTimeTo.Value.ToString("yyyy-MM-dd");
+                    DateTime nowDate = DateTime.Now;
+                    String insertTime = nowDate.ToString("yyyy-MM-dd");
+
+
+                    //INSERT INTO 쿼리문으로 받아온 정보를 DB에 전송한다. 
+                    string sql = string.Format("INSERT INTO infotable(plantId, startT, endT,Rid,period,area, insertTime) VALUES  ('{0}','{1}','{2}','{3}', '{4}', '{5}', '{6}')", @plantId, @startT, @endT, @Rid, @period, @area, @insertTime);
+
+                    //DB전송을 진행하고 실패시 에러메세지 출력
+                    try
+                    {
+                        MySqlCommand command = new MySqlCommand(sql, conn);
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
         }
 
         // WorkLog 테이블에서 <로봇명, 날짜>에 해당하는 작업시간/작업면적(누적)을 계산한다.
@@ -486,7 +551,9 @@ namespace RobotCC
                 }
             }
 
-            con.Close();
+
+
+                con.Close();
         }
 
         // ReportData 테이블은 조건에 딱 맞는 것만 찾아낸 것이므로 테이블 내용 전체를 보여준다.-  <로봇명, 날짜> 별로 작업시간, 작업면적을 보여준다
